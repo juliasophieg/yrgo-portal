@@ -15,7 +15,7 @@ class LoginController extends Controller
     {
         $credentials = $req->only("email", "password");
         if (Auth::attempt($credentials)) {
-            return view("index");
+            return redirect("/");
         } else {
             return back()->withErrors(["msg" => "Incorrect Credentials"]);
         }
