@@ -11,18 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('companyinfo', function (Blueprint $table) {
+        Schema::create('company_infos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string("company_name");
-            $table->string("company_contact_number");
-            $table->string("company_contact_email");
-            $table->integer("employees");
-            $table->string("company_industry");
-            $table->string("company_website");
-            $table->string("looking_for");
-            $table->integer("total_positions");
-            $table->string("location");
+            $table->string("company_name")->default("Företags Namn");
+            $table->string("company_contact_number")->default("000000000");
+            $table->string("company_contact_email")->default("example@email.com");
+            $table->integer("employees")->default(0);
+            $table->string("company_industry")->default("");
+            $table->string("company_website")->default("www.website.se");
+            $table->string("looking_for")->default("What are you looking for?");
+            $table->integer("total_positions")->default(0);
+            $table->string("location")->default("Göteborg");
         });
     }
 
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('companyinfo');
+        Schema::dropIfExists('company_infos');
     }
 };

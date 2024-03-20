@@ -17,11 +17,11 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('description');
-            $table->string('profile_picture');
+            $table->string('description')->default("Hej, Jag är en Yrgo Student!");
+            $table->string('profile_picture')->default("default_image");
             $table->string('role');
-            $table->unsignedBigInteger('userable_id');
-            $table->string('userable_type');
+            $table->unsignedBigInteger('userable_id')->nullable()->default(null);
+            $table->string('userable_type')->nullable()->default(null);
             $table->rememberToken();
             $table->timestamps();
         });
