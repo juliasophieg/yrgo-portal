@@ -53,4 +53,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Technologies::class);
     }
+
+    public function userable()
+    {
+        return $this->morphTo();
+    }
+
+    public function likes(): HasMany
+    {
+        return $this->hasMany(Likes::class);
+    }
 }
