@@ -11,8 +11,8 @@ class IndexController extends Controller
     {
         $user = Auth::user();
         if ($user != null) {
-            $studentInfo = $user->userable;
-            return view('index', compact('user', 'studentInfo'));
+            $extraInfo = $user->userable;
+            return view('index', compact('user', 'extraInfo'));
         } else {
             return view('index', compact('user'));
         }
