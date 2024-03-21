@@ -1,0 +1,19 @@
+.signup-container {
+    margin: 24px;
+    background: rgb(0, 0, 0);
+    border-radius: 20px;
+    color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.form-content {
+    display: flex;
+    flex-direction: column;
+}
+.first-section {
+    display: flex;
+    flex-direction: column;
+}

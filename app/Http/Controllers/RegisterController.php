@@ -6,6 +6,7 @@ use App\Models\CompanyInfo;
 use App\Models\StudentInfo;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
@@ -48,9 +49,10 @@ class RegisterController extends Controller
             $user->userable_type = CompanyInfo::class;
         }
 
-
+        $extraInfo = $user->userable;
         $user->save();
+        Auth::login($user);
 
-        return redirect()->intended('/');
+        return redirect()->intended('/')->with("user", $user)->with("extraInfo", $extraInfo);
     }
 }
