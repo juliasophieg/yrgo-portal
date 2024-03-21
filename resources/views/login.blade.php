@@ -1,3 +1,5 @@
+@include('components.menu')
+
 <form action="/login" method="POST">
     @csrf
     <label for="email">Email</label>
