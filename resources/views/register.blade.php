@@ -1,3 +1,5 @@
+@include('components.menu')
+
 <form action="/register" method="POST">
     @csrf
 
