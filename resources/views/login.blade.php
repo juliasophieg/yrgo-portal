@@ -6,3 +6,5 @@
     <input name="password" id="password" type="password">
     <button>Login</button>
 </form>
+
+@include('components.error')
