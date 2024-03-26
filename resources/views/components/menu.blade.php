@@ -5,7 +5,7 @@
     <div class="menu-items">
         <ul>
             @auth <!-- Check if the user is a guest-->
-            <li><a href="#">PROFILE</a></li>
+            <li><a href="{{ route('profile') }}">PROFILE</a></li>
             @endauth
             <li><a href="#">EVENT</a></li>
             <li><a href="#">EXPLORE</a></li>
