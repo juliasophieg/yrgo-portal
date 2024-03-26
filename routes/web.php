@@ -19,4 +19,4 @@ Route::get('logout', LogoutController::class)->name("logout");
 Route::get('register', [RegisterController::class, "index"])->middleware("guest")->name("register");
 Route::post('register', [RegisterController::class, "register"])->middleware("guest")->name("register");
 
-Route::get('/profile', [ProfileController::class, "profile"])->name("profile");
+Route::get('/profile/{id?}', [ProfileController::class, "profile"])->name("profile");

@@ -3,13 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
-    public function profile()
+    public function profile($id = null)
     {
-        $user = Auth::user();
+        // If no ID is provided, use the currently logged-in user's ID
+        if ($id === null) {
+            $user = Auth::user();
+        } else {
+            $user = User::find($id);
+        }
+
         if ($user != null) {
             $extraInfo = $user->userable;
             return view('profile', compact('user', 'extraInfo'));
