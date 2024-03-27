@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -25,7 +26,10 @@ class User extends Authenticatable
         'password',
         'description',
         'profile_picture',
-        'role'
+        'role',
+        'phone',
+        'facebook',
+        'linkedin'
     ];
 
     /**
@@ -63,5 +67,9 @@ class User extends Authenticatable
     public function likes(): HasMany
     {
         return $this->hasMany(Likes::class);
+    }
+    public function job(): HasOne
+    {
+        return $this->hasOne(UserJob::class);
     }
 }
