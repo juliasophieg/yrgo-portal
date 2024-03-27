@@ -13,6 +13,9 @@
                 <!-- Display "Redigera" if the logged-in user's ID matches the profile ID -->
                 @if ($user->id === Auth::id())
                 <a href="#">Redigera</a>
+                <a href="#">Sparat</a>
+                @else
+                <a href="#">Spara</a>
                 @endif
             </div>
         </div>
@@ -41,6 +44,9 @@
                 <!-- Display "Redigera" if the logged-in user's ID matches the profile ID -->
                 @if ($user->id === Auth::id())
                 <a href="#">Redigera</a>
+                <a href="#">Sparat</a>
+                @else
+                <a href="#">Spara</a>
                 @endif
             </div>
         </div>
