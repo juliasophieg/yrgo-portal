@@ -8,7 +8,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Models\StudentInfo;
 use App\Models\CompanyInfo;
+use App\Models\UserJob;
 use App\Models\Technologies;
+
 
 
 
@@ -41,6 +43,9 @@ class UserFactory extends Factory
             'description' => $this->faker->sentence,
             'profile_picture' => '',
             'role' => "",
+            'phone' => $this->faker->phoneNumber(),
+            'facebook' => 'www.facebook.com/' . $name,
+            'linkedin' => 'www.linkedin.com/' . $name,
             'remember_token' => Str::random(10),
         ];
     }
@@ -81,8 +86,13 @@ class UserFactory extends Factory
     public function withTechnologies($count = 3)
     {
         return $this->afterCreating(function (User $user) use ($count) {
-            $user->technologies()->attach(Technologies::factory($count)->create());
+            $user->technologies()->attach(Technologies::inRandomOrder()->limit($count)->get());
             $user->save();
         });
+    }
+
+    public function withJob()
+    {
+        return $this->has(UserJob::factory()->withJobAreas(3)->count(1));
     }
 }

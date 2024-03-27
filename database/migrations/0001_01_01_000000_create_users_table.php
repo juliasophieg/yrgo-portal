@@ -22,6 +22,9 @@ return new class extends Migration
             $table->string('role');
             $table->unsignedBigInteger('userable_id')->nullable()->default(null);
             $table->string('userable_type')->nullable()->default(null);
+            $table->string('phone');
+            $table->string('facebook');
+            $table->string('linkedin');
             $table->rememberToken();
             $table->timestamps();
         });
