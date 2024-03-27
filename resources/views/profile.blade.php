@@ -12,7 +12,7 @@
                 <p>{{ $extraInfo->program }} student</p>
                 <!-- Display "Redigera" if the logged-in user's ID matches the profile ID -->
                 @if ($user->id === Auth::id())
-                <a href="#">Redigera</a>
+                <a href="{{ route('edit-profile') }}">Redigera</a>
                 <a href="#">Sparat</a>
                 @else
                 <a href="#">Spara</a>
@@ -43,7 +43,7 @@
                 <p>(Adress)</p><!--OBS finns ej! -->
                 <!-- Display "Redigera" if the logged-in user's ID matches the profile ID -->
                 @if ($user->id === Auth::id())
-                <a href="#">Redigera</a>
+                <a href="{{ route('edit-profile') }}">Redigera</a>
                 <a href="#">Sparat</a>
                 @else
                 <a href="#">Spara</a>
