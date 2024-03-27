@@ -53,6 +53,6 @@ class RegisterController extends Controller
         $user->save();
         Auth::login($user);
 
-        return redirect()->intended('/')->with("user", $user)->with("extraInfo", $extraInfo);
+        return redirect('/')->with("user", $user)->with("extraInfo", $extraInfo);
     }
 }
