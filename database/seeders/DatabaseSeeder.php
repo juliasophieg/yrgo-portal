@@ -15,9 +15,10 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // Creating a users with associated StudentInfo (student role)
+        User::factory(50)->withStudentInfo()->withTechnologies(5)->create();
+
+        // Creating users with associated CompanyInfo (company role)
+        User::factory(50)->withCompanyInfo()->create();
     }
 }
