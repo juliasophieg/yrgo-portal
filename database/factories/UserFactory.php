@@ -2,9 +2,16 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use App\Models\StudentInfo;
+use App\Models\CompanyInfo;
+use App\Models\Technologies;
+
+
+
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -23,11 +30,17 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $name = fake()->name();
+        $email = strtolower("$name@" . fake()->safeEmailDomain());
+
+
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
+            'name' => $name,
+            'email' => $email,
+            'password' => static::$password ??= Hash::make('password123'),
+            'description' => $this->faker->sentence,
+            'profile_picture' => '',
+            'role' => "",
             'remember_token' => Str::random(10),
         ];
     }
@@ -40,5 +53,36 @@ class UserFactory extends Factory
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
         ]);
+    }
+
+    /**
+     * Define a state for creating users with associated UserInfo.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function withStudentInfo()
+    {
+        return $this->state(function (array $attributes) {
+            return ['role' => 'student'];
+        })->afterCreating(function (User $user) {
+            $user->userable()->associate(StudentInfo::factory()->create());
+        });
+    }
+    public function withCompanyInfo()
+    {
+        return $this->state(function (array $attributes) {
+            return ['role' => 'company'];
+        })->afterCreating(function (User $user) {
+            $user->userable()->associate(CompanyInfo::factory()->create());
+            $user->save();
+        });
+    }
+
+    public function withTechnologies($count = 3)
+    {
+        return $this->afterCreating(function (User $user) use ($count) {
+            $user->technologies()->attach(Technologies::factory($count)->create());
+            $user->save();
+        });
     }
 }
