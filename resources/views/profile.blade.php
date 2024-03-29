@@ -1,5 +1,14 @@
+@extends('layout')
+
+@section('title', '- Profile')
 <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
-@include('components.menu')
+
+@section('menu')
+    @include('components.menu')
+@endsection
+
+@section('content')
+
 
 <div class="profile-container">
     <!-- STUDENT PROFILE -->
@@ -10,3 +19,4 @@
     @include('components.company_profile')
     @endif
 </div>
+@endsection

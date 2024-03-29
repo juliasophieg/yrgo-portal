@@ -18,13 +18,13 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('description')->default("Hej, Jag är en Yrgo Student!");
-            $table->string('profile_picture')->default("default_image");
+            $table->string('profile_picture')->nullable()->default(null);
             $table->string('role');
             $table->unsignedBigInteger('userable_id')->nullable()->default(null);
             $table->string('userable_type')->nullable()->default(null);
-            $table->string('phone');
-            $table->string('facebook');
-            $table->string('linkedin');
+            $table->string('phone')->nullable()->default(null);
+            $table->string('facebook')->nullable()->default(null);
+            $table->string('linkedin')->nullable()->default(null);
             $table->rememberToken();
             $table->timestamps();
         });
