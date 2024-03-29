@@ -23,4 +23,11 @@ class ProfileController extends Controller
             return redirect('/');
         }
     }
+
+    public function edit()
+    {
+        $user = Auth::user();
+        $extraInfo = $user->userable;
+        return view('edit_profile', compact('user', 'extraInfo'));
+    }
 }
