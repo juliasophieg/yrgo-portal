@@ -82,10 +82,7 @@ class TechnologiesFactory extends Factory
             "Git",
             "GitHub",
             "GitLab",
-            "Bitbucket"
-        );
-
-        $webDesignTechnologies = array(
+            "Bitbucket",
             "Figma",
             "Adobe XD",
             "Sketch",
@@ -117,21 +114,18 @@ class TechnologiesFactory extends Factory
             "Notepad++"
         );
 
-        $technologies = array_merge($webDevelopmentTechnologies, $webDesignTechnologies);
+        shuffle($webDevelopmentTechnologies);
 
         return [
-            "name" => function () use ($technologies) {
-                // Shuffle the array to randomize the order of elements
-                shuffle($technologies);
+            "name" => function () use ($webDevelopmentTechnologies) {
+                // Loop until a unique technology name is found
+                $uniqueName = null;
+                do {
+                    // Randomly select a technology name from the pre-generated list
+                    $uniqueName = $webDevelopmentTechnologies[array_rand($webDevelopmentTechnologies)];
+                } while (Technologies::where('name', $uniqueName)->exists());
 
-                // Loop through the shuffled array and return the first unique name found
-                foreach ($technologies as $technology) {
-                    if (!Technologies::where('name', $technology)->exists()) {
-                        return $technology;
-                    }
-                }
-                // If all names are already used, fallback to a random word
-                return $this->faker->word;
+                return $uniqueName;
             }
         ];
     }
