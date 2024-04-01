@@ -1,1 +1,93 @@
 @use "base" as *;
+
+.main {
+}
+.liked-page {
+    margin: 0 auto;
+    max-width: 348px;
+    display: flex;
+    flex-direction: column;
+    gap: $gap-md;
+    padding: $padding-sm;
+    .page-header {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-xs;
+        .page-title-liked {
+            color: $black;
+            font-feature-settings: "clig" off, "liga" off;
+            font-family: Inter;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 26.4px; /* 110% */
+            letter-spacing: 0.18px;
+        }
+
+        .page-subtitle-liked {
+            color: $black;
+            font-feature-settings: "clig" off, "liga" off;
+            /* sub1 */
+            font-family: Inter;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 24px; /* 150% */
+            letter-spacing: 0.15px;
+        }
+    }
+
+    .cards-section {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-md;
+        .card {
+            display: flex;
+            gap: $gap-sm;
+            .info-section {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-grow: 1;
+                gap: $gap-sm;
+                .info {
+                    display: flex;
+                    flex-direction: column;
+                    gap: $gap-xs;
+                    .name {
+                        color: $light-grey;
+                        font-feature-settings: "clig" off, "liga" off;
+                        font-family: Inter;
+                        font-size: 23.042px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 25.3px; /* 109.801% */
+                        letter-spacing: 1.25px;
+                    }
+                    .title {
+                        color: $black;
+                        font-family: Inter;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 22.4px; /* 140% */
+                        letter-spacing: -0.5px;
+                    }
+                }
+                .save {
+                    align-self: flex-start;
+                }
+            }
+            .image {
+                min-width: 40%;
+                max-width: 40%;
+                img {
+                    height: 128px;
+                    width: 100%;
+                    object-fit: cover;
+                    border-radius: 20px;
+                }
+            }
+        }
+    }
+}
