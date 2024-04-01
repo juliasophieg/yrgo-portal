@@ -35,9 +35,7 @@
                                 <div class="title">{{ $company->userable->location }}</div>
                             </div>
                             <div class="save">
-                                <div class="save-image">
-                                    <img src="/images/icons/like-icon.svg" alt="">
-                                </div>
+                                <livewire:like-button :userId="$company->id" />
                             </div>
                         </div>
                     </div>
@@ -68,10 +66,9 @@
                                 <div class="name">{{ $student->name }}</div>
                                 <div class="title">Student at Yrgo</div>
                             </div>
+
                             <div class="save">
-                                <div class="save-image">
-                                    <img src="/images/icons/like-icon.svg" alt="">
-                                </div>
+                                <livewire:like-button :userId="$student->id" />
                             </div>
                         </div>
                     </div>
