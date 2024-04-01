@@ -26,4 +26,5 @@ Route::get('register', [RegisterController::class, "index"])->middleware("guest"
 Route::post('register', [RegisterController::class, "register"])->middleware("guest")->name("register");
 
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('edit-profile');
+Route::get('/profile/likes', [ProfileController::class, 'likes'])->name('likes');
 Route::get('/profile/{id?}', [ProfileController::class, "profile"])->name("profile");
