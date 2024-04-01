@@ -31,7 +31,7 @@
                         </div>
                         <div class="info-section">
                             <div class="info">
-                                <div class="name">{{ $company->name }}</div>
+                                <div class="name">{{ $company->userable->company_name }}</div>
                                 <div class="title">{{ $company->userable->location }}</div>
                             </div>
                             <div class="save">
