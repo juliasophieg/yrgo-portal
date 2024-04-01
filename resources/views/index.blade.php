@@ -9,12 +9,14 @@
 @section('content')
 
     @if (isset($user))
-        @if ($user->role == 'student')
-            <p>Welcome Student!</p>
-            {{ $extraInfo->program }}
-        @elseif ($user->role == 'company')
+        {{ $user->role }}
+        @if ($user->role == 'company')
             <p>Welcome Company!</p>
             {{ $extraInfo->company_name }}
+        @elseif ($user->role == 'student')
+            <p>Welcome Student!</p>
+
+            {{ $extraInfo->program }}
         @endif
         <a href="/logout">logout</a>
     @else

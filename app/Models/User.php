@@ -64,9 +64,9 @@ class User extends Authenticatable
         return $this->morphTo();
     }
 
-    public function likes(): HasMany
+    public function likes()
     {
-        return $this->hasMany(Likes::class);
+        return $this->hasMany(Likes::class, 'liker_id');
     }
     public function job(): HasOne
     {

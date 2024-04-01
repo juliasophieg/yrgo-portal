@@ -13,11 +13,16 @@ return new class extends Migration
     {
         Schema::create('likes', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('liker_id');
+            $table->unsignedBigInteger('liked_user_id');
             $table->timestamps();
-            $table->bigInteger('liker_id')->unsigned();
-            $table->bigInteger('likee_id')->unsigned();
-            $table->foreign('liker_id')->references('id')->on('users')->cascadeOnDelete();
-            $table->foreign('likee_id')->references('id')->on('users')->cascadeOnDelete();
+
+            // Define foreign key constraints
+            $table->foreign('liker_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('liked_user_id')->references('id')->on('users')->onDelete('cascade');
+
+            // Ensure a user can like another user only once
+            $table->unique(['liker_id', 'liked_user_id']);
         });
     }
 

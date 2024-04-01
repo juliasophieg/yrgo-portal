@@ -218,9 +218,7 @@
                                 @endif
                             </div>
                             <div class="save">
-                                <div class="save-image">
-                                    <img src="/images/icons/like-icon.svg" alt="">
-                                </div>
+                                <livewire:like-button :userId="$student->id" />
                             </div>
                         </div>
                     </div>
