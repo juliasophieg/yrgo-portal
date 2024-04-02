@@ -27,7 +27,7 @@
                             </div>
                             <div class="category-button"><img src="/images/icons/category.svg" alt=""></div>
                         </div>
-
+                        <div class="dark-background"></div>
                         <div class="custom-select">
                             <div class="select-items">
                                 @foreach ($technologies as $technology)
@@ -82,14 +82,17 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-
         const categoryButton = document.querySelector(".category-button");
         const customSelect = document.querySelector(".custom-select");
         const selectItems = document.querySelectorAll(".select-item");
         const searchContainer = document.querySelector(".selected-technologies-container");
         const searchBar = document.querySelector(".search-bar");
+        const darkBackgruond = document.querySelector(".dark-background");
         let hiddenFormTechnologies = document.getElementById("selectedTechnologies");
 
+        // Set the width of the search-bar element to match
+        let customSelectWidth = document.querySelector('.search-bar').offsetWidth;
+        document.querySelector('.custom-select').style.width = customSelectWidth + 'px';
 
         renderSearchContainer();
         applyActiveClass();
@@ -97,8 +100,10 @@
         categoryButton.addEventListener("click", () => {
             if (customSelect.classList.contains("active")) {
                 customSelect.classList.remove("active")
+                darkBackgruond.classList.remove("active")
             } else {
                 customSelect.classList.add("active")
+                darkBackgruond.classList.add("active")
             }
         })
 
