@@ -21,18 +21,33 @@
         <p>(Söker #tags)</p><!--OBS finns ej! -->
         <h2>Kontakt</h2>
         <ul>
+            @php
+            $contactInfo = [
+            ['value' => $extraInfo->student_website, 'label' => 'Website', 'icon' => ''],
+            ['value' => $user->linkedin, 'label' => $user->name, 'icon' => '/images/icons/linkedin.svg'],
+            ['value' => $user->facebook, 'label' => $user->name, 'icon' => '/images/icons/facebook.svg'],
+            ['value' => $user->email, 'label' => null, 'icon' => '/images/icons/mail.svg'],
+            ['value' => $user->phone, 'label' => null, 'icon' => '/images/icons/phone.svg'],
+            ];
+            @endphp
+
+            @foreach($contactInfo as $info)
+            @if($info['value'])
             <li>
-                <div class="contact-icon"><img src="/images/icons/linkedin.svg" alt=""></div><a href="{{ $user->linkedin }}">{{ $user->name }}</a>
+                @if($info['icon'])
+                <div class="contact-icon"><img src="{{ $info['icon'] }}" alt=""></div>
+                @else
+                <div class="contact-icon"></div>
+                @endif
+                @if($info['label'])
+                <a href="{{ $info['value'] }}">{{ $info['label'] }}</a>
+                @else
+                {{ $info['value'] }}
+                @endif
             </li>
-            <li>
-                <div class="contact-icon"><img src="/images/icons/facebook.svg" alt=""></div><a href="{{ $user->facebook }}">{{ $user->name }}</a>
-            </li>
-            <li>
-                <div class="contact-icon"><img src="/images/icons/mail.svg" alt=""></div>{{ $user->email }}
-            </li>
-            <li>
-                <div class="contact-icon"><img src="/images/icons/phone.svg" alt=""></div>{{ $user->phone }}
-            </li>
+            @endif
+            @endforeach
         </ul>
+
     </div>
 </div>
