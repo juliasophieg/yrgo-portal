@@ -1,21 +1,20 @@
 @extends('layout')
 
 @section('title', '- Profile')
-<link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 
 @section('menu')
-    @include('components.menu')
+@include('components.menu')
 @endsection
 
 @section('content')
 
 
-<div class="profile-container">
+<div class="profile-page">
     <!-- STUDENT PROFILE -->
-    @if ($user->userable_type === "App\Models\StudentInfo")
+    @if ($user->role === "student")
     @include('components.student_profile')
     <!-- COMPANY PROFILE -->
-    @elseif ($user->userable_type === "App\Models\CompanyInfo")
+    @elseif ($user->role === "company")
     @include('components.company_profile')
     @endif
 </div>
