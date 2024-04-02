@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string("text");
+            $table->string("text")->default("");
+            $table->foreignId("like_id")->constrained("likes")->cascadeOnDelete();;
         });
     }
 

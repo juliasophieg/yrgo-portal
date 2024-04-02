@@ -16,6 +16,7 @@ class Notes extends Model
     }
 
     protected $fillable = [
-        'text'
+        'text',
+        'like_id'
     ];
 }

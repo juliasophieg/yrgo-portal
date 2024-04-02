@@ -30,4 +30,23 @@ class ProfileController extends Controller
         $extraInfo = $user->userable;
         return view('edit_profile', compact('user', 'extraInfo'));
     }
+
+    public function likes()
+    {
+
+        $user = Auth::user();
+
+        // Retrieve all the liked users by the authenticated user
+        $likes = $user->likes;
+
+
+        $likedUsers = $likes->map(function ($like) {
+            return $like->likedUser;
+        });
+
+        // way to eagerload it with the collection of likes: $likedUsers = $user->likes->load('likedUser');
+        // but in this instance we only need the user and not the like itself.
+
+        return view("likes", compact("user", "likedUsers"));
+    }
 }

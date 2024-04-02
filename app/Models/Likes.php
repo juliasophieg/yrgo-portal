@@ -11,14 +11,14 @@ class Likes extends Model
 {
     use HasFactory;
 
-    public function user(): BelongsTo
+    public function likedUser()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'liked_user_id');
     }
 
     protected $fillable = [
         'liker_id',
-        'likee_id'
+        'liked_user_id'
     ];
 
     public function note(): HasOne

@@ -1,0 +1,32 @@
+$margin-xs: 8px;
+$margin-sm: 16px;
+$margin-md: 32px;
+
+$padding-xs: 8px;
+$padding-sm: 16px;
+$padding-md: 32px;
+
+$gap-xs: 8px;
+$gap-sm: 16px;
+$gap-md: 32px;
+
+$radius: 20px;
+
+$desktop-res: 992px;
+
+$red: #f52a3b;
+$blue: #001a52;
+$white: #ffffff;
+$black: rgba(0, 0, 0, 0.87);
+$light-grey: rgba(0, 0, 0, 0.5);
+
+* {
+    font-family: "Inter", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: $white;
+}
