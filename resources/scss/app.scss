@@ -73,9 +73,13 @@
                         background: var(--button-fill-red, #f52a3b);
                         color: white;
                         height: fit-content;
+                        cursor: pointer;
                         .search-data-text {
                             text-wrap: nowrap;
                         }
+                    }
+                    .search-data-unavailable {
+                        padding: 8px 16px;
                     }
                 }
 
@@ -164,6 +168,7 @@
                 }
                 .save {
                     align-self: flex-start;
+                    cursor: pointer;
                 }
             }
             .image {
