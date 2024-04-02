@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('description')->default("Hej, Jag är en Yrgo Student!");
+            $table->string('description')->default("Här kommer en fantastisk beskrivning strax!");
             $table->string('profile_picture')->nullable()->default(null);
             $table->string('role');
             $table->unsignedBigInteger('userable_id')->nullable()->default(null);

@@ -250,3 +250,87 @@
         }
     }
 }
+
+.profile-page {
+    %common-styles {
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            li {
+                display: flex;
+                gap: 10px;
+                align-items: end;
+
+                .contact-icon {
+                    width: 24px;
+                    height: 24px;
+                    display: flex;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .company-profile,
+    .student-profile {
+        .profile-img {
+            border-radius: 20px;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 20px;
+            }
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            h1,
+            p,
+            a {
+                margin: 0;
+            }
+        }
+
+        @extend %common-styles;
+    }
+
+    .company-profile {
+        .profile-info {
+            h1,
+            p,
+            a {
+                margin: 0;
+                text-align: center;
+            }
+        }
+        .profile-img {
+            height: 200px;
+        }
+    }
+
+    .student-profile {
+        .profile-header {
+            display: flex;
+            gap: 10px;
+            align-items: end;
+
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    }
+}
