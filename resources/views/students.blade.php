@@ -58,13 +58,6 @@
                                 <div class="info">
                                     <div class="name">{{ $student->name }}</div>
                                     <div class="title">Student at Yrgo</div>
-                                    @if ($student->technologies->isEmpty())
-                                        test
-                                    @else
-                                        @foreach ($student->technologies as $technology)
-                                            {{ $technology->name }}
-                                        @endforeach
-                                    @endif
                                 </div>
                                 <div class="save">
                                     <livewire:like-button :userId="$student->id" />
