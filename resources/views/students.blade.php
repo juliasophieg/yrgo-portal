@@ -106,6 +106,15 @@
                 darkBackgruond.classList.add("active")
             }
         })
+        darkBackgruond.addEventListener("click", () => {
+            if (customSelect.classList.contains("active")) {
+                customSelect.classList.remove("active")
+                darkBackgruond.classList.remove("active")
+            } else {
+                customSelect.classList.add("active")
+                darkBackgruond.classList.add("active")
+            }
+        })
 
         selectItems.forEach(item => {
             item.addEventListener("click", (event) => {
