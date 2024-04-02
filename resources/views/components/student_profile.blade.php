@@ -3,11 +3,11 @@
         <div class="profile-img"></div>
         <div class="profile-info">
             <h1>{{ $user->name }}</h1>
-            <p>{{ $extraInfo->program }} student</p>
+            <p>Studerar {{ $extraInfo->program }}</p>
             <!-- Display "Redigera" if the logged-in user's ID matches the profile ID -->
             @if ($user->id === Auth::id())
             <a href="{{ route('edit-profile') }}">Redigera</a>
-            <a href="#">Sparat</a>
+            <a href="{{ route('likes') }}">Sparat</a>
             @else
             <a href="#">Spara</a>
             @endif
@@ -20,10 +20,10 @@
         <p>(Söker #tags)</p><!--OBS finns ej! -->
         <h2>Kontakt</h2>
         <ul>
-            <li>(Telefon)</li><!--OBS finns ej! -->
-            <li>{{ $user->email }}</li>
-            <li>(Facebook)</li><!--OBS finns ej! -->
-            <li>(LinkedIn)</li><!--OBS finns ej! -->
+            <li><a href="{{ $user->linkedin }}">LinkedIn</a></li>
+            <li><a href="{{ $user->facebook }}">Facebook</a></li>
+            <li>Email: {{ $user->email }}</li>
+            <li>Telfon: {{ $user->phone }}</li>
         </ul>
     </div>
 </div>
