@@ -11,11 +11,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/scss/app.scss', 'resources/js/app.js'])
+    <livewire:styles />
 </head>
 
 <body>
     @yield('menu')
     @yield('content')
+    <livewire:scripts />
 </body>
 
 </html>
