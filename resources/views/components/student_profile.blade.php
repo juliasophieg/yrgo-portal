@@ -5,12 +5,18 @@
         </div>
         <div class="profile-info">
             <h1>{{ $user->name }}</h1>
+            @if ($extraInfo->program)
             <p>Studerar {{ $extraInfo->program }}</p>
+            @else
+            <p>Yrgo-student</p>
+            @endif
             <!-- Display "Redigera" if the logged-in user's ID matches the profile ID -->
             @if ($user->id === Auth::id())
             <a href="{{ route('edit-profile') }}">Redigera</a>
             @else
-            <a href="#">Spara</a>
+            <div class="save">
+                <livewire:like-button :userId="$user->id" />
+            </div>
             @endif
         </div>
     </div>

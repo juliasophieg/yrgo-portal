@@ -10,7 +10,9 @@
             @if ($user->id === Auth::id())
             <a href="{{ route('edit-profile') }}">Redigera profil</a>
             @else
-            <a href="#">Spara</a>
+            <div class="save">
+                <livewire:like-button :userId="$user->id" />
+            </div>
             @endif
         </div>
     </div>

@@ -28,3 +28,5 @@ Route::post('register', [RegisterController::class, "register"])->middleware("gu
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('edit-profile');
 Route::get('/profile/likes', [ProfileController::class, 'likes'])->middleware("auth")->name('likes');
 Route::get('/profile/{id?}', [ProfileController::class, "profile"])->name("profile");
+
+Route::put('/profile/{user}', [ProfileController::class, 'update'])->name('update-profile');
