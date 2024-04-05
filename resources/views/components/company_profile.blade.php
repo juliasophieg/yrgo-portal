@@ -29,9 +29,9 @@
             <h2 class="title-4">Om oss</h2>
             <p>{{ $user->description}}</p>
             <div class="technologies">
-                <div class="technology">Label</div>
-                <div class="technology">Label</div>
-                <div class="technology">Label</div>
+                @foreach($user->technologies as $technology)
+                <div class="technology">{{ $technology->name }}</div>
+                @endforeach
             </div>
         </div>
         <div class="divider"></div>
@@ -76,8 +76,5 @@
                 @endif
                 @endforeach
             </ul>
-
-
-
         </div>
     </div>

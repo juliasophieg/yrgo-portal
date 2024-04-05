@@ -30,6 +30,14 @@
         <label for="description">Om mig</label>
         <textarea id="description" name="description" rows="4" class="form-control">{{ $user->description ?? '' }}</textarea>
     </div>
+
+    @foreach($technologies as $technology)
+    <label>
+        <input type="checkbox" name="technologies[]" value="{{ $technology->id }}" {{ $user->technologies->contains($technology) ? 'checked' : '' }}>
+        {{ $technology->name }}
+    </label>
+    @endforeach
+
     <!-- If company -->
     @elseif ($user->role === 'company')
     @foreach ([
@@ -59,6 +67,12 @@
         <label for="looking-for">Vi söker</label>
         <textarea id="looking-for" name="looking-for" rows="4" class="form-control">{{ $extraInfo->looking_for ?? '' }}</textarea>
     </div>
+    @foreach($technologies as $technology)
+    <label>
+        <input type="checkbox" name="technologies[]" value="{{ $technology->id }}" {{ $user->technologies->contains($technology) ? 'checked' : '' }}>
+        {{ $technology->name }}
+    </label>
+    @endforeach
     @endif
     <button type="submit">Spara</button>
 </form>
