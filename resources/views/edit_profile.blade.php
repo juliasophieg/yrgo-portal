@@ -11,6 +11,7 @@
 <form method="POST" action="{{ route('update-profile', ['user' => $user]) }}">
     @csrf
     @method('PUT')
+    <!-- If student -->
     @if ($user->role === 'student')
     @foreach ([
     'name' => ['label' => 'Namn', 'type' => 'text', 'value' => $user->name],
@@ -18,7 +19,6 @@
     'linkedin' => ['label' => 'LinkedIn', 'type' => 'text', 'value' => $user->linkedin],
     'facebook' => ['label' => 'Facebook', 'type' => 'text', 'value' => $user->facebook],
     'phone' => ['label' => 'Telefon', 'type' => 'phone', 'value' => $extraInfo->phone ?? ''],
-    'email' => ['label' => 'Email', 'type' => 'email', 'value' => $user->email],
     ] as $field => $attributes)
     <div class="form-group">
         <label for="{{ $field }}">{{ $attributes['label'] }}</label>
@@ -30,6 +30,7 @@
         <label for="description">Om mig</label>
         <textarea id="description" name="description" rows="4" class="form-control">{{ $user->description ?? '' }}</textarea>
     </div>
+    <!-- If company -->
     @elseif ($user->role === 'company')
     @foreach ([
     'name' => ['label' => 'Kontaktperson (visas ej)', 'type' => 'text', 'value' => $user->name],
