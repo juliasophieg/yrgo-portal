@@ -14,10 +14,11 @@ class UserJob extends Model
 
     protected $fillable = [
         'description',
+        'user_id'
     ];
 
-    public function jobAreas(): BelongsToMany
+    public function technologies(): BelongsToMany
     {
-        return $this->belongsToMany(JobArea::class);
+        return $this->belongsToMany(Technologies::class);
     }
 }

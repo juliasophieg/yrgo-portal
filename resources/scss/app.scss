@@ -1,4 +1,135 @@
 @use "base" as *;
+.form-header {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .form-title {
+        margin-top: 16px;
+        text-align: center;
+        font-size: 47.78px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 52.558px; /* 110% */
+        letter-spacing: -0.5px;
+    }
+    .form-subtitle {
+        text-align: center;
+        font-size: 27.648px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 30.415px; /* 110.008% */
+        letter-spacing: -0.5px;
+    }
+}
+.numbers {
+    color: $black;
+    gap: 32px;
+    display: flex;
+    justify-content: center;
+    @for $i from 1 through 4 {
+        .number-#{$i} {
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: $white;
+            border-radius: 50%;
+            height: 32px;
+            width: 32px;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 19.6px; /* 140% */
+            &.active {
+                background: $red;
+                color: $white;
+            }
+        }
+    }
+}
+
+.onboarding-page {
+    margin: 24px;
+    padding: 48px 32px 32px 32px;
+    height: 100vh; // TODO: make sure this is calculated once we know the height of the menu
+    border-radius: 24px;
+    background-color: $blue;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    form {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        .first-section {
+            display: none;
+            flex-direction: column;
+            gap: 32px;
+            flex-grow: 1;
+            justify-content: space-between;
+            &.active {
+                display: flex;
+            }
+            .top-section {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                flex-grow: 1;
+            }
+        }
+        .second-section {
+            display: none;
+            flex-direction: column;
+            gap: 32px;
+            flex-grow: 1;
+            justify-content: space-between;
+            &.active {
+                display: flex;
+            }
+            .top-section {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                flex-grow: 1;
+            }
+        }
+        .used-technology,
+        .search-technology {
+            display: flex;
+            padding: 12px 24px;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            border-radius: var(--button-corner-radius-buttons, 128px);
+            border: 1px solid var(--layout-stroke-white, #fff);
+            &.selected {
+                background: $red !important;
+                border: none;
+            }
+        }
+        .used-technologies-section,
+        .search-technologies-section {
+            flex-grow: 1;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 16px 24px 16px 16px;
+            gap: 8px;
+            border-radius: 24px;
+            border: 1px solid $white;
+            align-items: flex-start;
+            justify-content: flex-start;
+            align-content: start;
+            max-height: 30vh;
+            overflow: scroll;
+        }
+    }
+    .arrows {
+        display: flex;
+        justify-content: space-between;
+    }
+}
 .register-page {
     margin: 24px;
     padding: 48px 32px 32px 32px;
@@ -94,54 +225,7 @@
             line-height: 22.4px; /* 140% */
         }
     }
-    .form-header {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        .form-title {
-            margin-top: 16px;
-            text-align: center;
-            font-size: 47.78px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 52.558px; /* 110% */
-            letter-spacing: -0.5px;
-        }
-        .form-subtitle {
-            text-align: center;
-            font-size: 27.648px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 30.415px; /* 110.008% */
-            letter-spacing: -0.5px;
-        }
-    }
-    .numbers {
-        color: $black;
-        gap: 32px;
-        display: flex;
-        justify-content: center;
-        @for $i from 1 through 4 {
-            .number-#{$i} {
-                padding: 8px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: $white;
-                border-radius: 50%;
-                height: 32px;
-                width: 32px;
-                font-size: 14px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: 19.6px; /* 140% */
-                &.active {
-                    background: $red;
-                    color: $white;
-                }
-            }
-        }
-    }
+
     .first-section {
         display: flex;
         flex-direction: column;

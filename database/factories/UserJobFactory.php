@@ -3,9 +3,11 @@
 namespace Database\Factories;
 
 use App\Models\UserJob;
-use App\Models\JobArea;
+
+use App\Models\Technologies;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+
 
 
 /**
@@ -26,11 +28,11 @@ class UserJobFactory extends Factory
             "user_id" => $user->id
         ];
     }
-    public function withJobAreas($limit = 3)
+    public function withTechnologies($limit = 3)
     {
 
         return $this->afterCreating(function (UserJob $job) use ($limit) {
-            $job->jobAreas()->attach(JobArea::inRandomOrder()->limit($limit)->get());
+            $job->technologies()->attach(Technologies::inRandomOrder()->limit($limit)->get());
             $job->save();
         });
     }
