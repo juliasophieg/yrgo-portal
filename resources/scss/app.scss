@@ -1,4 +1,9 @@
 @use "base" as *;
+.menu {
+    display: flex;
+    justify-content: space-between;
+}
+
 .register-page {
     margin: 24px;
     padding: 48px 32px 32px 32px;
@@ -636,85 +641,207 @@
     }
 }
 
-.profile-page {
-    %common-styles {
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
+%common-styles {
+    margin: 24px;
+
+    p,
+    a {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22.4px; /* 140% */
+        color: var(--text-dark-black-100, #202020);
+        margin: 0;
+    }
+
+    a {
+        text-decoration-line: underline;
+    }
+
+    .company-profile,
+    .student-profile {
+        .profile-header {
+            .profile-img {
+                img {
+                    object-fit: cover;
+                }
+            }
+            .profile-info {
+                display: flex;
+                gap: $gap-xs;
+
+                .info {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+                    .title-2 {
+                        color: var(--text-dark-black-100, #202020);
+                        font-size: 27.648px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 30.415px; /* 110.008% */
+                        letter-spacing: -0.5px;
+                        margin: 0;
+                    }
+
+                    .subtitle {
+                        color: var(--text-dark-black-100, #202020);
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 19.6px; /* 140% */
+                    }
+                }
+            }
+        }
+        .profile-main {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            align-items: center;
 
-            li {
+            .divider {
+                height: 1px;
+                width: 230px;
+                background-color: #001a52;
+                opacity: 0.5;
+            }
+
+            .main-section {
                 display: flex;
-                gap: 10px;
-                align-items: end;
+                width: 100%;
+                flex-direction: column;
+                align-items: start;
+                gap: $gap-sm;
+                margin: $gap-md 0;
 
-                .contact-icon {
-                    width: 24px;
-                    height: 24px;
+                .title-4 {
+                    font-size: 19.2px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 21.12px; /* 110% */
+                    letter-spacing: -0.5px;
+                    margin: 0;
+                }
+
+                .technologies {
                     display: flex;
+                    gap: $gap-sm;
+                    align-self: stretch;
+                    flex-wrap: wrap;
 
-                    img {
-                        width: 100%;
-                        height: 100%;
+                    .technology {
+                        background: var(--button-fill-red, #f52a3b);
+                        color: var(--button-text-white, #fff);
+                        padding: 12px 24px;
+                        border-radius: 20px;
+                        font-size: 14px;
+                        line-height: 16px; /* 114.286% */
+                    }
+                }
+
+                ul {
+                    list-style-type: none;
+                    padding: 0;
+                    margin: 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    li {
+                        display: flex;
+                        gap: $gap-sm;
+                        align-items: end;
+
+                        a {
+                            text-decoration: none;
+                        }
+
+                        .contact-icon {
+                            width: 24px;
+                            height: 24px;
+                            display: flex;
+
+                            img {
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
                     }
                 }
             }
         }
     }
+}
 
-    .company-profile,
-    .student-profile {
-        .profile-img {
-            border-radius: 20px;
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                border-radius: 20px;
-            }
-        }
-
-        .profile-info {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-
-            h1,
-            p,
-            a {
-                margin: 0;
-            }
-        }
-
-        @extend %common-styles;
-    }
+.profile-page {
+    @extend %common-styles;
 
     .company-profile {
-        .profile-info {
-            h1,
-            p,
-            a {
-                margin: 0;
-                text-align: center;
+        .profile-header {
+            display: flex;
+            justify-content: center;
+            .profile-info {
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+
+                .info {
+                    margin: 220px 24px 0 24px;
+                    display: flex;
+                    align-items: center;
+
+                    .title-2,
+                    p {
+                        text-align: center;
+                    }
+                }
             }
-        }
-        .profile-img {
-            height: 200px;
+            .profile-img {
+                position: absolute;
+                left: 0;
+                right: 0;
+                border-radius: 0px 0px 20px 20px;
+
+                img {
+                    height: 200px;
+                    width: 100%;
+                    border-radius: 0px 0px 20px 20px;
+                }
+            }
+            .save {
+                position: absolute;
+                right: 24px;
+                margin-top: 220px;
+            }
         }
     }
 
     .student-profile {
         .profile-header {
             display: flex;
-            gap: 10px;
-            align-items: end;
+            gap: 16px;
+            align-items: center;
 
             .profile-img {
-                width: 150px;
-                height: 150px;
+                min-width: 40%;
+                max-width: 40%;
+                img {
+                    height: 128px;
+                    width: 100%;
+                    border-radius: 20px;
+                }
+            }
+
+            .profile-info {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: column;
+                align-items: start;
+            }
+            .save {
+                align-self: flex-start;
+                cursor: pointer;
             }
         }
     }
