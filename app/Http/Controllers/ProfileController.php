@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\StudentInfo;
 use App\Models\CompanyInfo;
+use App\Models\Technologies;
 
 class ProfileController extends Controller
 {
@@ -35,26 +36,31 @@ class ProfileController extends Controller
         }
 
         $extraInfo = $user->userable;
-        return view('edit_profile', compact('user', 'extraInfo'));
+        $technologies = Technologies::all();
+        return view('edit_profile', compact('user', 'extraInfo', 'technologies'));
     }
 
     public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
-
+        // Update user info
         $user->name = $request->input('name');
         $user->description = $request->input('description');
         $user->linkedin = $request->input('linkedin');
         $user->facebook = $request->input('facebook');
+        $user->phone = $request->input('phone');
         $user->save();
 
         // Update student or company info based on the user's role
+        //If student
         if ($user->role === 'student') {
             $studentInfo = StudentInfo::findOrFail($user->userable_id);
             $studentInfo->update([
                 'program' => $request->input('program'),
             ]);
-        } elseif ($user->role === 'company') {
+        }
+        // If company
+        elseif ($user->role === 'company') {
             $companyInfo = CompanyInfo::findOrFail($user->userable_id);
             $companyInfo->update([
                 'company_name' => $request->input('company_name'),
@@ -68,7 +74,11 @@ class ProfileController extends Controller
                 'total_positions' => $request->input('total_positions'),
             ]); //todo: validate the input
         }
-        return redirect('/profile')->with('success', 'Profile updated successfully');
+
+        // Sync the user technologies
+        $user->technologies()->sync($request->input('technologies'));
+
+        return redirect('/profile')->with('success', 'Din profil har uppdaterats!');
     }
 
     public function likes()
@@ -88,5 +98,12 @@ class ProfileController extends Controller
         // but in this instance we only need the user and not the like itself.
 
         return view("likes", compact("user", "likedUsers"));
+    }
+
+    public function userTechnologies()
+    {
+        $user = Auth::user();
+        $user->technologies;
+        return view('profile', compact('user'));
     }
 }
