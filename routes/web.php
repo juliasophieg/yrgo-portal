@@ -35,8 +35,8 @@ Route::get('register', [RegisterController::class, "index"])->middleware("guest"
 Route::post('register', [RegisterController::class, "register"])->middleware("guest")->name("register");
 
 
-Route::get('/profile/edit', [ProfileController::class, 'edit']))->middleware(["auth", OnboardingMiddleware::class])->name('edit-profile');
+Route::get('/profile/edit', [ProfileController::class, 'edit'])->middleware(["auth", OnboardingMiddleware::class])->name('edit-profile');
 Route::get('/profile/likes', [ProfileController::class, 'likes'])->middleware(["auth", OnboardingMiddleware::class])->name('likes');
 Route::get('/profile/{id?}', [ProfileController::class, "profile"])->middleware(["auth", OnboardingMiddleware::class])->name("profile");
 
-Route::put('/profile/{user}', [ProfileController::class, 'update']))->middleware(["auth", OnboardingMiddleware::class])->name('update-profile');
+Route::put('/profile/{user}', [ProfileController::class, 'update'])->middleware(["auth", OnboardingMiddleware::class])->name('update-profile');
