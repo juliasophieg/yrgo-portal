@@ -846,3 +846,17 @@
         }
     }
 }
+
+.edit-page {
+    margin: 24px;
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-xs;
+        .form-group {
+            display: flex;
+            gap: $gap-xs;
+            align-items: end;
+        }
+    }
+}
