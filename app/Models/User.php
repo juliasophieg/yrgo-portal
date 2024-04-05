@@ -57,7 +57,7 @@ class User extends Authenticatable
     }
     public function technologies(): BelongsToMany
     {
-        return $this->belongsToMany(Technologies::class);
+        return $this->belongsToMany(Technologies::class, "technologies_user");
     }
 
     public function userable()

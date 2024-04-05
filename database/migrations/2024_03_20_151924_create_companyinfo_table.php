@@ -14,15 +14,15 @@ return new class extends Migration
         Schema::create('company_infos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string("company_name")->default("Företags Namn");
-            $table->string("company_contact_number")->default("000000000");
-            $table->string("company_contact_email")->default("example@email.com");
+            $table->string("company_name")->default("Företagsnamn");
+            $table->string("company_contact_number")->nullable()->default(null);
+            $table->string("company_contact_email")->nullable()->default(null);
             $table->integer("employees")->default(0);
-            $table->string("company_industry")->default("");
-            $table->string("company_website")->default("www.website.se");
-            $table->string("looking_for")->default("What are you looking for?");
+            $table->string("company_industry")->nullable()->default(null);
+            $table->string("company_website")->nullable()->default(null);
+            $table->string("looking_for")->default("Vi kommer snart att söka efter nya LIA-praktikanter.");
             $table->integer("total_positions")->default(0);
-            $table->string("location")->default("Göteborg");
+            $table->string("location")->nullable()->default(null);
         });
     }
 

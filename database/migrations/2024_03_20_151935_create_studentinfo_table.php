@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('student_infos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string("program")->default("Yrgo");
+            $table->string("program")->nullable()->default(null);
         });
     }
 
