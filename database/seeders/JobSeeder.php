@@ -14,6 +14,6 @@ class JobSeeder extends Seeder
      */
     public function run(): void
     {
-        UserJob::factory(60)->withJobAreas(5)->create();
+        UserJob::factory(60)->withTechnologies(5)->create();
     }
 }

@@ -17,5 +17,9 @@ class Technologies extends Model
     {
         return $this->belongsToMany(User::class);
     }
+    public function jobs()
+    {
+        return $this->belongsToMany(UserJob::class);
+    }
     //TODO: add type of technology maybe? 
 }
