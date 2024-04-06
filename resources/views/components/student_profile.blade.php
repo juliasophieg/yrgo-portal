@@ -38,13 +38,16 @@
         <div class="divider"></div>
         <div class="main-section">
             <h2 class="title-4">Vad jag söker</h2>
-            <p>Lorem ipsum dolor sit amet.</p><!--OBS finns ej! -->
+            @if($user->job)
+            <p>{{ $user->job->description }}</p>
             <div class="technologies">
-                <div class="technology">Label</div>
-                <div class="technology">Label</div>
-                <div class="technology">Label</div>
-                <div class="technology">Label</div>
+                @foreach($user->job->technologies as $technology)
+                <div class="technology">{{ $technology->name }}</div>
+                @endforeach
             </div>
+            @else
+            <p>{{ $user->name}} har inte angett vad de söker ännu.</p>
+            @endif
         </div>
         <div class="divider"></div>
         <div class="main-section">

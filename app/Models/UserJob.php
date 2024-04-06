@@ -19,6 +19,6 @@ class UserJob extends Model
 
     public function technologies(): BelongsToMany
     {
-        return $this->belongsToMany(Technologies::class);
+        return $this->belongsToMany(Technologies::class, 'technologies_user_job');
     }
 }
