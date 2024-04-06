@@ -24,6 +24,7 @@ Route::get("students", [StudentsController::class, "index"])->middleware(["auth"
 Route::get("students/search", [StudentsController::class, "searchStudentsByTechnologies"])
     ->middleware(["auth", OnboardingMiddleware::class])
     ->name("students.searchByTechnologies");
+Route::get('/students/{id?}', [StudentsController::class, "studentById"])->middleware(["auth", OnboardingMiddleware::class])->name("students");
 
 Route::middleware(['auth'])->group(function () {
     Route::get('onboarding', [OnboardingController::class, "index"])->name('onboarding');
