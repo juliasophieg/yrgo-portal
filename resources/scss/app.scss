@@ -1,5 +1,161 @@
 @use "base" as *;
 
+.menu {
+    display: flex;
+    flex-direction: column;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 24px 24px 0px 24px;
+        .hamburger {
+            width: 40px;
+            height: 40px;
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+            -webkit-transition: 0.5s ease-in-out;
+            -moz-transition: 0.5s ease-in-out;
+            -o-transition: 0.5s ease-in-out;
+            transition: 0.5s ease-in-out;
+            cursor: pointer;
+            span {
+                display: block;
+                position: absolute;
+                height: 2.5px;
+                width: 80%;
+                background: #202020;
+                border-radius: 9px;
+                opacity: 1;
+                right: 5px;
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+                transform: rotate(0deg);
+                -webkit-transition: 0.25s ease-in-out;
+                -moz-transition: 0.25s ease-in-out;
+                -o-transition: 0.25s ease-in-out;
+                transition: 0.25s ease-in-out;
+                &:nth-child(1) {
+                    top: 9px;
+                }
+
+                &:nth-child(2),
+                &:nth-child(3) {
+                    top: 19px;
+                }
+
+                &:nth-child(4) {
+                    top: 29px;
+                }
+            }
+
+            &.open {
+                span {
+                    &:nth-child(1) {
+                        top: 18px;
+                        width: 0%;
+                        right: 50%;
+                    }
+
+                    &:nth-child(2) {
+                        transform: rotate(45deg);
+                    }
+
+                    &:nth-child(3) {
+                        transform: rotate(-45deg);
+                    }
+
+                    &:nth-child(4) {
+                        top: 18px;
+                        width: 0%;
+                        right: 50%;
+                    }
+                }
+            }
+        }
+    }
+
+    .menu-content {
+        position: fixed;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 64px;
+        padding: 64px;
+        background-color: #fff;
+
+        top: 0;
+        margin-top: 60px;
+        right: -100vw; // Initially hidden off-screen
+        width: 100vw;
+        height: 100%;
+        transition: right 0.3s ease-in-out; // Transition effect for smooth sliding
+
+        &.open {
+            right: 0; // Slide in when the 'open' class is added
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+            padding: 0;
+            margin: 0;
+
+            li {
+                list-style-type: none;
+                a {
+                    color: var(--text-dark-black-100, #202020);
+                    text-decoration: none;
+                    font-size: 27.648px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 30.415px; /* 110.008% */
+                    letter-spacing: -0.5px;
+                }
+            }
+        }
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: $gap-sm;
+            width: 100%;
+            .button {
+                display: inline-block;
+                border-radius: var(--button-corner-radius-buttons, 128px);
+                padding: 12px 24px;
+                text-decoration: none;
+                text-align: center;
+                border: none;
+            }
+
+            .button-primary {
+                background: var(--button-fill-blue, #001a52);
+                color: var(--button-text-white, #fff);
+            }
+
+            .button-secondary {
+                border: 1px solid var(--layout-stroke-blue, #001a52);
+                color: var(--button-text-blue, #001a52);
+            }
+
+            .button:hover {
+                cursor: pointer;
+            }
+        }
+
+        .divider {
+            height: 1px;
+            width: 100%;
+            background-color: #001a52;
+            opacity: 0.5;
+        }
+    }
+}
+
 .form-header {
     display: flex;
     flex-direction: column;
@@ -136,7 +292,6 @@
     display: flex;
     justify-content: space-between;
 }
-
 
 .register-page {
     margin: 24px;
