@@ -60,6 +60,96 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
+    position: relative;
+    .completed {
+        display: none;
+        height: 100%;
+        z-index: 99;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: fixed;
+        top: 0;
+        justify-content: center;
+        right: 0;
+        align-items: center;
+        .pop-up {
+            border-radius: 24px;
+            margin: 48px;
+            width: 100%;
+            background-color: $white;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            padding: 16px;
+        }
+        .text {
+            color: var(--text-dark-black-100, #202020);
+            text-align: center;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 22.4px; /* 140% */
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            .done {
+                display: flex;
+                width: 100px;
+                padding: 12px 24px;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+                border-radius: var(--button-corner-radius-buttons, 128px);
+                background: var(--button-fill-blue, #001a52);
+            }
+            .back {
+                display: flex;
+                padding: 12px 24px;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+                border-radius: 128px;
+                border: 1px solid var(--layout-stroke-blue, #001a52);
+                color: var(--button-text-blue, #001a52);
+                text-align: center;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 16px; /* 114.286% */
+            }
+        }
+        .animation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .animated-check {
+            height: 8em;
+            width: 8em;
+        }
+
+        .animated-check path {
+            fill: none;
+            stroke: $blue;
+            stroke-width: 2;
+            stroke-dasharray: 23;
+            stroke-dashoffset: 23;
+            animation: draw 0.5s linear forwards;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        &.active {
+            display: flex;
+        }
+    }
     form {
         display: flex;
         flex-direction: column;
@@ -136,7 +226,6 @@
     display: flex;
     justify-content: space-between;
 }
-
 
 .register-page {
     margin: 24px;

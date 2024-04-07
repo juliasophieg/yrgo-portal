@@ -75,7 +75,22 @@
                 </div>
 
             </form>
-
+            <div class="completed">
+                <div class="pop-up">
+                    <div class="animatio-container">
+                        <div class="animation">
+                            <svg class="animated-check" viewBox="0 0 24 24">
+                                <path d="M4.1 12.7L9 17.6 20.3 6.3" fill="none" />
+                            </svg>
+                        </div>
+                        <div class="text">Du är klar!</div>
+                    </div>
+                    <div class="buttons">
+                        <div class="back">Tillbaka</div>
+                        <div class="done">Klar</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     @include('components.error')
@@ -83,13 +98,16 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const submitArrow = document.querySelector(".arrow-right-submit");
+        const submitArrow = document.querySelector(".done");
+        const backArrowforPopup = document.querySelector(".back");
         const rightArrow = document.querySelector(".arrow-right");
         const leftArrow = document.querySelector(".arrow-left");
         const firstSection = document.querySelector(".first-section");
         const secondSection = document.querySelector(".second-section");
         const form = document.querySelector(".onboarding-form");
         const pageCounter4 = document.querySelector(".number-4");
+        const completedPopup = document.querySelector(".completed");
+        const rightArrowforPopup = document.querySelector(".arrow-right-submit");
 
         leftArrow.addEventListener("click", () => {
             if (secondSection.classList.contains("active")) {
@@ -113,6 +131,12 @@
                 firstSection.classList.remove("active");
                 pageCounter4.classList.add("active");
             }
+        })
+        rightArrowforPopup.addEventListener("click", () => {
+            completedPopup.classList.add("active");
+        })
+        backArrowforPopup.addEventListener("click", () => {
+            completedPopup.classList.remove("active");
         })
         submitArrow.addEventListener("click", () => {
             form.submit();
