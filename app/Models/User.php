@@ -29,7 +29,8 @@ class User extends Authenticatable
         'role',
         'phone',
         'facebook',
-        'linkedin'
+        'linkedin',
+        'onboarding_completed'
     ];
 
     /**

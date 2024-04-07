@@ -47,6 +47,8 @@ class UserFactory extends Factory
             'facebook' => 'www.facebook.com/' . $name,
             'linkedin' => 'www.linkedin.com/' . $name,
             'remember_token' => Str::random(10),
+            'onboarding_completed' => true,
+
         ];
     }
 
@@ -93,6 +95,6 @@ class UserFactory extends Factory
 
     public function withJob()
     {
-        return $this->has(UserJob::factory()->withJobAreas(3)->count(1));
+        return $this->has(UserJob::factory()->withTechnologies()->count(1));
     }
 }

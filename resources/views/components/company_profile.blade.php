@@ -9,7 +9,7 @@
         </div>
         <div class="profile-info">
             <div class="info">
-                <h1 class="title-2">{{ $extraInfo->company_name }}</h1>
+                <h1 class="title-2">{{ $user->name }}</h1>
                 <p class="subtitle">{{ $extraInfo->location }}</p>
             </div>
             <!-- Display "Redigera" if the logged-in user's ID matches the profile ID -->
@@ -37,13 +37,16 @@
         <div class="divider"></div>
         <div class="main-section">
             <h2 class="title-4">Vi söker</h2>
-            <p>{{ $extraInfo->looking_for}}</p>
+            @if($user->job)
+            <p>{{ $user->job->description }}</p>
             <div class="technologies">
-                <div class="technology">Label</div>
-                <div class="technology">Label</div>
-                <div class="technology">Label</div>
-                <div class="technology">Label</div>
+                @foreach($user->job->technologies as $technology)
+                <div class="technology">{{ $technology->name }}</div>
+                @endforeach
             </div>
+            @else
+            <p>{{ $user->name}} har inte angett vad de söker ännu.</p>
+            @endif
         </div>
         <div class="divider"></div>
         <div class="main-section">

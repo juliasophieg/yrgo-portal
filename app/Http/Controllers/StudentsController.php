@@ -19,7 +19,12 @@ class StudentsController extends Controller
 
         return view("students")->with("students", $students)->with("technologies", $technologies);
     }
-
+    public function studentById(Request $request)
+    {
+        $user = User::find($request->id);
+        $extraInfo = $user->userable;
+        return view("profile")->with("user", $user)->with("extraInfo", $extraInfo);
+    }
     public function searchStudentsByTechnologies(Request $request)
     {
         $technologyNamesString = $request->input('technology_names'); // Get the comma-separated string

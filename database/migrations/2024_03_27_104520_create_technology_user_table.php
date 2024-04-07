@@ -17,6 +17,12 @@ return new class extends Migration
             $table->foreignId('technologies_id')->constrained("technologies")->onDelete('cascade');
             $table->timestamps();
         });
+        Schema::create('technologies_user_job', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_job_id')->constrained("user_jobs")->onDelete('cascade');
+            $table->foreignId('technologies_id')->constrained("technologies")->onDelete('cascade');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -24,6 +30,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('technology_user');
+        Schema::dropIfExists('technologies_user');
+        Schema::dropIfExists('technologies_user_job');
     }
 };

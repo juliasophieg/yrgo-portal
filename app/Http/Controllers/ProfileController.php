@@ -36,8 +36,14 @@ class ProfileController extends Controller
         }
 
         $extraInfo = $user->userable;
+
+        // Fetch user's job information
+        $userJob = $user->job;
+
+        // Fetch all technologies
         $technologies = Technologies::all();
-        return view('edit_profile', compact('user', 'extraInfo', 'technologies'));
+
+        return view('edit_profile', compact('user', 'extraInfo', 'userJob', 'technologies'));
     }
 
     public function update(Request $request, $id)
@@ -63,13 +69,12 @@ class ProfileController extends Controller
         elseif ($user->role === 'company') {
             $companyInfo = CompanyInfo::findOrFail($user->userable_id);
             $companyInfo->update([
-                'company_name' => $request->input('company_name'),
+                'company_name' => $request->input('company_contact_name'),
                 'company_contact_email' => $request->input('email'),
                 'company_contact_number' => $request->input('phone'),
                 'company_website' => $request->input('website'),
                 'company_industry' => $request->input('industry'),
                 'employees' => $request->input('employees'),
-                'looking_for' => $request->input('looking-for'),
                 'location' => $request->input('location'),
                 'total_positions' => $request->input('total_positions'),
             ]); //todo: validate the input
@@ -77,6 +82,14 @@ class ProfileController extends Controller
 
         // Sync the user technologies
         $user->technologies()->sync($request->input('technologies'));
+
+        $userJob = $user->job;
+        // Sync the user job technologies
+        $userJob->technologies()->sync($request->input('user_job_technologies'));
+
+        // Update user job description
+        $userJob->description = $request->input('job_description');
+        $userJob->save();
 
         return redirect('/profile')->with('success', 'Din profil har uppdaterats!');
     }

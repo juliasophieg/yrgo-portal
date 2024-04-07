@@ -9,7 +9,6 @@
 @section('content')
     <div class="main">
         <div class="register-page">
-
             <div class="first-section">
                 <div class="header">
                     <div class="numbers">
