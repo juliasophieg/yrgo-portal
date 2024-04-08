@@ -9,6 +9,7 @@
 @section('content')
 
     <div class="main">
+        @include('components.error')
         <div class="liked-page">
             @if ($user->role === 'student')
                 <div class="page-header">

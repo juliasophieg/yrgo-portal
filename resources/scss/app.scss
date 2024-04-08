@@ -1,5 +1,35 @@
 @use "base" as *;
 
+.main {
+    position: relative;
+    .error-div {
+        position: absolute;
+        top: 0;
+        background: $red;
+        border-radius: 20px;
+        padding: 12px;
+        text-align: center;
+        color: $white;
+        margin: 0px 24px 0px 24px;
+        width: -webkit-fill-available;
+        z-index: 7;
+        .error-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 12px;
+            color: $white;
+            cursor: pointer;
+            border-radius: 50%;
+            border: 1px solid $white;
+            height: 10px;
+            width: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
 .menu {
     display: flex;
     flex-direction: column;
@@ -74,7 +104,7 @@
 
     .menu-content {
         position: fixed;
-        z-index: 1;
+        z-index: 9;
         display: flex;
         flex-direction: column;
         gap: 64px;
@@ -813,6 +843,9 @@
                 align-items: center;
                 flex-grow: 1;
                 gap: $gap-sm;
+                a {
+                    text-decoration: none;
+                }
                 .info {
                     display: flex;
                     flex-direction: column;
