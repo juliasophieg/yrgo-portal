@@ -25,7 +25,7 @@
                             <div id="selectedTechnologiesContainer" class="selected-technologies-container">
                                 <!-- Selected technologies will be displayed here -->
                             </div>
-                            <div class="category-button"><img src="/images/icons/category.svg" alt=""></div>
+                            <div class="category-button"><img src="/images/icons/filter-small.svg" alt=""></div>
                         </div>
                         <div class="dark-background"></div>
                         <div class="custom-select">

@@ -211,7 +211,7 @@
 .onboarding-page {
     margin: 24px;
     padding: 48px 32px 32px 32px;
-    height: 100vh; // TODO: make sure this is calculated once we know the height of the menu
+    height: 100vh;
     border-radius: 24px;
     background-color: $blue;
     color: $white;
@@ -388,7 +388,7 @@
 .register-page {
     margin: 24px;
     padding: 48px 32px 32px 32px;
-    height: 100vh; // TODO: make sure this is calculated once we know the height of the menu
+    height: 100vh;
     border-radius: 24px;
     background-color: $blue;
     color: $white;
@@ -581,7 +581,7 @@
     align-items: center;
     gap: 64px;
     flex-shrink: 0;
-    height: 100vh; // TODO: make sure this is calculated once we know the height of the menu
+    height: 100vh;
     border-radius: 24px;
     background-color: $blue;
     color: $white;
@@ -702,7 +702,6 @@
 
 .students-page {
     margin: 0 auto;
-    max-width: 348px;
     display: flex;
     flex-direction: column;
     gap: $gap-md;
@@ -754,13 +753,15 @@
                 display: flex;
                 justify-content: space-between;
                 gap: 8px;
+                align-items: center;
+
                 .selected-technologies-container {
-                    padding: 0px 8px;
+                    padding: 4px 8px;
                     gap: 8px;
                     display: flex;
                     flex-grow: 1;
                     border-radius: 48px;
-                    background: $white;
+                    background: #ccd1dc;
                     box-shadow: 0px 0px 8px 0px rgba(32, 32, 32, 0.25);
                     align-items: center;
                     overflow: scroll;
@@ -769,10 +770,10 @@
                         padding: var(--base-units-unit-1, 8px) 16px;
                         justify-content: center;
                         align-items: center;
-                        gap: var(--base-units-unit-1, 8px);
+                        gap: 8px;
                         border-radius: 20px;
                         background: var(--button-fill-red, #f52a3b);
-                        color: white;
+                        color: $white;
                         height: fit-content;
                         cursor: pointer;
                         .search-data-text {
@@ -785,13 +786,14 @@
                 }
 
                 .category-button {
+                    background: #ccd1dc;
                     z-index: 7;
                     display: flex;
                     padding: 8px;
-                    align-items: flex-start;
+                    align-items: center;
+                    justify-content: center;
                     gap: 16px;
-                    border-radius: 48px;
-                    background: #fff;
+                    border-radius: 50%;
                     box-shadow: 0px 0px 8px 0px rgba(32, 32, 32, 0.25);
                     cursor: pointer;
                 }
@@ -799,12 +801,15 @@
             .custom-select {
                 display: none;
                 position: absolute;
+                background: #ccd1dc;
                 box-shadow: 0px 0px 8px 0px rgba(32, 32, 32, 0.25);
                 top: 58px;
                 border-radius: 20px;
                 overflow: hidden;
+                height: 300px;
+                overflow: scroll;
                 padding: $padding-md;
-                background: $white;
+
                 &.active {
                     display: flex;
                 }
@@ -812,9 +817,13 @@
                     display: flex;
                     flex-wrap: wrap;
                     padding: 5px;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    align-content: start;
+
                     .select-item {
                         border-radius: 20px;
-                        background: #000;
+                        background: var(--button-fill-blue, #001a52);
                         margin: 2px;
                         cursor: pointer;
                         padding: 8px 16px;
@@ -889,8 +898,6 @@
     }
 }
 .liked-page {
-    margin: 0 auto;
-    max-width: 348px;
     display: flex;
     flex-direction: column;
     gap: $gap-md;
@@ -899,6 +906,7 @@
         display: flex;
         flex-direction: column;
         gap: $gap-xs;
+        text-align: center;
         .page-title-liked {
             color: $black;
             font-feature-settings: "clig" off, "liga" off;
@@ -936,6 +944,10 @@
                 align-items: center;
                 flex-grow: 1;
                 gap: $gap-sm;
+                a {
+                    text-decoration: none;
+                    cursor: pointer;
+                }
                 .info {
                     display: flex;
                     flex-direction: column;
