@@ -18,8 +18,8 @@
         @elseif ($user->role === 'company')
         @include('components.edit_company_profile')
         @endif
-        <button type="submit">Spara</button>
-        <a href="{{ route('profile') }}">Avbryt</a>
+        <button type="submit" class="button button-primary-blue">Spara</button>
+        <a href="{{ route('profile') }}" class="button button-secondary-transparent">Avbryt</a>
     </form>
 </div>
 @endsection
