@@ -55,11 +55,11 @@
             <ul>
                 @php
                 $contactInfo = [
+                ['value' => $user->phone, 'label' => $user->phone, 'icon' => '/images/icons/phone.svg'],
+                ['value' => $user->email, 'label' => $user->email, 'icon' => '/images/icons/mail.svg'],
                 ['value' => $extraInfo->student_website, 'label' => 'Website', 'icon' => ''],
                 ['value' => $user->linkedin, 'label' => $user->name, 'icon' => '/images/icons/linkedin.svg'],
                 ['value' => $user->facebook, 'label' => $user->name, 'icon' => '/images/icons/facebook.svg'],
-                ['value' => $user->email, 'label' => $user->email, 'icon' => '/images/icons/mail.svg'],
-                ['value' => $user->phone, 'label' => $user->phone, 'icon' => '/images/icons/phone.svg'],
                 ];
                 @endphp
 

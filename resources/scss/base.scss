@@ -59,3 +59,26 @@ body {
 .button:hover {
     cursor: pointer;
 }
+
+// HEADINGS
+
+.title-2 {
+    color: var(--text-dark-black-100, #202020);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.4;
+    margin: 0;
+    font-size: 27.648px;
+    font-weight: 700;
+    line-height: 30.415px; /* 110.008% */
+    letter-spacing: -0.5px;
+}
+
+.title-4 {
+    font-size: 19.2px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 21.12px; /* 110% */
+    letter-spacing: -0.5px;
+    margin: 0;
+}

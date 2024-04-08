@@ -978,20 +978,12 @@
                 flex-direction: column;
                 gap: 4px;
 
-                .title-2,
                 .subtitle {
                     color: var(--text-dark-black-100, #202020);
                     font-style: normal;
                     font-weight: 400;
                     line-height: 1.4;
                     margin: 0;
-                }
-
-                .title-2 {
-                    font-size: 27.648px;
-                    font-weight: 700;
-                    line-height: 30.415px; /* 110.008% */
-                    letter-spacing: -0.5px;
                 }
 
                 .subtitle {
@@ -1021,15 +1013,6 @@
             gap: $gap-sm;
             margin: $gap-md 0;
 
-            .title-4 {
-                font-size: 19.2px;
-                font-style: normal;
-                font-weight: 700;
-                line-height: 21.12px; /* 110% */
-                letter-spacing: -0.5px;
-                margin: 0;
-            }
-
             .technologies {
                 display: flex;
                 gap: $gap-sm;
@@ -1053,11 +1036,12 @@
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
+                width: 100%;
 
                 li {
                     display: flex;
                     gap: $gap-sm;
-                    align-items: end;
+                    align-items: center;
 
                     a {
                         text-decoration: none;
@@ -1163,11 +1147,91 @@
         display: flex;
         flex-direction: column;
         gap: $gap-xs;
-        .form-group {
-            display: flex;
-            gap: $gap-xs;
-            align-items: end;
+
+        textarea.title-2 {
+            color: var(--text-dark-black-100, #202020);
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1.4;
+            margin: 0;
+            font-size: 27.648px;
+            font-weight: 700;
+            line-height: 30.415px; /* 110.008% */
+            letter-spacing: -0.5px;
         }
+
+        .technologies {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgb(205, 205, 205);
+            border-radius: 8px;
+            padding: 8px;
+
+            .more-technologies,
+            .more-jobs {
+                text-align: center;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+
+            .unselected-technologies,
+            .unselected-jobs {
+                display: none;
+            }
+
+            .selected-technologies,
+            .selected-jobs,
+            .unselected-technologies.show,
+            .unselected-jobs.show {
+                display: flex;
+                gap: $gap-sm;
+                flex-wrap: wrap;
+                .technology-checkbox {
+                    display: flex;
+                    gap: $gap-xs;
+                    display: flex;
+                    padding: 12px 24px;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: var(--button-corner-radius-buttons, 128px);
+                    background-color: $blue;
+                    border: none;
+                    cursor: pointer;
+                    transition: ease-in-out 0.3s;
+
+                    label {
+                        width: auto;
+                        font-size: 14px;
+                        color: $white;
+                        cursor: pointer;
+                    }
+                    input {
+                        display: none;
+                    }
+                }
+                .technology-checkbox.selected {
+                    background: $red !important;
+                    border: none;
+                }
+            }
+        }
+        .technologies.expanded {
+            height: 250px;
+        }
+
+        textarea,
+        input {
+            border: 1px solid rgb(205, 205, 205);
+            border-radius: 8px;
+            padding: 8px;
+            width: 100%;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 22.4px; /* 140% */
+            color: var(--text-dark-black-100, #202020);
+        }
+
         .button-secondary-transparent {
             text-decoration: none;
             font-size: 14px;

@@ -11,8 +11,7 @@
         </div>
         <div class="profile-info">
             <div class="info">
-                <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}">
-                <p class="subtitle">Student på Yrgo</p>
+                <textarea class="title-2" id="name" name="name">{{ $user->name }}</textarea>
             </div>
             <a href="{{ route('profile') }}">Avbryt</a>
         </div>
@@ -25,36 +24,59 @@
             <textarea id="description" name="description" rows="4" class="form-control">{{ $user->description ?? '' }}</textarea>
             <!-- Technologies-->
             <div class="technologies">
-                @foreach($user->technologies as $technology)
-                <div class="technology">{{ $technology->name }}</div>
-                @endforeach
+                <!-- Display selected technologies -->
+                <div class="selected-technologies">
+                    @foreach($user->technologies as $technology)
+                    <div class="technology-checkbox selected">
+                        <label>{{ $technology->name }}</label>
+                        <input type="checkbox" name="technologies[]" value="{{ $technology->id }}" checked>
+                    </div>
+                    @endforeach
+                </div>
+                <div class="more-technologies">Hitta fler kompetenser</div>
+                <div class="unselected-technologies">
+                    <!-- Hide unselected technologies intitially -->
+                    @foreach($technologies as $technology)
+                    @if (!$user->technologies->contains($technology))
+                    <div class="technology-checkbox">
+                        <label>{{ $technology->name }}</label>
+                        <input type="checkbox" name="technologies[]" value="{{ $technology->id }}">
+                    </div>
+                    @endif
+                    @endforeach
+                </div>
             </div>
-            @foreach($technologies as $technology)
-            <label>
-                <input type="checkbox" name="technologies[]" value="{{ $technology->id }}" {{ $user->technologies->contains($technology) ? 'checked' : '' }}>
-                {{ $technology->name }}
-            </label>
-            @endforeach
         </div>
-
         <div class="divider"></div>
 
         <!-- LOOKING FOR -->
         <div class="main-section">
             <h2 class="title-4">Vad jag söker</h2>
             <textarea id="job_description" name="job_description" rows="4" class="form-control">{{ $userJob->description ?? '' }}</textarea>
-            <!-- Technologies-->
+            <!-- Job technologies-->
             <div class="technologies">
-                @foreach($user->job->technologies as $technology)
-                <div class="technology">{{ $technology->name }}</div>
-                @endforeach
+                <!-- Display selected jobs -->
+                <div class="selected-jobs">
+                    @foreach($user->job->technologies as $technology)
+                    <div class="technology-checkbox selected">
+                        <label>{{ $technology->name }}</label>
+                        <input type="checkbox" name="user_job_technologies[]" value="{{ $technology->id }}" checked>
+                    </div>
+                    @endforeach
+                </div>
+                <div class="more-jobs">Lägg till fler önskemål</div>
+                <!-- Hide unselected technologies jobs -->
+                <div class="unselected-jobs">
+                    @foreach($technologies as $technology)
+                    @if (!$user->job->technologies->contains($technology))
+                    <div class="technology-checkbox">
+                        <label>{{ $technology->name }}</label>
+                        <input type="checkbox" name="user_job_technologies[]" value="{{ $technology->id }}">
+                    </div>
+                    @endif
+                    @endforeach
+                </div>
             </div>
-            @foreach($technologies as $technology)
-            <label>
-                <input type="checkbox" name="user_job_technologies[]" value="{{ $technology->id }}" {{ $userJob->technologies->contains($technology) ? 'checked' : '' }}>
-                {{ $technology->name }}
-            </label>
-            @endforeach
         </div>
 
         <div class="divider"></div>
@@ -64,15 +86,15 @@
             <h2 class="title-4">Kontakt</h2>
             <ul>
                 @foreach ([
+                'phone' => ['label' => 'Telefon', 'type' => 'phone', 'icon' => '/images/icons/phone.svg', 'value' => $user->phone ?? ''],
                 'linkedin' => ['label' => 'LinkedIn', 'type' => 'text', 'icon' => '/images/icons/linkedin.svg', 'value' => $user->linkedin],
                 'facebook' => ['label' => 'Facebook', 'type' => 'text', 'icon' => '/images/icons/facebook.svg', 'value' => $user->facebook],
-                'phone' => ['label' => 'Telefon', 'type' => 'phone', 'icon' => '/images/icons/phone.svg', 'value' => $user->phone ?? ''],
                 ] as $field => $attributes)
                 <!-- Input fields-->
-                <div class="form-group">
+                <li>
                     <img src="{{ $attributes['icon'] }}" alt="">
                     <input type="{{ $attributes['type'] }}" class="form-control" id="{{ $field }}" name="{{ $field }}" value="{{ $attributes['value'] }}">
-                </div>
+                </li>
                 @endforeach
             </ul>
         </div>
