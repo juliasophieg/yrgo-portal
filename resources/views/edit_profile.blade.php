@@ -22,4 +22,43 @@
         <a href="{{ route('profile') }}" class="button button-secondary-transparent">Avbryt</a>
     </form>
 </div>
+
+<script>
+    const moreTechnologies = document.querySelector('.more-technologies');
+    const unselectedTechnologies = document.querySelector('.unselected-technologies');
+    const moreJobs = document.querySelector('.more-jobs');
+    const unselectedJobs = document.querySelector('.unselected-jobs');
+    const technologyBtns = document.querySelectorAll('.technology-checkbox');
+
+    moreTechnologies.addEventListener('click', () => {
+        unselectedTechnologies.classList.toggle('show');
+        moreTechnologies.style.display = 'none';
+    });
+
+    moreJobs.addEventListener('click', () => {
+        unselectedJobs.classList.toggle('show');
+        moreJobs.style.display = 'none';
+    });
+
+    technologyBtns.forEach(technologyBtn => {
+        technologyBtn.addEventListener('click', () => {
+            technologyBtn.classList.toggle('selected');
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const technologyCheckboxes = document.querySelectorAll('.technology-checkbox input[type="checkbox"]');
+
+        technologyCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('click', (event) => {
+                event.stopPropagation(); // Prevent click event from bubbling up to parent
+            });
+
+            checkbox.parentNode.addEventListener('click', () => {
+                checkbox.checked = !checkbox.checked;
+            });
+        });
+    });
+</script>
+
 @endsection
