@@ -945,8 +945,9 @@
     }
 }
 
-%common-styles {
-    margin: 24px;
+//PROFILE PAGE & EDIT PAGE
+@mixin common-profile-styles {
+    margin: 48px 24px 24px 24px;
 
     p,
     a {
@@ -962,113 +963,114 @@
         text-decoration-line: underline;
     }
 
-    .company-profile,
-    .student-profile {
-        .profile-header {
-            .profile-img {
-                img {
-                    object-fit: cover;
-                }
+    .profile-header {
+        .profile-img {
+            img {
+                object-fit: cover;
             }
-            .profile-info {
+        }
+        .profile-info {
+            display: flex;
+            gap: $gap-xs;
+
+            .info {
                 display: flex;
-                gap: $gap-xs;
+                flex-direction: column;
+                gap: 4px;
 
-                .info {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 4px;
-                    .title-2 {
-                        color: var(--text-dark-black-100, #202020);
-                        font-size: 27.648px;
-                        font-style: normal;
-                        font-weight: 700;
-                        line-height: 30.415px; /* 110.008% */
-                        letter-spacing: -0.5px;
-                        margin: 0;
-                    }
+                .title-2,
+                .subtitle {
+                    color: var(--text-dark-black-100, #202020);
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 1.4;
+                    margin: 0;
+                }
 
-                    .subtitle {
-                        color: var(--text-dark-black-100, #202020);
-                        font-size: 14px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: 19.6px; /* 140% */
-                    }
+                .title-2 {
+                    font-size: 27.648px;
+                    font-weight: 700;
+                    line-height: 30.415px; /* 110.008% */
+                    letter-spacing: -0.5px;
+                }
+
+                .subtitle {
+                    font-size: 14px;
                 }
             }
         }
-        .profile-main {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+    }
 
-            .divider {
-                height: 1px;
-                width: 230px;
-                background-color: #001a52;
-                opacity: 0.5;
+    .profile-main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .divider {
+            height: 1px;
+            width: 230px;
+            background-color: #001a52;
+            opacity: 0.5;
+        }
+
+        .main-section {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            align-items: start;
+            gap: $gap-sm;
+            margin: $gap-md 0;
+
+            .title-4 {
+                font-size: 19.2px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 21.12px; /* 110% */
+                letter-spacing: -0.5px;
+                margin: 0;
             }
 
-            .main-section {
+            .technologies {
                 display: flex;
-                width: 100%;
-                flex-direction: column;
-                align-items: start;
                 gap: $gap-sm;
-                margin: $gap-md 0;
+                align-self: stretch;
+                flex-wrap: wrap;
 
-                .title-4 {
-                    font-size: 19.2px;
-                    font-style: normal;
-                    font-weight: 700;
-                    line-height: 21.12px; /* 110% */
-                    letter-spacing: -0.5px;
-                    margin: 0;
+                .technology {
+                    background: var(--button-fill-red, #f52a3b);
+                    color: var(--button-text-white, #fff);
+                    padding: 12px 24px;
+                    border-radius: 20px;
+                    font-size: 14px;
+                    line-height: 16px; /* 114.286% */
                 }
+            }
 
-                .technologies {
+            ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                li {
                     display: flex;
                     gap: $gap-sm;
-                    align-self: stretch;
-                    flex-wrap: wrap;
+                    align-items: end;
 
-                    .technology {
-                        background: var(--button-fill-red, #f52a3b);
-                        color: var(--button-text-white, #fff);
-                        padding: 12px 24px;
-                        border-radius: 20px;
-                        font-size: 14px;
-                        line-height: 16px; /* 114.286% */
+                    a {
+                        text-decoration: none;
                     }
-                }
 
-                ul {
-                    list-style-type: none;
-                    padding: 0;
-                    margin: 0;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 10px;
-
-                    li {
+                    .contact-icon {
+                        width: 24px;
+                        height: 24px;
                         display: flex;
-                        gap: $gap-sm;
-                        align-items: end;
 
-                        a {
-                            text-decoration: none;
-                        }
-
-                        .contact-icon {
-                            width: 24px;
-                            height: 24px;
-                            display: flex;
-
-                            img {
-                                width: 100%;
-                                height: 100%;
-                            }
+                        img {
+                            width: 100%;
+                            height: 100%;
                         }
                     }
                 }
@@ -1077,22 +1079,22 @@
     }
 }
 
-.profile-page {
-    @extend %common-styles;
+.profile-page,
+.edit-page {
+    @include common-profile-styles;
 
     .company-profile {
         .profile-header {
             display: flex;
             justify-content: center;
+
             .profile-info {
                 justify-content: center;
                 flex-direction: column;
                 align-items: center;
 
                 .info {
-                    margin: 220px 24px 0 24px;
-                    display: flex;
-                    align-items: center;
+                    margin: 220px 24px 0;
 
                     .title-2,
                     p {
@@ -1100,18 +1102,20 @@
                     }
                 }
             }
+
             .profile-img {
                 position: absolute;
                 left: 0;
                 right: 0;
-                border-radius: 0px 0px 20px 20px;
+                border-radius: 0 0 20px 20px;
 
                 img {
                     height: 200px;
                     width: 100%;
-                    border-radius: 0px 0px 20px 20px;
+                    border-radius: 0 0 20px 20px;
                 }
             }
+
             .save {
                 position: absolute;
                 right: 24px;
@@ -1129,6 +1133,7 @@
             .profile-img {
                 min-width: 40%;
                 max-width: 40%;
+
                 img {
                     height: 128px;
                     width: 100%;
@@ -1143,6 +1148,7 @@
                 flex-direction: column;
                 align-items: start;
             }
+
             .save {
                 align-self: flex-start;
                 cursor: pointer;
@@ -1151,8 +1157,8 @@
     }
 }
 
+// EDIT PAGE
 .edit-page {
-    margin: 24px;
     form {
         display: flex;
         flex-direction: column;
@@ -1161,6 +1167,13 @@
             display: flex;
             gap: $gap-xs;
             align-items: end;
+        }
+        .button-secondary-transparent {
+            text-decoration: none;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 14px;
         }
     }
 }
