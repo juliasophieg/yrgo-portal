@@ -16,7 +16,7 @@
                         <div class="number-1 active">1</div>
                         <div class="number-2">2</div>
                         <div class="number-3">3</div>
-                        <div class="number-4">4</div>
+
                     </div>
                     <div class="bottom-header">
                         <div class="sign-up">
@@ -41,7 +41,6 @@
                         <div class="number-1 active">1</div>
                         <div class="number-2 active">2</div>
                         <div class="number-3">3</div>
-                        <div class="number-4">4</div>
                     </div>
                     <div class="form-header">
                         <div class="form-title">Title</div>
@@ -72,13 +71,9 @@
                         <div class="login"><a href="{{ route('login') }}">Logga in</a></div>
                     </div>
                 </form>
-
-
             </div>
         </div>
-
     </div>
-
 @endsection
 
 @vite(['resources/js/register.js'])
