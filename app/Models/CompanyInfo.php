@@ -16,13 +16,6 @@ class CompanyInfo extends Model
 
     protected $fillable = [
         'company_name',
-        'company_contact_number',
-        'company_contact_email',
-        'employees',
-        'company_industry',
-        'company_website',
-        'looking_for',
-        'total_positions',
         'location',
     ];
 }

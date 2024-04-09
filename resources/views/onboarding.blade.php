@@ -17,7 +17,6 @@
                     <div class="number-1 active">1</div>
                     <div class="number-2 active">2</div>
                     <div class="number-3 active">3</div>
-                    <div class="number-4">4</div>
                 </div>
                 <div class="form-header">
                     @if ($user->role == 'student')
@@ -46,32 +45,6 @@
                     <div class="arrows">
                         <div class="dummy-arrow"></div>
                         <div class="arrow-right"><img src="/images/icons/chevron-right-large.svg" alt=""></div>
-                    </div>
-                </div>
-                <div class="second-section">
-                    <div class="top-section">
-                        <div class="text">Välj några nyckelord
-                            som beskriver vad
-                            @if ($user->role == 'student')
-                                du
-                            @else
-                                ni
-                            @endif
-                            letar efter.
-                        </div>
-                        <div class="search-technologies-section">
-                            @foreach ($technologies as $technology)
-                                <div class="search-technology" data-value="{{ $technology->name }}">{{ $technology->name }}
-                                </div>
-                            @endforeach
-                        </div>
-                        <input type="hidden" name="technology_names_searching">
-                    </div>
-                    <div class="arrows">
-                        <div class="arrow-left"><img src="/images/icons/chevron-left-large.svg" alt="">
-                        </div>
-                        <div class="arrow-right-submit"><img src="/images/icons/chevron-right-large.svg" alt="">
-                        </div>
                     </div>
                 </div>
 

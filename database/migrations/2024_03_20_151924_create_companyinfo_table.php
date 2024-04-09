@@ -15,13 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string("company_name")->default("Företagsnamn");
-            $table->string("company_contact_number")->nullable()->default(null);
-            $table->string("company_contact_email")->nullable()->default(null);
-            $table->integer("employees")->default(0);
-            $table->string("company_industry")->nullable()->default(null);
             $table->string("company_website")->nullable()->default(null);
-            $table->string("looking_for")->default("Vi kommer snart att söka efter nya LIA-praktikanter.");
-            $table->integer("total_positions")->default(0);
             $table->string("location")->nullable()->default(null);
         });
     }

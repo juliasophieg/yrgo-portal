@@ -30,7 +30,8 @@ class User extends Authenticatable
         'phone',
         'facebook',
         'linkedin',
-        'onboarding_completed'
+        'onboarding_completed',
+        'website'
     ];
 
     /**
@@ -68,9 +69,5 @@ class User extends Authenticatable
     public function likes()
     {
         return $this->hasMany(Likes::class, 'liker_id');
-    }
-    public function job(): HasOne
-    {
-        return $this->hasOne(UserJob::class);
     }
 }
