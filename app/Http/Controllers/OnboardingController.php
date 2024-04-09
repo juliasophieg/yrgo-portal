@@ -28,7 +28,11 @@ class OnboardingController extends Controller
         $request->validate([
             'technology_names_searching' => 'required|string',
             'technology_names_using' => 'required|string',
+        ], [
+            'technology_names_searching.required' => 'Vänligen välj teknologierna du/ni letar efter.',
+            'technology_names_using.required' => 'Vänligen välj teknologierna du/ni använder.',
         ]);
+
 
         $technologyNamesSearchingString = $request->input('technology_names_searching');
         $technologyNamesUsingString = $request->input('technology_names_using');

@@ -8,6 +8,7 @@
 
 @section('content')
     <div class="main">
+        @include('components.error')
         <div class="login-page">
             <div class="text-top">
                 <div class="text">Logga in</div>
@@ -36,5 +37,5 @@
     </div>
 
 
-    @include('components.error')
+
 @endsection

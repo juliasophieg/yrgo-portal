@@ -8,6 +8,7 @@
 
 @section('content')
     <div class="main">
+        @include('components.error')
         <div class="register-page">
             <div class="first-section">
                 <div class="header">
@@ -72,7 +73,6 @@
                     </div>
                 </form>
 
-                @include('components.error')
 
             </div>
         </div>
@@ -81,5 +81,4 @@
 
 @endsection
 
-
-<script src="{{ asset('js/register.js') }}"></script>
+@vite(['resources/js/register.js'])
