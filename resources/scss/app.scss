@@ -1,14 +1,18 @@
 @use "base" as *;
 
 .menu {
+    position: relative;
+    z-index: 100;
     display: flex;
     flex-direction: column;
+    background-color: $white;
+    padding: 64px 24px 16px 24px;
+    border-radius: 0px 0px 24px 24px;
 
     .navbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin: 24px 24px 0px 24px;
 
         .button-menu {
             display: flex;
@@ -74,11 +78,11 @@
 
     .menu-content {
         position: fixed;
-        z-index: 1;
+        z-index: 100;
         display: flex;
         flex-direction: column;
         gap: 64px;
-        margin-top: 64px;
+        margin-top: 105px;
         padding: 64px;
         background-color: #fff;
         top: 0;
@@ -124,6 +128,163 @@
             width: 100%;
             background-color: #001a52;
             opacity: 0.5;
+        }
+    }
+}
+
+//LANDING PAGE
+.index-page {
+    width: 100vw;
+
+    .slide-wrapper {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 100vw;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        .landing-page {
+            margin: 24px;
+            padding: 32px;
+            border-radius: 24px;
+            height: 100vh;
+            background-color: $red;
+            color: $white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: $gap-sm;
+            .landing-page-content {
+                display: flex;
+                height: 100%;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+
+                .date-countdown {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: $gap-xs;
+                    .countdown {
+                        display: flex;
+                        align-items: center;
+                        gap: $gap-xs;
+                    }
+                }
+
+                .animation {
+                    text-align: center;
+                }
+
+                .welcome-text {
+                    display: flex;
+                    flex-direction: column;
+                    gap: $gap-xs;
+                }
+            }
+            .button {
+                align-self: end;
+                width: auto;
+            }
+        }
+        .event-page {
+            margin: 24px;
+            display: flex;
+            padding: 48px 32px 32px 32px;
+            height: 100vh;
+            border-radius: 24px;
+            background-color: $blue;
+            color: $white;
+            flex-direction: column;
+            align-items: center;
+            gap: $gap-md;
+
+            .event-info {
+                display: flex;
+                flex-direction: column;
+                gap: $gap-md;
+                .event-title {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: $gap-xs;
+                    .divider {
+                        height: 1px;
+                        width: 230px;
+                        background-color: $white;
+                        opacity: 0.5;
+                        margin-top: 32px;
+                    }
+                }
+                .event-description {
+                    display: flex;
+                    flex-direction: column;
+                    gap: $gap-md;
+                    .event-text {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 4px;
+                    }
+                    .event-text.box {
+                        height: 180px;
+                        .text-box {
+                            display: flex;
+                            padding: 16px 24px 16px 16px;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            gap: var(--base-units-unit-1, 8px);
+                            flex: 1 0 0;
+                            align-self: stretch;
+                            border-radius: var(
+                                --layout-corner-radius-block,
+                                24px
+                            );
+                            border: 1px solid var(--layout-stroke-white, #fff);
+                            margin-top: 4px;
+                            max-height: 150px;
+                            overflow-y: auto;
+                        }
+                    }
+                }
+            }
+        }
+
+        .button-primary-red {
+            align-self: end;
+            width: auto;
+        }
+        .event-page.auth {
+            background-color: $red;
+        }
+    }
+
+    .snaps-inline {
+        scroll-snap-type: inline mandatory;
+        scroll-padding-inline: 24px;
+    }
+
+    .snaps-inline > * {
+        scroll-snap-align: start;
+    }
+
+    a {
+        width: 130px;
+    }
+
+    .slide-controls {
+        display: flex;
+        gap: 7px;
+        justify-content: center;
+        margin-bottom: 30px;
+        .slide-control {
+            width: 32px;
+            height: var(--base-units-unit-1, 8px);
+            border-radius: 20px;
+            background: var(--icon-faded, #bdbdbd);
+        }
+
+        .active {
+            background: var(--icon-black, #202020);
         }
     }
 }
@@ -947,7 +1108,7 @@
 
 //PROFILE PAGE & EDIT PAGE
 @mixin common-profile-styles {
-    margin: 48px 24px 24px 24px;
+    margin: 24px 24px 24px 24px;
 
     p,
     a {
@@ -1068,18 +1229,19 @@
     @include common-profile-styles;
 
     .company-profile {
+        position: relative;
+        top: -48px;
         .profile-header {
             display: flex;
+            flex-direction: column;
             justify-content: center;
 
             .profile-info {
                 justify-content: center;
                 flex-direction: column;
                 align-items: center;
-
+                margin: 24px 45px 0 45px;
                 .info {
-                    margin: 220px 24px 0;
-
                     .title-2,
                     p {
                         text-align: center;
@@ -1088,14 +1250,14 @@
             }
 
             .profile-img {
-                position: absolute;
-                left: 0;
-                right: 0;
                 border-radius: 0 0 20px 20px;
+                position: relative;
+                width: 100vw;
+                left: -24px;
 
                 img {
-                    height: 200px;
                     width: 100%;
+                    height: 200px;
                     border-radius: 0 0 20px 20px;
                 }
             }
@@ -1103,7 +1265,7 @@
             .save {
                 position: absolute;
                 right: 24px;
-                margin-top: 220px;
+                margin-top: 233px;
             }
         }
     }
