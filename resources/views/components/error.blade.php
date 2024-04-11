@@ -1,3 +1,6 @@
 @if ($errors->any())
-    <p class="error">{{ $errors->first() }}</p>
+    <div class="error-div">
+        <div class="error-close">x</div>
+        <p class="error">{{ $errors->first() }}</p>
+    </div>
 @endif

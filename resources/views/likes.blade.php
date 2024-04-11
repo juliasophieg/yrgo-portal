@@ -9,6 +9,7 @@
 @section('content')
 
     <div class="main">
+        @include('components.error')
         <div class="liked-page">
             @if ($user->role === 'student')
                 <div class="page-header">
@@ -17,9 +18,9 @@
                 </div>
                 <div class="cards-section">
                     @if (count($likedUsers) <= 0)
-                        <div class="no-likes">You haven't liked any companies yet, head to our <a
-                                href="{{ route('companies') }}">companies
-                                page</a> to find some!</div>
+                        <div class="no-likes">Du har inte gillat några företag ännu, gå till vår <a
+                                href="{{ route('companies') }}">företags
+                                sida</a> för att hitta några</div>
                     @else
                         @foreach ($likedUsers as $company)
                             <div class="card">
@@ -32,6 +33,7 @@
                                     @endif
                                 </div>
                                 <div class="info-section">
+                                    <a href="/companies/{{ $company->id }}"></a>
                                     <div class="info">
                                         <div class="name">{{ $company->userable->company_name }}</div>
                                         <div class="title">{{ $company->userable->location }}</div>
@@ -52,9 +54,8 @@
 
                 <div class="cards-section">
                     @if (count($likedUsers) <= 0)
-                        <div class="no-likes">You haven't liked any students yet, head to our <a
-                                href="{{ route('students') }}">students
-                                page</a> to find some!</div>
+                        <div class="no-likes">Du har inte gillat några studenter ännu, gå till vår <a
+                                href="{{ route('students') }}">student sida</a> för att hitta några</div>
                     @else
                         @foreach ($likedUsers as $student)
                             <div class="card">
@@ -67,11 +68,12 @@
                                     @endif
                                 </div>
                                 <div class="info-section">
-                                    <div class="info">
-                                        <div class="name">{{ $student->name }}</div>
-                                        <div class="title">Student at Yrgo</div>
-                                    </div>
-
+                                    <a href="/students/{{ $student->id }}">
+                                        <div class="info">
+                                            <div class="name">{{ $student->name }}</div>
+                                            <div class="title">Student på Yrgo</div>
+                                        </div>
+                                    </a>
                                     <div class="save">
                                         <livewire:like-button :userId="$student->id" />
                                     </div>

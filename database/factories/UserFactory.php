@@ -92,9 +92,4 @@ class UserFactory extends Factory
             $user->save();
         });
     }
-
-    public function withJob()
-    {
-        return $this->has(UserJob::factory()->withTechnologies()->count(1));
-    }
 }

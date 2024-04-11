@@ -26,32 +26,19 @@ class OnboardingController extends Controller
 
         $user = Auth::user();
         $request->validate([
-            'technology_names_searching' => 'required|string',
             'technology_names_using' => 'required|string',
+        ], [
+            'technology_names_using.required' => 'Vänligen välj teknologierna du/ni använder',
         ]);
 
-        $technologyNamesSearchingString = $request->input('technology_names_searching');
-        $technologyNamesUsingString = $request->input('technology_names_using');
+
+        $technologyNamesSearchingString = $request->input('technology_names_using');
 
         $technologyNamesSearchingArray = explode(',', $technologyNamesSearchingString);
-        $technologyNamesUsingArray = explode(',', $technologyNamesUsingString);
 
         $user = Auth::user();
 
-        $job = UserJob::create([
-            'user_id' => $user->id,
-            'description' => '',
-        ]);
-
         foreach ($technologyNamesSearchingArray as $technologyName) {
-            $technology = Technologies::where("name", "=", $technologyName)->first();
-            if ($technology) {
-                $job->technologies()->attach($technology);
-                $job->save();
-            }
-        }
-
-        foreach ($technologyNamesUsingArray as $technologyName) {
             $technology = Technologies::where("name", "=", $technologyName)->first();
 
             if ($technology) {

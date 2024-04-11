@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('facebook')->nullable()->default(null);
             $table->string('linkedin')->nullable()->default(null);
             $table->boolean('onboarding_completed')->default(false);
+            $table->string('website')->nullable()->default(null);
 
             $table->rememberToken();
             $table->timestamps();
