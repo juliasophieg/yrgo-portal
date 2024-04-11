@@ -14,17 +14,22 @@
         <div class="landing-page">
             <div class="landing-page-content">
                 <div class="date-countdown">
-                    <p class="body">15:00-17:00 Måndag, 15 april, 2024</p>
+                    <p class="body">15:00-17:00 Onsdag, 24 april, 2024</p>
                     <div class="countdown">
                         <p class="body-small">Eventet startar om:</p>
                         <div class="button button-secondary-fill">10:21:36</div>
                     </div>
                 </div>
-                <div class="animation">
-                    <div class="title-1">Digital Designer</div>
+                <div id="animation">
+                    <span class="title-1" id="digital-designer">Digital Designer</span>
+                    <span class="title-2-desktop" id="x-first">×</span>
+                    <span class="title-1" id="web-developer">Webb-utvecklare</span>
+                    <span class="title-2-desktop" id="x-second">×</span>
+                    <span class="title-1" id="branch">Branchen</span>
+                    <span id="yrgo-container"><img src="/images/logo/yrgo-vit.svg" alt=""></span>
                 </div>
                 <div class="welcome-text">
-                    <h2 class="title-2">Välkommen <br> på event</h2>
+                    <h2 class="title-2">Välkommen på event</h2>
                     <p class="body">Upptäck nya möjligheter! Välkommen till vårt evenemang där företag och studenter möts för att skapa framtida samarbeten och praktikplatser. Anmäl dig nu för att inte missa detta unika tillfälle!</p>
                 </div>
             </div>
@@ -33,7 +38,7 @@
         </div>
         @endguest
         <!-- If auth user display red event confirmation, if guest display blue event info -->
-        <div class="event-page @if(auth()->check()) auth @else not-auth @endif">
+        <div class="event-page {{ auth()->check() ? 'auth' : 'not-auth' }}">
             <div class="event-info">
                 <div class="event-title">
                     <h1 class="title-1">Välkommen</h1>
@@ -68,7 +73,7 @@
                     </div>
                 </div>
             </div>
-            <!-- If auth user show "Min prfil", if guest display register button-->
+            <!-- If auth user show "Min profil", if guest display register button-->
             @auth
             <a href="{{ route('profile') }}" class="button button-secondary-fill">Min profil</a>
             @endauth
@@ -89,6 +94,7 @@
 
 
 <script>
+    //SLIDE FUNCTIONALITY
     const slides = document.querySelectorAll('.slide-wrapper > div');
 
     // Function to check which slide is currently in view
@@ -147,6 +153,31 @@
 
     // Update indicator when the window is resized
     window.addEventListener('resize', updateSlideIndicator);
+
+
+    //ANIMATION
+
+    const animationElementIds = ["digital-designer", "x-first", "web-developer", "x-second", "branch", "yrgo-container"];
+    const animation = document.getElementById("animation");
+
+    // Function to rotate elements
+    function rotateAnimation(index) {
+        animationElementIds.forEach((id, i) => {
+            const animationElement = document.getElementById(id);
+            if (i === index) {
+                animationElement.style.display = "inline";
+            } else {
+                animationElement.style.display = "none";
+            }
+        });
+
+        //Last element (Yrgo logo) shows for two seconds
+        const timeoutDuration = index === animationElementIds.length - 1 ? 2000 : 1000;
+        setTimeout(() => {
+            rotateAnimation((index + 1) % animationElementIds.length); // Continue rotating to the next word
+        }, timeoutDuration);
+    }
+    rotateAnimation(0);
 </script>
 
 @endsection
