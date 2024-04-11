@@ -1,12 +1,12 @@
 <div class="menu">
     <div class="navbar">
-        <div class="logo">
+        <a href="/" class="logo">
             <img src="{{ asset('images/logo/logo.svg') }}" alt="Logo">
-        </div>
+        </a>
         <div class="button-menu">
             @guest <!-- Display login button if user is guest-->
             <a href="{{ route('login') }}" class="button button-secondary-transparent">LOGGA IN</a>
-            @endauth
+            @endguest
             <div class="hamburger" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
