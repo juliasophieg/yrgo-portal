@@ -21,11 +21,10 @@
                 <div class="form-header">
                     @if ($user->role == 'student')
                         <div class="form-title">Student</div>
-                        <div class="form-subtitle">Trevligt nu har du ett konto!</div>
                     @else
                         <div class="form-title">Företag</div>
-                        <div class="form-subtitle">Trevligt nu har du ett konto!</div>
                     @endif
+                    <div class="form-subtitle">Trevligt nu har du ett konto!</div>
 
                 </div>
             </div>
@@ -33,7 +32,13 @@
                 @csrf
                 <div class="first-section active">
                     <div class="top-section">
-                        <div class="text">Vad Brukar ni hålla på med?</div>
+
+
+                        @if ($user->role == 'student')
+                            <div class="text">Vad har du för kompetenser?</div>
+                        @else
+                            <div class="text">Vad jobbar ni med?</div>
+                        @endif
                         <div class="used-technologies-section">
                             @foreach ($technologies as $technology)
                                 <div class="used-technology" data-value="{{ $technology->name }}">{{ $technology->name }}
@@ -58,6 +63,7 @@
                             </svg>
                         </div>
                         <div class="text">Du är klar!</div>
+                        <div class="sub-text">Gå till din profil för att lägga till mer information</div>
                     </div>
                     <div class="buttons">
                         <div class="back">Tillbaka</div>
