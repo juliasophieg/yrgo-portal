@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!localStorageItems || localStorageItems.length === 0) {
             const searchDiv = document.createElement("div");
             searchDiv.classList.add("search-data-unavailable");
-            searchDiv.innerHTML = "Select a category";
+            searchDiv.innerHTML = "Lägg till en kategori";
             searchContainer.appendChild(searchDiv);
         } else {
             searchContainer.innerHTML = "";

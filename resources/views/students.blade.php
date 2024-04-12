@@ -12,10 +12,9 @@
         <div class="students-page">
             <div class="search-section">
                 <div class="text">
-                    <div class="title">Search through
-                        Yrgos archive!</div>
-                    <div class="subtitle">Find your future colleagues here.
-                        Simply search by Category using the button below</div>
+                    <div class="title">Sök i arkivet</div>
+                    <div class="subtitle">Hitta dina framtida kollegor här.
+                        Filtrera för att hitta det du söker!</div>
                 </div>
                 <div class="search">
                     <form action="{{ route('students.searchByTechnologies') }}" method="get" id="searchForm">
@@ -42,7 +41,7 @@
             </div>
             <div class="cards-section">
                 @if (count($students) <= 0)
-                    No students meet those criteria, try a different one, or not as many.
+                    Inga studenter jobbar med detta, testa en annan kategori eller färre.
                 @else
                     @foreach ($students as $student)
                         <div class="student-card">
@@ -58,7 +57,7 @@
                                 <a href="/students/{{ $student->id }}">
                                     <div class="info">
                                         <div class="name">{{ $student->name }}</div>
-                                        <div class="title">Student at Yrgo</div>
+                                        <div class="title">Student på Yrgo</div>
                                     </div>
                                 </a>
                                 <div class="save">

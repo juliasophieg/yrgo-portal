@@ -20,15 +20,14 @@
                     </div>
                     <div class="bottom-header">
                         <div class="sign-up">
-                            <div class="title">Sign Up</div>
+                            <div class="title">Skapa Konto</div>
                             <div class="line"></div>
                         </div>
-                        <div class="subtitle">Who are you?</div>
+                        <div class="subtitle">Vem är du? </div>
                     </div>
                 </div>
 
                 <div class="choices">
-                    <div class="text">I'm a:</div>
                     <div class="option-buttons">
                         <button type="button" id="studentButton" value="student">Student</button>
                         <button type="button" id="companyButton" value="company">Företag</button>
@@ -55,13 +54,14 @@
                             <input id="name" name="name" type="name" required placeholder="Förnamn Efternamn">
                         </div>
                         <div class="input">
-                            <label for="email">Email</label>
+                            <label for="email">Email (syns i profilen)</label>
                             <input id="email" name="email" type="email" required
-                                placeholder="name.namesson@gmail.com">
+                                placeholder="ex. name.namesson@mail.com">
                         </div>
                         <div class="input">
                             <label for="password">Lösenord</label>
-                            <input id="password" name="password" type="password" required placeholder="Ditt lösenord">
+                            <input id="password" name="password" type="password" required
+                                placeholder="Ditt lösenord (minst 8 karaktärer)">
                         </div>
                         <input type="hidden" name="role" id="role">
                         <button type="submit">Skapa Konto</button>

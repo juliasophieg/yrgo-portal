@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
         firstSection.style.display = "none";
         title.textContent = "Företag";
         nameDiv.textContent = "Företags Namn";
-        inputName.placeholder = "Företag AB";
+        inputName.placeholder = "ex. Företaget AB";
         document.getElementById("role").value = "company";
     });
 });
