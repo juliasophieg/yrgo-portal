@@ -69,7 +69,6 @@ class ProfileController extends Controller
         elseif ($user->role === 'company') {
             $companyInfo = CompanyInfo::findOrFail($user->userable_id);
             $companyInfo->update([
-                'company_name' => $request->input('company_contact_name'),
                 'location' => $request->input('location'),
             ]); //todo: validate the input
         }

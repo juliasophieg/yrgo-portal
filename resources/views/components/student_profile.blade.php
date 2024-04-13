@@ -10,7 +10,7 @@
         <div class="profile-info">
             <div class="info">
                 <h1 class="title-2">{{ $user->name }}</h1>
-                <p class="subtitle">Student på Yrgo</p>
+                <p class="subtitle">{{ $extraInfo->program }}</p>
             </div>
             <!-- Display "Redigera" if the logged-in user's ID matches the profile ID -->
             @if ($user->id === Auth::id())
@@ -49,7 +49,7 @@
                 ['value' => $user->email, 'label' => $user->email, 'icon' => '/images/icons/mail.svg'],
                 ['value' => $extraInfo->student_website, 'label' => 'Website', 'icon' => ''],
                 ['value' => $user->linkedin, 'label' => $user->name, 'icon' => '/images/icons/linkedin.svg'],
-                ['value' => $user->facebook, 'label' => $user->name, 'icon' => '/images/icons/facebook.svg'],
+                ['value' => $user->facebook, 'label' => '@' . $user->name, 'icon' => '/images/icons/instagram.svg'],
                 ];
                 @endphp
 
