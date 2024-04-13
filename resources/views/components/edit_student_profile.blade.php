@@ -22,6 +22,13 @@
         <div class="main-section">
             <h2 class="title-4">Om mig</h2>
             <textarea id="description" name="description" rows="4" class="form-control">{{ $user->description ?? '' }}</textarea>
+
+        </div>
+        <div class="divider"></div>
+
+        <!-- COMPETENCIES -->
+        <div class="main-section">
+            <h2 class="title-4">Kompetenser</h2>
             <!-- Technologies-->
             <div class="technologies">
                 <!-- Display selected technologies -->
@@ -33,7 +40,7 @@
                     </div>
                     @endforeach
                 </div>
-                <div class="more-technologies">Hitta fler kompetenser</div>
+                <div class="more-technologies">Se fler kompetenser</div>
                 <div class="unselected-technologies">
                     <!-- Hide unselected technologies intitially -->
                     @foreach($technologies as $technology)
@@ -41,37 +48,6 @@
                     <div class="technology-checkbox">
                         <label>{{ $technology->name }}</label>
                         <input type="checkbox" name="technologies[]" value="{{ $technology->id }}">
-                    </div>
-                    @endif
-                    @endforeach
-                </div>
-            </div>
-        </div>
-        <div class="divider"></div>
-
-        <!-- LOOKING FOR -->
-        <div class="main-section">
-            <h2 class="title-4">Vad jag söker</h2>
-            <textarea id="job_description" name="job_description" rows="4" class="form-control">{{ $userJob->description ?? '' }}</textarea>
-            <!-- Job technologies-->
-            <div class="technologies">
-                <!-- Display selected jobs -->
-                <div class="selected-jobs">
-                    @foreach($user->job->technologies as $technology)
-                    <div class="technology-checkbox selected">
-                        <label>{{ $technology->name }}</label>
-                        <input type="checkbox" name="user_job_technologies[]" value="{{ $technology->id }}" checked>
-                    </div>
-                    @endforeach
-                </div>
-                <div class="more-jobs">Lägg till fler önskemål</div>
-                <!-- Hide unselected technologies jobs -->
-                <div class="unselected-jobs">
-                    @foreach($technologies as $technology)
-                    @if (!$user->job->technologies->contains($technology))
-                    <div class="technology-checkbox">
-                        <label>{{ $technology->name }}</label>
-                        <input type="checkbox" name="user_job_technologies[]" value="{{ $technology->id }}">
                     </div>
                     @endif
                     @endforeach
