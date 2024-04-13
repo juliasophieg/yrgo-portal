@@ -26,8 +26,6 @@
 <script>
     const moreTechnologies = document.querySelector('.more-technologies');
     const unselectedTechnologies = document.querySelector('.unselected-technologies');
-    const moreJobs = document.querySelector('.more-jobs');
-    const unselectedJobs = document.querySelector('.unselected-jobs');
     const technologyBtns = document.querySelectorAll('.technology-checkbox');
 
     moreTechnologies.addEventListener('click', () => {
@@ -35,10 +33,6 @@
         moreTechnologies.style.display = 'none';
     });
 
-    moreJobs.addEventListener('click', () => {
-        unselectedJobs.classList.toggle('show');
-        moreJobs.style.display = 'none';
-    });
 
     technologyBtns.forEach(technologyBtn => {
         technologyBtn.addEventListener('click', () => {

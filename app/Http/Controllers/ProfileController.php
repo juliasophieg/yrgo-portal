@@ -37,13 +37,12 @@ class ProfileController extends Controller
 
         $extraInfo = $user->userable;
 
-        // Fetch user's job information
-        $userJob = $user->job;
+
 
         // Fetch all technologies
         $technologies = Technologies::all();
 
-        return view('edit_profile', compact('user', 'extraInfo', 'userJob', 'technologies'));
+        return view('edit_profile', compact('user', 'extraInfo', 'technologies'));
     }
 
     public function update(Request $request, $id)
@@ -55,6 +54,7 @@ class ProfileController extends Controller
         $user->linkedin = $request->input('linkedin');
         $user->facebook = $request->input('facebook');
         $user->phone = $request->input('phone');
+        $user->website = $request->input('website');
         $user->save();
 
         // Update student or company info based on the user's role
@@ -70,26 +70,14 @@ class ProfileController extends Controller
             $companyInfo = CompanyInfo::findOrFail($user->userable_id);
             $companyInfo->update([
                 'company_name' => $request->input('company_contact_name'),
-                'company_contact_email' => $request->input('email'),
-                'company_contact_number' => $request->input('phone'),
-                'company_website' => $request->input('website'),
-                'company_industry' => $request->input('industry'),
-                'employees' => $request->input('employees'),
                 'location' => $request->input('location'),
-                'total_positions' => $request->input('total_positions'),
             ]); //todo: validate the input
         }
 
         // Sync the user technologies
         $user->technologies()->sync($request->input('technologies'));
 
-        $userJob = $user->job;
-        // Sync the user job technologies
-        $userJob->technologies()->sync($request->input('user_job_technologies'));
 
-        // Update user job description
-        $userJob->description = $request->input('job_description');
-        $userJob->save();
 
         return redirect('/profile')->with('success', 'Din profil har uppdaterats!');
     }
