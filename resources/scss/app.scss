@@ -1333,8 +1333,8 @@
 
             .save {
                 position: absolute;
-                right: 24px;
-                margin-top: 233px;
+                right: 0;
+                margin-top: 192px;
             }
         }
     }
@@ -1379,16 +1379,19 @@
         flex-direction: column;
         gap: $gap-xs;
 
-        textarea.title-2 {
+        input.name {
             color: var(--text-dark-black-100, #202020);
             font-style: normal;
-            font-weight: 400;
             line-height: 1.4;
             margin: 0;
-            font-size: 27.648px;
+            text-align: center;
+            font-size: 22px;
             font-weight: 700;
             line-height: 30.415px; /* 110.008% */
             letter-spacing: -0.5px;
+        }
+        input.location {
+            text-align: center;
         }
 
         .technologies {
@@ -1400,7 +1403,6 @@
 
             .more-technologies,
             .more-jobs {
-                text-align: center;
                 text-decoration: underline;
                 cursor: pointer;
             }

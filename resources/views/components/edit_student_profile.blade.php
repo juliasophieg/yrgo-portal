@@ -11,7 +11,8 @@
         </div>
         <div class="profile-info">
             <div class="info">
-                <textarea class="title-2" id="name" name="name">{{ $user->name }}</textarea>
+                <input field="text" class="name" id="name" name="name" value="{{ $user->name }}" placeholder="Företagsnamn">
+                <input field="text" type="text" id="program" name="program" value="{{ $extraInfo->program }}" placeholder="Vad studerar du?">
             </div>
             <a href="{{ route('profile') }}">Avbryt</a>
         </div>
@@ -62,14 +63,16 @@
             <h2 class="title-4">Kontakt</h2>
             <ul>
                 @foreach ([
-                'phone' => ['label' => 'Telefon', 'type' => 'phone', 'icon' => '/images/icons/phone.svg', 'value' => $user->phone ?? ''],
-                'linkedin' => ['label' => 'LinkedIn', 'type' => 'text', 'icon' => '/images/icons/linkedin.svg', 'value' => $user->linkedin],
-                'facebook' => ['label' => 'Facebook', 'type' => 'text', 'icon' => '/images/icons/facebook.svg', 'value' => $user->facebook],
+                'phone' => ['label' => 'Telefon', 'type' => 'phone', 'icon' => '/images/icons/phone.svg', 'value' => $user->phone ?? '', 'placeholder' => 'Telefon'],
+                'linkedin' => ['label' => 'LinkedIn', 'type' => 'url', 'icon' => '/images/icons/linkedin.svg', 'value' => $user->linkedin, 'placeholder' => 'LinkedIn'],
+                'instagram' => ['label' => 'instagram', 'type' => 'url', 'icon' => '/images/icons/instagram.svg', 'value' => $user->facebook, 'placeholder' => 'Instagram'],
+                'website' => ['label' => 'Hemsida', 'type' => 'url', 'icon' => '/images/icons/instagram.svg', 'value' => $user->website ?? '', 'placeholder' => 'www.exempel.se']
+
                 ] as $field => $attributes)
                 <!-- Input fields-->
                 <li>
                     <img src="{{ $attributes['icon'] }}" alt="">
-                    <input type="{{ $attributes['type'] }}" class="form-control" id="{{ $field }}" name="{{ $field }}" value="{{ $attributes['value'] }}">
+                    <input type="{{ $attributes['type'] }}" class="form-control" id="{{ $field }}" name="{{ $field }}" value="{{ $attributes['value'] }}" placeholder="{{ $attributes['placeholder'] }}">
                 </li>
                 @endforeach
             </ul>
