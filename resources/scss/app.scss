@@ -176,7 +176,7 @@
             margin: 24px;
             padding: 32px;
             border-radius: 24px;
-            height: 100vh;
+            height: calc(100vh - 206px);
             background-color: $red;
             color: $white;
             display: flex;
@@ -197,8 +197,14 @@
                     gap: $gap-xs;
                     .countdown {
                         display: flex;
+                        flex-direction: column;
                         align-items: center;
                         gap: $gap-xs;
+                        .button-secondary-fill {
+                            display: flex;
+                            padding: 8px 16px;
+                            height: auto;
+                        }
                     }
                 }
 
@@ -229,7 +235,7 @@
             margin: 24px;
             display: flex;
             padding: 48px 32px 32px 32px;
-            height: 100vh;
+            height: calc(100vh - 206px);
             border-radius: 24px;
             background-color: $blue;
             color: $white;
@@ -293,6 +299,7 @@
         }
         .event-page.auth {
             background-color: $red;
+            height: calc(100vh - 174px);
         }
     }
 
@@ -314,7 +321,8 @@
         gap: 7px;
         justify-content: center;
         margin-bottom: 30px;
-        .slide-control {
+        .slide-control-landing-page,
+        .slide-control-event-page {
             width: 32px;
             height: var(--base-units-unit-1, 8px);
             border-radius: 20px;
