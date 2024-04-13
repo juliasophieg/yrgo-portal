@@ -26,14 +26,14 @@
             <li><a href="{{ route('likes') }}">Sparade företag</a></li>
             <li><a href="#">Sök företag</a></li>
             @endif
-            <li><a href="#">Eventet</a></li>
+            <li><a href="/">Eventet</a></li>
         </ul>
         <div class="divider"></div>
         <a href="{{ route('logout') }}" class="button button-secondary-transparent">LOG OUT</a>
+
         @else <!-- If user is guest -->
         <ul>
-            <li><a href="#">Anmälda företag</a></li>
-            <li><a href="#">Eventet</a></li>
+            <li><a href="/#event-page">Eventet</a></li>
         </ul>
         <div class="divider"></div>
         <div class="button-group">
