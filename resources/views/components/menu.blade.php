@@ -1,11 +1,16 @@
 <div class="menu">
     <div class="navbar">
+        @if (request()->is('profile') || request()->is('students/*') || request()->is('companies/*'))
+            <a href="{{ URL::previous() }}" class="logo">
+                <img src="{{ asset('images/icons/chevron-left.svg') }}" alt="Logo">
+            </a>
+        @endif
         <a href="/" class="logo">
             <img src="{{ asset('images/logo/logo.svg') }}" alt="Logo">
         </a>
         <div class="button-menu">
             @guest <!-- Display login button if user is guest-->
-            <a href="{{ route('login') }}" class="button button-secondary-transparent">LOGGA IN</a>
+                <a href="{{ route('login') }}" class="button button-secondary-transparent">LOGGA IN</a>
             @endguest
             <div class="hamburger" onclick="toggleMenu()">
                 <span></span>
@@ -17,6 +22,7 @@
     </div>
     <div class="menu-content">
         @auth <!-- Check if the user is logged in-->
+
         <ul>
             <li><a href="{{ route('profile') }}">Profil</a></li>
             @if (Auth::user()->role == 'company')<!-- If logged in user is company -->
