@@ -43,9 +43,13 @@
     }
 
     .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        .width-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1320px;
+            margin: 0 auto;
+        }
 
         .button-menu {
             display: flex;
@@ -415,7 +419,7 @@
     gap: 32px;
     display: flex;
     justify-content: center;
-    @for $i from 1 through 4 {
+    @for $i from 1 through 3 {
         .number-#{$i} {
             padding: 8px;
             display: flex;
@@ -440,7 +444,7 @@
 .onboarding-page {
     margin: 24px;
     padding: 48px 32px 32px 32px;
-    height: calc(100vh - 112px);
+    height: calc(100vh - 168px);
     border-radius: 24px;
     background-color: $blue;
     color: $white;
@@ -625,15 +629,57 @@
 .register-page {
     margin: 24px;
     padding: 48px 32px 32px 32px;
-    height: calc(100vh - 112px);
+    height: calc(100vh - 168px);
     border-radius: 24px;
     background-color: $blue;
     color: $white;
-
+    display: flex;
+    justify-content: center;
+    @media (min-width: $desktop-res) {
+        height: calc(100vh - 120px);
+        max-width: 1320px;
+    }
+    @media (min-width: ($desktop-res + 48px)) {
+        margin: 0 auto;
+    }
+    .width-container {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        flex-shrink: 0;
+        width: 100%;
+        @media (min-width: $desktop-res) {
+            max-width: 600px;
+        }
+    }
     .form-section {
         display: flex;
         flex-direction: column;
         gap: 32px;
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            @media (min-width: $desktop-res) {
+                gap: 64px;
+            }
+        }
+        .form-subtitle {
+            color: var(--text-light-white-100, #fff);
+            text-align: center;
+            font-size: 27.648px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 30.415px; /* 110.008% */
+            letter-spacing: -0.5px;
+            @media (min-width: $desktop-res) {
+                text-align: center;
+                font-size: 21.6px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 23.76px; /* 110% */
+            }
+        }
     }
 
     .bottom-text {
@@ -727,6 +773,9 @@
             flex-direction: column;
             align-items: center;
             gap: 16px;
+            @media (min-width: $desktop-res) {
+                gap: 128px;
+            }
 
             .bottom-header {
                 display: flex;
@@ -740,6 +789,12 @@
                     font-weight: 700;
                     line-height: 30.415px; /* 110.008% */
                     letter-spacing: -0.5px;
+                    @media (min-width: $desktop-res) {
+                        font-size: 21.6px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 23.76px; /* 110% */
+                    }
                 }
                 .sign-up {
                     display: flex;
@@ -753,13 +808,17 @@
                     }
                     .title {
                         color: $white;
-
                         text-align: center;
                         font-size: 57.34px;
                         font-style: normal;
                         font-weight: 400;
                         line-height: 63.074px; /* 110% */
                         letter-spacing: -1.72px;
+                        @media (min-width: $desktop-res) {
+                            font-size: 48px;
+                            font-weight: 700;
+                            line-height: 52.8px; /* 110% */
+                        }
                     }
                 }
             }
@@ -783,16 +842,15 @@
                     justify-content: center;
                     align-items: center;
                     gap: 8px;
-                    border-radius: 53px;
-                    border: 1px solid #fff;
-                    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-                    color: $white;
-                    text-align: center;
-                    font-size: 20px;
+                    color: var(--button-text-blue, #001a52);
+                    font-size: 14px;
                     font-style: normal;
                     font-weight: 400;
-                    line-height: normal;
-                    letter-spacing: -0.5px;
+                    line-height: 16px; /* 114.286% */
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    border-radius: var(--button-corner-radius-buttons, 128px);
+                    background: var(--button-fill-white, #fff);
                 }
             }
             .text {
