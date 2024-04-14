@@ -38,11 +38,18 @@
     background-color: $white;
     padding: 64px 24px 16px 24px;
     border-radius: 0px 0px 24px 24px;
+    @media (min-width: $desktop-res) {
+        padding: 16px 24px 16px 24px;
+    }
 
     .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        .width-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1320px;
+            margin: 0 auto;
+        }
 
         .button-menu {
             display: flex;
@@ -120,7 +127,10 @@
         height: 100vh;
         right: -100vw; // Hidden off-screen
         transition: right 0.3s ease-in-out;
-
+        @media (min-width: $desktop-res) {
+            margin-top: 72px;
+            width: 390px;
+        }
         &.open {
             right: 0; // Slide in when the 'open' class is added
         }
@@ -241,7 +251,17 @@
             flex-direction: column;
             align-items: center;
             gap: $gap-md;
+            &.auth {
+                @media (min-width: $desktop-res) {
+                    width: 1320px;
+                    margin: 0 auto;
+                    height: calc(100vh - 120px);
+                }
+            }
 
+            .width-container {
+                max-width: 600px;
+            }
             .event-info {
                 display: flex;
                 flex-direction: column;
@@ -422,12 +442,13 @@
         letter-spacing: -0.5px;
     }
 }
+
 .numbers {
     color: $black;
     gap: 32px;
     display: flex;
     justify-content: center;
-    @for $i from 1 through 4 {
+    @for $i from 1 through 3 {
         .number-#{$i} {
             padding: 8px;
             display: flex;
@@ -452,18 +473,71 @@
 .onboarding-page {
     margin: 24px;
     padding: 48px 32px 32px 32px;
-    height: calc(100vh - 112px);
+    height: calc(100vh - 168px);
     border-radius: 24px;
     background-color: $blue;
     color: $white;
     display: flex;
-    flex-direction: column;
-    gap: 32px;
-    position: relative;
+    justify-content: center;
+    @media (min-width: $desktop-res) {
+        height: calc(100vh - 120px);
+        max-width: 1320px;
+    }
+    @media (min-width: ($desktop-res + 48px)) {
+        margin: 0 auto;
+    }
+    .width-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        flex-shrink: 0;
+        width: 100%;
+        @media (min-width: $desktop-res) {
+            max-width: 600px;
+        }
+    }
+    .header {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        @media (min-width: $desktop-res) {
+            gap: 64px;
+        }
+
+        .form-title {
+            margin-top: 16px;
+            text-align: center;
+            font-size: 47.78px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 52.558px; /* 110% */
+            letter-spacing: -0.5px;
+            @media (min-width: $desktop-res) {
+                font-size: 48px;
+                font-weight: 700;
+                line-height: 52.8px; /* 110% */
+            }
+        }
+        .form-subtitle {
+            text-align: center;
+            font-size: 27.648px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 30.415px; /* 110.008% */
+            letter-spacing: -0.5px;
+            @media (min-width: $desktop-res) {
+                font-size: 21.6px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 23.76px; /* 110% */
+            }
+        }
+    }
     .completed {
         display: none;
         height: 100%;
-        z-index: 99;
+        z-index: 101;
         width: 100%;
         background-color: rgba(0, 0, 0, 0.5);
         position: fixed;
@@ -475,6 +549,7 @@
             border-radius: 24px;
             margin: 48px;
             width: 100%;
+            max-width: 600px;
             background-color: $white;
             display: flex;
             flex-direction: column;
@@ -561,6 +636,7 @@
         display: flex;
         flex-direction: column;
         flex-grow: 1;
+
         .first-section {
             display: none;
             flex-direction: column;
@@ -637,15 +713,70 @@
 .register-page {
     margin: 24px;
     padding: 48px 32px 32px 32px;
-    height: calc(100vh - 112px);
+    height: calc(100vh - 168px);
     border-radius: 24px;
     background-color: $blue;
     color: $white;
-
+    display: flex;
+    justify-content: center;
+    @media (min-width: $desktop-res) {
+        height: calc(100vh - 120px);
+        max-width: 1320px;
+    }
+    @media (min-width: ($desktop-res + 48px)) {
+        margin: 0 auto;
+    }
+    .width-container {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        flex-shrink: 0;
+        width: 100%;
+        @media (min-width: $desktop-res) {
+            max-width: 600px;
+        }
+    }
     .form-section {
         display: flex;
         flex-direction: column;
         gap: 32px;
+        .header {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            @media (min-width: $desktop-res) {
+                gap: 64px;
+            }
+
+            .form-title {
+                margin-top: 16px;
+                text-align: center;
+                font-size: 47.78px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 52.558px; /* 110% */
+                letter-spacing: -0.5px;
+                @media (min-width: $desktop-res) {
+                    font-size: 48px;
+                    font-weight: 700;
+                    line-height: 52.8px; /* 110% */
+                }
+            }
+            .form-subtitle {
+                text-align: center;
+                font-size: 27.648px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 30.415px; /* 110.008% */
+                letter-spacing: -0.5px;
+                @media (min-width: $desktop-res) {
+                    font-size: 21.6px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 23.76px; /* 110% */
+                }
+            }
+        }
     }
 
     .bottom-text {
@@ -739,6 +870,9 @@
             flex-direction: column;
             align-items: center;
             gap: 16px;
+            @media (min-width: $desktop-res) {
+                gap: 128px;
+            }
 
             .bottom-header {
                 display: flex;
@@ -752,6 +886,12 @@
                     font-weight: 700;
                     line-height: 30.415px; /* 110.008% */
                     letter-spacing: -0.5px;
+                    @media (min-width: $desktop-res) {
+                        font-size: 21.6px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 23.76px; /* 110% */
+                    }
                 }
                 .sign-up {
                     display: flex;
@@ -765,13 +905,17 @@
                     }
                     .title {
                         color: $white;
-
                         text-align: center;
                         font-size: 57.34px;
                         font-style: normal;
                         font-weight: 400;
                         line-height: 63.074px; /* 110% */
                         letter-spacing: -1.72px;
+                        @media (min-width: $desktop-res) {
+                            font-size: 48px;
+                            font-weight: 700;
+                            line-height: 52.8px; /* 110% */
+                        }
                     }
                 }
             }
@@ -795,16 +939,15 @@
                     justify-content: center;
                     align-items: center;
                     gap: 8px;
-                    border-radius: 53px;
-                    border: 1px solid #fff;
-                    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-                    color: $white;
-                    text-align: center;
-                    font-size: 20px;
+                    color: var(--button-text-blue, #001a52);
+                    font-size: 14px;
                     font-style: normal;
                     font-weight: 400;
-                    line-height: normal;
-                    letter-spacing: -0.5px;
+                    line-height: 16px; /* 114.286% */
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    border-radius: var(--button-corner-radius-buttons, 128px);
+                    background: var(--button-fill-white, #fff);
                 }
             }
             .text {
@@ -823,17 +966,32 @@
 
 .login-page {
     margin: 24px;
-    display: flex;
-    flex-direction: column;
-    display: flex;
     padding: 48px 32px 32px 32px;
-    align-items: center;
-    gap: 32px;
-    flex-shrink: 0;
-    height: calc(100vh - 112px);
+    height: calc(100vh - 168px);
     border-radius: 24px;
     background-color: $blue;
     color: $white;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    @media (min-width: $desktop-res) {
+        height: calc(100vh - 120px);
+        max-width: 1320px;
+    }
+    @media (min-width: ($desktop-res + 48px)) {
+        margin: 0 auto;
+    }
+    .width-container {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        flex-shrink: 0;
+        width: 100%;
+        @media (min-width: $desktop-res) {
+            max-width: 600px;
+        }
+    }
+
     .text-top {
         display: flex;
         gap: 32px;
@@ -951,6 +1109,7 @@
 
 .students-page,
 .companies-page {
+    max-width: 1318px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -961,11 +1120,13 @@
         flex-direction: column;
         gap: 32px;
         .text {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
             .title {
                 color: $black;
                 text-align: center;
                 font-feature-settings: "clig" off, "liga" off;
-                font-family: Inter;
                 font-size: 24px;
                 font-style: normal;
                 font-weight: 700;
@@ -976,7 +1137,6 @@
                 color: $black;
                 text-align: center;
                 font-feature-settings: "clig" off, "liga" off;
-                font-family: Inter;
                 font-size: 16px;
                 font-style: normal;
                 font-weight: 400;
@@ -1031,6 +1191,8 @@
                         }
                     }
                     .search-data-unavailable {
+                        color: var(--text-dark-black-50, #828282);
+
                         padding: 8px 16px;
                     }
                 }
@@ -1097,6 +1259,12 @@
         .company-card {
             display: flex;
             gap: $gap-sm;
+            @media (min-width: $desktop-res) {
+                border-radius: 20px;
+                background: var(--layout-block-blue, #001a52);
+                padding: 24px;
+                color: $white;
+            }
             .info-section {
                 display: flex;
                 justify-content: space-between;
@@ -1105,29 +1273,33 @@
                 gap: $gap-sm;
                 a {
                     text-decoration: none;
+                    width: 70%;
+                    word-break: break-word;
                 }
                 .info {
                     display: flex;
                     flex-direction: column;
                     gap: $gap-xs;
                     .name {
-                        color: $light-grey;
-                        font-feature-settings: "clig" off, "liga" off;
-                        font-family: Inter;
-                        font-size: 23.042px;
+                        color: var(--text-dark-black-100, #202020);
+                        font-size: 27.648px;
                         font-style: normal;
-                        font-weight: 400;
-                        line-height: 25.3px; /* 109.801% */
-                        letter-spacing: 1.25px;
+                        font-weight: 700;
+                        line-height: 30.415px; /* 110.008% */
+                        letter-spacing: -0.5px;
+                        @media (min-width: $desktop-res) {
+                            color: $white;
+                        }
                     }
                     .title {
-                        color: $black;
-                        font-family: Inter;
-                        font-size: 16px;
+                        color: var(--text-dark-black-100, #202020);
+                        font-size: 14px;
                         font-style: normal;
                         font-weight: 400;
-                        line-height: 22.4px; /* 140% */
-                        letter-spacing: -0.5px;
+                        line-height: 19.6px; /* 140% */
+                        @media (min-width: $desktop-res) {
+                            color: $white;
+                        }
                     }
                 }
                 .save {
@@ -1138,6 +1310,14 @@
             .image {
                 min-width: 40%;
                 max-width: 40%;
+                @media (min-width: $tablet-res) {
+                    min-width: 30%;
+                    max-width: 30%;
+                }
+                @media (min-width: $desktop-res) {
+                    min-width: 14%;
+                    max-width: 14%;
+                }
                 img {
                     height: 128px;
                     width: 100%;
@@ -1149,6 +1329,8 @@
     }
 }
 .liked-page {
+    max-width: 1318px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: $gap-md;
@@ -1159,6 +1341,7 @@
         gap: $gap-xs;
         text-align: center;
         .page-title-liked {
+            color: var(--text-dark-black-100, #202020);
             color: $black;
             font-feature-settings: "clig" off, "liga" off;
             font-family: Inter;
@@ -1167,18 +1350,28 @@
             font-weight: 700;
             line-height: 26.4px; /* 110% */
             letter-spacing: 0.18px;
+            @media (min-width: $desktop-res) {
+                font-size: 48px;
+                font-weight: 700;
+                line-height: 52.8px; /* 110% */
+            }
         }
 
         .page-subtitle-liked {
+            color: var(--text-dark-black-100, #202020);
             color: $black;
             font-feature-settings: "clig" off, "liga" off;
             /* sub1 */
-            font-family: Inter;
             font-size: 16px;
             font-style: normal;
             font-weight: 400;
             line-height: 24px; /* 150% */
             letter-spacing: 0.15px;
+            @media (min-width: $desktop-res) {
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 25.2px; /* 140% */
+            }
         }
     }
 
@@ -1186,9 +1379,19 @@
         display: flex;
         flex-direction: column;
         gap: $gap-md;
+        .no-likes {
+            text-align: center;
+        }
         .card {
             display: flex;
             gap: $gap-sm;
+
+            @media (min-width: $desktop-res) {
+                border-radius: 20px;
+                background: var(--layout-block-blue, #001a52);
+                padding: 24px;
+                color: $white;
+            }
             .info-section {
                 display: flex;
                 justify-content: space-between;
@@ -1204,23 +1407,25 @@
                     flex-direction: column;
                     gap: $gap-xs;
                     .name {
-                        color: $light-grey;
-                        font-feature-settings: "clig" off, "liga" off;
-                        font-family: Inter;
-                        font-size: 23.042px;
+                        color: var(--text-dark-black-100, #202020);
+                        font-size: 27.648px;
                         font-style: normal;
-                        font-weight: 400;
-                        line-height: 25.3px; /* 109.801% */
-                        letter-spacing: 1.25px;
+                        font-weight: 700;
+                        line-height: 30.415px; /* 110.008% */
+                        letter-spacing: -0.5px;
+                        @media (min-width: $desktop-res) {
+                            color: $white;
+                        }
                     }
                     .title {
-                        color: $black;
-                        font-family: Inter;
-                        font-size: 16px;
+                        color: var(--text-dark-black-100, #202020);
+                        font-size: 14px;
                         font-style: normal;
                         font-weight: 400;
-                        line-height: 22.4px; /* 140% */
-                        letter-spacing: -0.5px;
+                        line-height: 19.6px; /* 140% */
+                        @media (min-width: $desktop-res) {
+                            color: $white;
+                        }
                     }
                 }
                 .save {
@@ -1230,6 +1435,14 @@
             .image {
                 min-width: 40%;
                 max-width: 40%;
+                @media (min-width: $tablet-res) {
+                    min-width: 30%;
+                    max-width: 30%;
+                }
+                @media (min-width: $desktop-res) {
+                    min-width: 14%;
+                    max-width: 14%;
+                }
                 img {
                     height: 128px;
                     width: 100%;
