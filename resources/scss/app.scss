@@ -38,6 +38,9 @@
     background-color: $white;
     padding: 64px 24px 16px 24px;
     border-radius: 0px 0px 24px 24px;
+    @media (min-width: $desktop-res) {
+        padding: 16px 24px 16px 24px;
+    }
 
     .navbar {
         display: flex;
@@ -120,7 +123,10 @@
         height: 100vh;
         right: -100vw; // Hidden off-screen
         transition: right 0.3s ease-in-out;
-
+        @media (min-width: $desktop-res) {
+            margin-top: 72px;
+            width: 390px;
+        }
         &.open {
             right: 0; // Slide in when the 'open' class is added
         }
@@ -445,7 +451,7 @@
     .completed {
         display: none;
         height: 100%;
-        z-index: 99;
+        z-index: 101;
         width: 100%;
         background-color: rgba(0, 0, 0, 0.5);
         position: fixed;
@@ -805,17 +811,27 @@
 
 .login-page {
     margin: 24px;
-    display: flex;
-    flex-direction: column;
-    display: flex;
     padding: 48px 32px 32px 32px;
     align-items: center;
-    gap: 32px;
-    flex-shrink: 0;
-    height: calc(100vh - 112px);
+    height: calc(100vh - 168px);
     border-radius: 24px;
     background-color: $blue;
     color: $white;
+    display: flex;
+    justify-content: center;
+    @media (min-width: $desktop-res) {
+        height: calc(100vh - 120px);
+    }
+    .width-container {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        flex-shrink: 0;
+        width: 100%;
+        @media (min-width: $desktop-res) {
+            max-width: 600px;
+        }
+    }
     .text-top {
         display: flex;
         gap: 32px;
@@ -1203,6 +1219,9 @@
         display: flex;
         flex-direction: column;
         gap: $gap-md;
+        .no-likes {
+            text-align: center;
+        }
         .card {
             display: flex;
             gap: $gap-sm;
