@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\OnboardingController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\GdprConsentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\CompaniesController;
@@ -18,9 +19,18 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [IndexController::class, "index"])->middleware([OnboardingMiddleware::class]);
 
 
+Route::get('register', [RegisterController::class, "index"])->middleware("guest")->name("register");
+Route::post('register', [RegisterController::class, "register"])->middleware("guest")->name("register");
+
+
+Route::get('gdpr-consent', [gdprConsentController::class, 'index'])->middleware("guest")->name('gdpr-consent');
 
 Route::get("login", [LoginController::class, "index"])->middleware("guest")->name("login");
 Route::post("login", [LoginController::class, "login"])->middleware("guest");
+
+
+Route::get('logout', LogoutController::class)->name("logout");
+
 
 Route::get("students", [StudentsController::class, "index"])->middleware(["auth", OnboardingMiddleware::class])->name("students");
 Route::get("students/search", [StudentsController::class, "searchStudentsByTechnologies"])
@@ -41,9 +51,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('onboarding', [OnboardingController::class, "update"])->name('onboarding');
 });
 
-Route::get('logout', LogoutController::class)->name("logout");
-Route::get('register', [RegisterController::class, "index"])->middleware("guest")->name("register");
-Route::post('register', [RegisterController::class, "register"])->middleware("guest")->name("register");
 
 
 Route::get('/profile/edit', [ProfileController::class, 'edit'])->middleware(["auth", OnboardingMiddleware::class])->name('edit-profile');

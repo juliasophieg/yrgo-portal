@@ -22,7 +22,7 @@
                 <p class="body">Upptäck nya möjligheter! Välkommen till vårt evenemang där företag och studenter möts för att skapa framtida samarbeten och praktikplatser. Anmäl dig nu för att inte missa detta unika tillfälle!</p>
             </div>
         </div>
-        <a class="button button-primary-blue" href="{{ route('register') }}">Anmäl dig nu!</a>
+        <a class="button button-primary-blue" href="{{ route('gdpr-consent') }}">Anmäl dig nu!</a>
 
     </div>
     <div class="event-page not-auth" id="event-page">
@@ -59,7 +59,7 @@
             </div>
         </div>
 
-        <a class="button button-primary-red" href="{{ route('register') }}">Anmäl dig nu!</a>
+        <a class="button button-primary-red" href="{{ route('gdpr-consent') }}">Anmäl dig nu!</a>
 
     </div>
     </div>
