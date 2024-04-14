@@ -37,8 +37,6 @@ class ProfileController extends Controller
 
         $extraInfo = $user->userable;
 
-
-
         // Fetch all technologies
         $technologies = Technologies::all();
 
@@ -89,19 +87,15 @@ class ProfileController extends Controller
         // Sync the user technologies
         $user->technologies()->sync($request->input('technologies'));
 
-
-
         return redirect('/profile')->with('success', 'Din profil har uppdaterats!');
     }
 
     public function likes()
     {
-
         $user = Auth::user();
 
         // Retrieve all the liked users by the authenticated user
         $likes = $user->likes;
-
 
         $likedUsers = $likes->map(function ($like) {
             return $like->likedUser;
