@@ -885,7 +885,8 @@
     }
 }
 
-.students-page {
+.students-page,
+.companies-page {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -1028,7 +1029,8 @@
         display: flex;
         flex-direction: column;
         gap: $gap-sm;
-        .student-card {
+        .student-card,
+        .company-card {
             display: flex;
             gap: $gap-sm;
             .info-section {

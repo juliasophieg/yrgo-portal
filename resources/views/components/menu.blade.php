@@ -24,12 +24,12 @@
             <li><a href="{{ route('students') }}">Sök studenter</a></li>
             @else <!-- If logged in user is student -->
             <li><a href="{{ route('likes') }}">Sparade företag</a></li>
-            <li><a href="#">Sök företag</a></li>
+            <li><a href="{{ route('companies') }}">Sök företag</a></li>
             @endif
             <li><a href="/">Eventet</a></li>
         </ul>
         <div class="divider"></div>
-        <a href="{{ route('logout') }}" class="button button-secondary-transparent">LOG OUT</a>
+        <a href="{{ route('logout') }}" class="button button-secondary-transparent">LOGGA UT</a>
 
         @else <!-- If user is guest -->
         <ul>
