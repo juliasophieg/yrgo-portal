@@ -1,7 +1,11 @@
 <div class="menu">
     <div class="navbar">
         <div class="width-container">
-            @if (request()->is('profile') || request()->is('students/*') || request()->is('companies/*'))
+            @if (
+                (request()->is('profile') ||
+                    preg_match('/^students\/\d+($|\/)/', request()->path()) ||
+                    preg_match('/^companies\/\d+($|\/)/', request()->path())) &&
+                    Auth::user()->id !== $user->id)
                 <a href="{{ URL::previous() }}" class="logo">
                     <img src="{{ asset('images/icons/chevron-left.svg') }}" alt="Logo">
                 </a>

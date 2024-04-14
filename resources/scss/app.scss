@@ -395,9 +395,6 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
-    @media (min-width: $desktop-res) {
-        gap: 64px;
-    }
 
     .form-title {
         margin-top: 16px;
@@ -407,11 +404,6 @@
         font-weight: 700;
         line-height: 52.558px; /* 110% */
         letter-spacing: -0.5px;
-        @media (min-width: $desktop-res) {
-            font-size: 48px;
-            font-weight: 700;
-            line-height: 52.8px; /* 110% */
-        }
     }
     .form-subtitle {
         text-align: center;
@@ -420,12 +412,6 @@
         font-weight: 700;
         line-height: 30.415px; /* 110.008% */
         letter-spacing: -0.5px;
-        @media (min-width: $desktop-res) {
-            font-size: 21.6px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 23.76px; /* 110% */
-        }
     }
 }
 
@@ -481,6 +467,43 @@
         width: 100%;
         @media (min-width: $desktop-res) {
             max-width: 600px;
+        }
+    }
+    .header {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        @media (min-width: $desktop-res) {
+            gap: 64px;
+        }
+
+        .form-title {
+            margin-top: 16px;
+            text-align: center;
+            font-size: 47.78px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 52.558px; /* 110% */
+            letter-spacing: -0.5px;
+            @media (min-width: $desktop-res) {
+                font-size: 48px;
+                font-weight: 700;
+                line-height: 52.8px; /* 110% */
+            }
+        }
+        .form-subtitle {
+            text-align: center;
+            font-size: 27.648px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 30.415px; /* 110.008% */
+            letter-spacing: -0.5px;
+            @media (min-width: $desktop-res) {
+                font-size: 21.6px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 23.76px; /* 110% */
+            }
         }
     }
     .completed {
@@ -585,19 +608,6 @@
         display: flex;
         flex-direction: column;
         flex-grow: 1;
-        .form-header {
-            .form-subtitle {
-                color: var(--text-light-white-100, #fff);
-                text-align: center;
-
-                /* desktop/title-4 */
-                font-family: Inter;
-                font-size: 21.6px;
-                font-style: normal;
-                font-weight: 700;
-                line-height: 23.76px; /* 110% */
-            }
-        }
 
         .first-section {
             display: none;
@@ -702,6 +712,43 @@
         display: flex;
         flex-direction: column;
         gap: 32px;
+        .header {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            @media (min-width: $desktop-res) {
+                gap: 64px;
+            }
+
+            .form-title {
+                margin-top: 16px;
+                text-align: center;
+                font-size: 47.78px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 52.558px; /* 110% */
+                letter-spacing: -0.5px;
+                @media (min-width: $desktop-res) {
+                    font-size: 48px;
+                    font-weight: 700;
+                    line-height: 52.8px; /* 110% */
+                }
+            }
+            .form-subtitle {
+                text-align: center;
+                font-size: 27.648px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 30.415px; /* 110.008% */
+                letter-spacing: -0.5px;
+                @media (min-width: $desktop-res) {
+                    font-size: 21.6px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 23.76px; /* 110% */
+                }
+            }
+        }
     }
 
     .bottom-text {
