@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="edit-page">
-    <form method="POST" action="{{ route('update-profile', ['user' => $user]) }}">
+    <form method="POST" action="{{ route('update-profile', ['user' => $user]) }}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <!-- STUDENT -->
@@ -18,12 +18,27 @@
         @elseif ($user->role === 'company')
         @include('components.edit_company_profile')
         @endif
-        <button type="submit" class="button button-primary-blue">Spara</button>
+        <button type=" submit" class="button button-primary-blue">Spara</button>
         <a href="{{ route('profile') }}" class="button button-secondary-transparent">Avbryt</a>
     </form>
 </div>
 
 <script>
+    //IMAGE PREVIEW
+
+    document.getElementById('profile_picture').addEventListener('change', function(event) {
+        const input = event.target;
+        const reader = new FileReader();
+        reader.onload = function() {
+            const dataURL = reader.result;
+            const userProfileImg = document.getElementById('user-profile-img');
+            userProfileImg.src = dataURL;
+        };
+        reader.readAsDataURL(input.files[0]);
+    });
+
+
+    // SHOW MORE TECHNOLOGIES
     const moreTechnologies = document.querySelector('.more-technologies');
     const unselectedTechnologies = document.querySelector('.unselected-technologies');
     const technologyBtns = document.querySelectorAll('.technology-checkbox');

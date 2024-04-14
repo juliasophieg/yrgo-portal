@@ -4,7 +4,7 @@
             @if ($user->profile_picture == null)
             <img src="/images/profiles/default_image_user.png" alt="">
             @else
-            <img src="{{ $user->profile_picture }}" alt="">
+            <img src="/storage/{{ $user->profile_picture }}" alt="">
             @endif
         </div>
         <div class="profile-info">
@@ -47,7 +47,7 @@
                 $contactInfo = [
                 ['value' => $user->phone, 'label' => $user->phone, 'icon' => '/images/icons/phone.svg'],
                 ['value' => $user->email, 'label' => $user->email, 'icon' => '/images/icons/mail.svg'],
-                ['value' => $extraInfo->student_website, 'label' => 'Website', 'icon' => ''],
+                ['value' => $user->website, 'label' => $user->website, 'icon' => '/images/icons/instagram.svg'],
                 ['value' => $user->linkedin, 'label' => $user->name, 'icon' => '/images/icons/linkedin.svg'],
                 ['value' => $user->facebook, 'label' => '@' . $user->name, 'icon' => '/images/icons/instagram.svg'],
                 ];

@@ -4,7 +4,7 @@
             @if ($user->profile_picture == null)
             <img src="/images/profiles/default_image_company.png" alt="">
             @else
-            <img src="{{ $user->profile_picture }}" alt="">
+            <img src="/storage/{{ $user->profile_picture }}" alt="">
             @endif
         </div>
         <div class="profile-info">
@@ -71,3 +71,4 @@
             </ul>
         </div>
     </div>
+</div>
