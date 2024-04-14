@@ -2,27 +2,29 @@
     <div class="profile-header">
         <div class="profile-img">
             @if ($user->profile_picture == null)
-            <img src="/images/profiles/default_image_company.png" alt="">
+            <img id="user-profile-img" src="/images/profiles/default_image_company.png" alt="">
             @else
-            <img src="{{ $user->profile_picture }}" alt="">
+            <img id="user-profile-img" src="/storage/{{ $user->profile_picture }}" alt="">
             @endif
+
         </div>
         <div class="profile-info">
             <div class="info">
-                <input field="text" class="name" id="name" name="name" value="{{ $user->name }}" placeholder="Företagsnamn">
+                <input field="text" class="name company" id="name" name="name" value="{{ $user->name }}" placeholder="Företagsnamn">
             </div>
             <!-- LOCATION -->
             <input field="text" class="location" id="location" name="location" value="{{ $extraInfo->location }}" placeholder="Storgatan 1, Göteborg">
-            <a href="{{ route('profile') }}">Avbryt</a>
-
+            <div class="upload-img">
+                <label for="profile_picture">Ändra bild</label>
+                <input type="file" class="upload-profile-img" id="profile_picture" name="profile_picture">
+            </div>
         </div>
-
     </div>
 
     <div class="profile-main">
         <!-- ABOUT ME -->
         <div class="main-section">
-            <h2 class="title-4">Om mig</h2>
+            <h2 class="title-4">Om oss</h2>
             <textarea id="description" name="description" rows="4" class="form-control">{{ $user->description ?? '' }}</textarea>
 
         </div>
@@ -30,7 +32,7 @@
 
         <!-- COMPETENCIES -->
         <div class="main-section">
-            <h2 class="title-4">Kompetenser</h2>
+            <h2 class="title-4">Vad vi jobbar med</h2>
             <!-- Technologies-->
             <div class="technologies">
                 <!-- Display selected technologies -->
@@ -42,7 +44,7 @@
                     </div>
                     @endforeach
                 </div>
-                <div class="more-technologies">Se fler kompetenser</div>
+                <div class="more-technologies">Se fler teknologier</div>
                 <div class="unselected-technologies">
                     <!-- Hide unselected technologies intitially -->
                     @foreach($technologies as $technology)
@@ -59,8 +61,9 @@
 
         <div class="divider"></div>
 
+
+        <!-- CONTACT -->
         <div class="main-section">
-            <!-- CONTACT -->
             <h2 class="title-4">Kontakt</h2>
             <ul>
                 @foreach ([

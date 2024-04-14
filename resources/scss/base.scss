@@ -57,6 +57,7 @@ body {
 }
 
 .button-secondary-transparent {
+    background-color: $white;
     border: 1px solid var(--layout-stroke-blue, #001a52);
     color: var(--button-text-blue, #001a52);
 }

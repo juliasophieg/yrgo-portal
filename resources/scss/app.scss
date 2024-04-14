@@ -1177,7 +1177,7 @@
 
 //PROFILE PAGE & EDIT PAGE
 @mixin common-profile-styles {
-    margin: 24px 24px 24px 24px;
+    margin: 24px;
 
     p,
     a {
@@ -1381,17 +1381,28 @@
 
         input.name {
             color: var(--text-dark-black-100, #202020);
+            font-size: 19.2px;
             font-style: normal;
-            line-height: 1.4;
-            margin: 0;
-            text-align: center;
-            font-size: 22px;
             font-weight: 700;
-            line-height: 30.415px; /* 110.008% */
+            line-height: 22.44px; /* 110% */
             letter-spacing: -0.5px;
+            margin: 0;
+        }
+
+        input.company {
+            text-align: center;
         }
         input.location {
             text-align: center;
+        }
+        .upload-img {
+            label {
+                text-decoration: underline;
+            }
+
+            input.upload-profile-img {
+                display: none;
+            }
         }
 
         .technologies {
@@ -1401,21 +1412,17 @@
             border-radius: 8px;
             padding: 8px;
 
-            .more-technologies,
-            .more-jobs {
+            .more-technologies {
                 text-decoration: underline;
                 cursor: pointer;
             }
 
-            .unselected-technologies,
-            .unselected-jobs {
+            .unselected-technologies {
                 display: none;
             }
 
             .selected-technologies,
-            .selected-jobs,
-            .unselected-technologies.show,
-            .unselected-jobs.show {
+            .unselected-technologies.show {
                 display: flex;
                 gap: $gap-sm;
                 flex-wrap: wrap;

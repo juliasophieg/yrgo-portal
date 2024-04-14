@@ -4,17 +4,21 @@
         <!-- USER INFO -->
         <div class="profile-img">
             @if ($user->profile_picture == null)
-            <img src="/images/profiles/default_image_user.png" alt="">
+            <img id="user-profile-img" src="/images/profiles/default_image_user.png" alt="">
             @else
-            <img src="{{ $user->profile_picture }}" alt="">
+            <img id="user-profile-img" src="/storage/{{ $user->profile_picture }}" alt="">
             @endif
+
         </div>
         <div class="profile-info">
             <div class="info">
-                <input field="text" class="name" id="name" name="name" value="{{ $user->name }}" placeholder="Företagsnamn">
+                <input field="text" class="name" id="name" name="name" value="{{ $user->name }}" placeholder="För- och efternamn">
                 <input field="text" type="text" id="program" name="program" value="{{ $extraInfo->program }}" placeholder="Vad studerar du?">
+                <div class="upload-img">
+                    <label for="profile_picture">Ändra bild</label>
+                    <input type="file" class="upload-profile-img" id="profile_picture" name="profile_picture">
+                </div>
             </div>
-            <a href="{{ route('profile') }}">Avbryt</a>
         </div>
     </div>
 

@@ -55,6 +55,19 @@ class ProfileController extends Controller
         $user->facebook = $request->input('facebook');
         $user->phone = $request->input('phone');
         $user->website = $request->input('website');
+
+        // Handle profile picture update
+        if ($request->hasFile('profile_picture')) {
+            $request->validate([
+                'profile_picture' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            ]);
+
+            // Store and update profile picture path
+            $imageName = 'profile_' . $user->id . '.' . $request->file('profile_picture')->extension();
+            $imagePath = $request->file('profile_picture')->storeAs('user_uploads', $imageName, 'public');
+            $user->profile_picture = $imagePath;
+        }
+
         $user->save();
 
         // Update student or company info based on the user's role
