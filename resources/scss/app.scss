@@ -395,6 +395,9 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+    @media (min-width: $desktop-res) {
+        gap: 64px;
+    }
 
     .form-title {
         margin-top: 16px;
@@ -404,6 +407,11 @@
         font-weight: 700;
         line-height: 52.558px; /* 110% */
         letter-spacing: -0.5px;
+        @media (min-width: $desktop-res) {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 52.8px; /* 110% */
+        }
     }
     .form-subtitle {
         text-align: center;
@@ -412,8 +420,15 @@
         font-weight: 700;
         line-height: 30.415px; /* 110.008% */
         letter-spacing: -0.5px;
+        @media (min-width: $desktop-res) {
+            font-size: 21.6px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 23.76px; /* 110% */
+        }
     }
 }
+
 .numbers {
     color: $black;
     gap: 32px;
@@ -449,9 +464,25 @@
     background-color: $blue;
     color: $white;
     display: flex;
-    flex-direction: column;
-    gap: 32px;
-    position: relative;
+    justify-content: center;
+    @media (min-width: $desktop-res) {
+        height: calc(100vh - 120px);
+        max-width: 1320px;
+    }
+    @media (min-width: ($desktop-res + 48px)) {
+        margin: 0 auto;
+    }
+    .width-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        flex-shrink: 0;
+        width: 100%;
+        @media (min-width: $desktop-res) {
+            max-width: 600px;
+        }
+    }
     .completed {
         display: none;
         height: 100%;
@@ -467,6 +498,7 @@
             border-radius: 24px;
             margin: 48px;
             width: 100%;
+            max-width: 600px;
             background-color: $white;
             display: flex;
             flex-direction: column;
@@ -553,6 +585,20 @@
         display: flex;
         flex-direction: column;
         flex-grow: 1;
+        .form-header {
+            .form-subtitle {
+                color: var(--text-light-white-100, #fff);
+                text-align: center;
+
+                /* desktop/title-4 */
+                font-family: Inter;
+                font-size: 21.6px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 23.76px; /* 110% */
+            }
+        }
+
         .first-section {
             display: none;
             flex-direction: column;
@@ -656,30 +702,6 @@
         display: flex;
         flex-direction: column;
         gap: 32px;
-
-        .header {
-            display: flex;
-            flex-direction: column;
-            @media (min-width: $desktop-res) {
-                gap: 64px;
-            }
-        }
-        .form-subtitle {
-            color: var(--text-light-white-100, #fff);
-            text-align: center;
-            font-size: 27.648px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 30.415px; /* 110.008% */
-            letter-spacing: -0.5px;
-            @media (min-width: $desktop-res) {
-                text-align: center;
-                font-size: 21.6px;
-                font-style: normal;
-                font-weight: 700;
-                line-height: 23.76px; /* 110% */
-            }
-        }
     }
 
     .bottom-text {
