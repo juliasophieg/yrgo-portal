@@ -173,10 +173,10 @@
         overflow-x: auto;
         overscroll-behavior-inline: contain;
         .landing-page {
-            margin: 24px;
+            margin: 24px 24px 10px 24px;
             padding: 32px;
             border-radius: 24px;
-            height: calc(100vh - 206px);
+            height: calc(100vh - 168px);
             background-color: $red;
             color: $white;
             display: flex;
@@ -208,7 +208,6 @@
                     }
                 }
 
-                // Apply the animation to each element
                 #animation {
                     display: flex;
                     flex-direction: column;
@@ -232,10 +231,10 @@
             }
         }
         .event-page {
-            margin: 24px;
+            margin: 24px 24px 10px 24px;
             display: flex;
             padding: 48px 32px 32px 32px;
-            height: calc(100vh - 206px);
+            height: calc(100vh - 168px);
             border-radius: 24px;
             background-color: $blue;
             color: $white;
@@ -331,6 +330,53 @@
 
         .active {
             background: var(--icon-black, #202020);
+        }
+    }
+}
+
+.gdpr-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100vh - 168px);
+    margin: 24px;
+    padding: 48px 32px 32px 32px;
+    border-radius: 24px;
+    background-color: $blue;
+    color: $white;
+
+    .text-top {
+        display: flex;
+        flex-direction: column;
+        gap: $gap-sm;
+    }
+
+    .gdpr-consent {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        .text-bottom {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .icon-link-button {
+            display: flex;
+            justify-content: space-between;
+            .link-button {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+
+                a {
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 22.4px; /* 140% */
+                    color: $white;
+                    margin: 0;
+                }
+            }
         }
     }
 }

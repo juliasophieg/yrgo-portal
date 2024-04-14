@@ -37,7 +37,7 @@
         </ul>
         <div class="divider"></div>
         <div class="button-group">
-            <a href="{{ route('register') }}" class="button button-primary-blue">SKAPA KONTO</a>
+            <a href="{{ route('gdpr-consent') }}" class="button button-primary-blue">SKAPA KONTO</a>
             <a href="{{ route('login') }}" class="button button-secondary-transparent">LOGGA IN</a>
         </div>
         @endauth
