@@ -1153,6 +1153,8 @@
     }
 }
 .liked-page {
+    max-width: 1318px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: $gap-md;
@@ -1163,6 +1165,7 @@
         gap: $gap-xs;
         text-align: center;
         .page-title-liked {
+            color: var(--text-dark-black-100, #202020);
             color: $black;
             font-feature-settings: "clig" off, "liga" off;
             font-family: Inter;
@@ -1171,18 +1174,28 @@
             font-weight: 700;
             line-height: 26.4px; /* 110% */
             letter-spacing: 0.18px;
+            @media (min-width: $desktop-res) {
+                font-size: 48px;
+                font-weight: 700;
+                line-height: 52.8px; /* 110% */
+            }
         }
 
         .page-subtitle-liked {
+            color: var(--text-dark-black-100, #202020);
             color: $black;
             font-feature-settings: "clig" off, "liga" off;
             /* sub1 */
-            font-family: Inter;
             font-size: 16px;
             font-style: normal;
             font-weight: 400;
             line-height: 24px; /* 150% */
             letter-spacing: 0.15px;
+            @media (min-width: $desktop-res) {
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 25.2px; /* 140% */
+            }
         }
     }
 
@@ -1193,6 +1206,13 @@
         .card {
             display: flex;
             gap: $gap-sm;
+
+            @media (min-width: $desktop-res) {
+                border-radius: 20px;
+                background: var(--layout-block-blue, #001a52);
+                padding: 24px;
+                color: $white;
+            }
             .info-section {
                 display: flex;
                 justify-content: space-between;
@@ -1208,23 +1228,25 @@
                     flex-direction: column;
                     gap: $gap-xs;
                     .name {
-                        color: $light-grey;
-                        font-feature-settings: "clig" off, "liga" off;
-                        font-family: Inter;
-                        font-size: 23.042px;
+                        color: var(--text-dark-black-100, #202020);
+                        font-size: 27.648px;
                         font-style: normal;
-                        font-weight: 400;
-                        line-height: 25.3px; /* 109.801% */
-                        letter-spacing: 1.25px;
+                        font-weight: 700;
+                        line-height: 30.415px; /* 110.008% */
+                        letter-spacing: -0.5px;
+                        @media (min-width: $desktop-res) {
+                            color: $white;
+                        }
                     }
                     .title {
-                        color: $black;
-                        font-family: Inter;
-                        font-size: 16px;
+                        color: var(--text-dark-black-100, #202020);
+                        font-size: 14px;
                         font-style: normal;
                         font-weight: 400;
-                        line-height: 22.4px; /* 140% */
-                        letter-spacing: -0.5px;
+                        line-height: 19.6px; /* 140% */
+                        @media (min-width: $desktop-res) {
+                            color: $white;
+                        }
                     }
                 }
                 .save {
@@ -1234,6 +1256,14 @@
             .image {
                 min-width: 40%;
                 max-width: 40%;
+                @media (min-width: $tablet-res) {
+                    min-width: 30%;
+                    max-width: 30%;
+                }
+                @media (min-width: $desktop-res) {
+                    min-width: 14%;
+                    max-width: 14%;
+                }
                 img {
                     height: 128px;
                     width: 100%;
