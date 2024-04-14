@@ -251,6 +251,12 @@
             flex-direction: column;
             align-items: center;
             gap: $gap-md;
+            @media (min-width: $desktop-res) {
+                width: 1320px;
+                margin: 0 auto;
+                height: calc(100vh - 120px);
+            }
+
             .width-container {
                 max-width: 600px;
             }
@@ -941,15 +947,19 @@
 .login-page {
     margin: 24px;
     padding: 48px 32px 32px 32px;
-    align-items: center;
     height: calc(100vh - 168px);
     border-radius: 24px;
     background-color: $blue;
     color: $white;
+    align-items: center;
     display: flex;
     justify-content: center;
     @media (min-width: $desktop-res) {
         height: calc(100vh - 120px);
+        max-width: 1320px;
+    }
+    @media (min-width: ($desktop-res + 48px)) {
+        margin: 0 auto;
     }
     .width-container {
         display: flex;
@@ -961,6 +971,7 @@
             max-width: 600px;
         }
     }
+
     .text-top {
         display: flex;
         gap: 32px;
