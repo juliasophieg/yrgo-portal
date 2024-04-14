@@ -933,6 +933,7 @@
 
 .students-page,
 .companies-page {
+    max-width: 1318px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -943,11 +944,13 @@
         flex-direction: column;
         gap: 32px;
         .text {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
             .title {
                 color: $black;
                 text-align: center;
                 font-feature-settings: "clig" off, "liga" off;
-                font-family: Inter;
                 font-size: 24px;
                 font-style: normal;
                 font-weight: 700;
@@ -958,7 +961,6 @@
                 color: $black;
                 text-align: center;
                 font-feature-settings: "clig" off, "liga" off;
-                font-family: Inter;
                 font-size: 16px;
                 font-style: normal;
                 font-weight: 400;
@@ -1013,6 +1015,8 @@
                         }
                     }
                     .search-data-unavailable {
+                        color: var(--text-dark-black-50, #828282);
+
                         padding: 8px 16px;
                     }
                 }
@@ -1079,6 +1083,12 @@
         .company-card {
             display: flex;
             gap: $gap-sm;
+            @media (min-width: $desktop-res) {
+                border-radius: 20px;
+                background: var(--layout-block-blue, #001a52);
+                padding: 24px;
+                color: $white;
+            }
             .info-section {
                 display: flex;
                 justify-content: space-between;
@@ -1087,29 +1097,33 @@
                 gap: $gap-sm;
                 a {
                     text-decoration: none;
+                    width: 70%;
+                    word-break: break-word;
                 }
                 .info {
                     display: flex;
                     flex-direction: column;
                     gap: $gap-xs;
                     .name {
-                        color: $light-grey;
-                        font-feature-settings: "clig" off, "liga" off;
-                        font-family: Inter;
-                        font-size: 23.042px;
+                        color: var(--text-dark-black-100, #202020);
+                        font-size: 27.648px;
                         font-style: normal;
-                        font-weight: 400;
-                        line-height: 25.3px; /* 109.801% */
-                        letter-spacing: 1.25px;
+                        font-weight: 700;
+                        line-height: 30.415px; /* 110.008% */
+                        letter-spacing: -0.5px;
+                        @media (min-width: $desktop-res) {
+                            color: $white;
+                        }
                     }
                     .title {
-                        color: $black;
-                        font-family: Inter;
-                        font-size: 16px;
+                        color: var(--text-dark-black-100, #202020);
+                        font-size: 14px;
                         font-style: normal;
                         font-weight: 400;
-                        line-height: 22.4px; /* 140% */
-                        letter-spacing: -0.5px;
+                        line-height: 19.6px; /* 140% */
+                        @media (min-width: $desktop-res) {
+                            color: $white;
+                        }
                     }
                 }
                 .save {
@@ -1120,6 +1134,14 @@
             .image {
                 min-width: 40%;
                 max-width: 40%;
+                @media (min-width: $tablet-res) {
+                    min-width: 30%;
+                    max-width: 30%;
+                }
+                @media (min-width: $desktop-res) {
+                    min-width: 14%;
+                    max-width: 14%;
+                }
                 img {
                     height: 128px;
                     width: 100%;
