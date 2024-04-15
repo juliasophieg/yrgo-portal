@@ -33,11 +33,12 @@
                                     @endif
                                 </div>
                                 <div class="info-section">
-                                    <a href="/companies/{{ $company->id }}"></a>
-                                    <div class="info">
-                                        <div class="name">{{ $company->name }}</div>
-                                        <div class="title">{{ $company->userable->location }}</div>
-                                    </div>
+                                    <a href="/companies/{{ $company->id }}">
+                                        <div class="info">
+                                            <div class="name">{{ $company->name }}</div>
+                                            <div class="title">{{ $company->userable->location }}</div>
+                                        </div>
+                                    </a>
                                     <div class="save">
                                         <livewire:like-button :userId="$company->id" />
                                     </div>
