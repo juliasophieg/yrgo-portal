@@ -35,6 +35,10 @@ cp .env.example .env
 php artisan key:generate
 ```
 
+```bash
+php artisan storage:link
+```
+
 Create a local sql database
 
 Migrate
