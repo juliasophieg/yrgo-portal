@@ -38,7 +38,7 @@ class ProfileController extends Controller
         $extraInfo = $user->userable;
 
         // Fetch all technologies
-        $technologies = Technologies::all();
+        $technologies = Technologies::orderBy('name')->get();
 
         return view('edit_profile', compact('user', 'extraInfo', 'technologies'));
     }
