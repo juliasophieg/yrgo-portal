@@ -26,9 +26,13 @@
         <!-- ABOUT ME -->
         <div class="main-section">
             <h2 class="title-4">Om mig</h2>
-            <textarea id="description" name="description" rows="4" class="form-control">{{ $user->description ?? '' }}</textarea>
-
+            @if ($user->description == null)
+            <textarea id="description" name="description" rows="4" class="form-control" placeholder="Berätta mer om dig själv för att företaget skall få en uppfattning om vem du är."></textarea>
+            @else
+            <textarea id="description" name="description" rows="4" class="form-control">{{ $user->description}}</textarea>
+            @endif
         </div>
+
         <div class="divider"></div>
 
         <!-- COMPETENCIES -->

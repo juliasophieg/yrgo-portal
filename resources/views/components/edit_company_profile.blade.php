@@ -25,8 +25,11 @@
         <!-- ABOUT ME -->
         <div class="main-section">
             <h2 class="title-4">Om oss</h2>
-            <textarea id="description" name="description" rows="4" class="form-control">{{ $user->description ?? '' }}</textarea>
-
+            @if ($user->description == null)
+            <textarea id="description" name="description" rows="4" class="form-control" placeholder="Här får ni gärna berätta lite mer om företaget (ex. antal LIA-platser, hur många ni är i teamet etc.)"></textarea>
+            @else
+            <textarea id="description" name="description" rows="4" class="form-control">{{ $user->description}}</textarea>
+            @endif
         </div>
         <div class="divider"></div>
 

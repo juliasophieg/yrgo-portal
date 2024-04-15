@@ -1522,6 +1522,10 @@
             gap: $gap-sm;
             margin: $gap-md 0;
 
+            .description-placeholder {
+                color: #828282;
+            }
+
             .technologies {
                 display: flex;
                 gap: $gap-sm;

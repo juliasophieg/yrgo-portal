@@ -15,7 +15,7 @@ class CompanyInfo extends Model
     }
 
     protected $fillable = [
-        'company_name',
+        'company_contact_name',
         'location',
     ];
 }
