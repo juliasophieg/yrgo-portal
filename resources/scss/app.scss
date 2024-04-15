@@ -1195,9 +1195,14 @@
                 justify-content: space-between;
                 gap: 8px;
                 align-items: center;
-
+                position: relative;
+                .search-button {
+                    position: absolute;
+                    left: 15px;
+                    top: 12px;
+                }
                 .selected-technologies-container {
-                    padding: 4px 8px;
+                    padding: 4px 41px;
                     gap: 8px;
                     display: flex;
                     flex-grow: 1;

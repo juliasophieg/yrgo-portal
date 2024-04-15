@@ -20,6 +20,7 @@
                     <form action="{{ route('students.searchByTechnologies') }}" method="get" id="searchForm">
                         @csrf
                         <div class="search-bar">
+                            <div class="search-button"><img src="/images/icons/search.svg" alt=""></div>
 
                             <div id="selectedTechnologiesContainer" class="selected-technologies-container">
                                 <!-- Selected technologies will be displayed here -->
