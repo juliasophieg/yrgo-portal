@@ -53,7 +53,9 @@
                     <a href="/companies/{{ $company->id }}">
                         <div class="info">
                             <div class="name">{{ $company->name }}</div>
+                            @if ($company->userable->location)
                             <div class="title">{{ $company->userable->location }}</div>
+                            @endif
                         </div>
                     </a>
                     <div class="save">

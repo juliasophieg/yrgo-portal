@@ -46,7 +46,7 @@
                 $contactInfo = [
                 ['value' => $user->phone, 'label' => null, 'icon' => '/images/icons/phone.svg'],
                 ['value' => $user->email, 'label' => null, 'icon' => '/images/icons/mail.svg'],
-                ['value' => $user->website, 'label' => 'Website', 'icon' => ''],
+                ['value' => $user->website, 'label' => 'Website', 'icon' => '/images/icons/website.svg'],
                 ['value' => $user->linkedin, 'label' => $user->name, 'icon' => '/images/icons/linkedin.svg'],
                 ['value' => $user->facebook, 'label' => '@' . $user->name, 'icon' => '/images/icons/instagram.svg'],
                 ];
