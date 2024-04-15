@@ -49,7 +49,7 @@
                                 @if ($student->profile_picture == null)
                                     <img src="/images/profiles/default_image_user.png" alt="">
                                 @else
-                                    <img src="{{ $student->profile_picture }}" alt="">
+                                    <img src="/storage/{{ $student->profile_picture }}" alt="">
                                     {{-- TODO: check image type etc so that above renders correctly. --}}
                                 @endif
                             </div>
