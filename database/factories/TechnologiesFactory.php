@@ -3,7 +3,9 @@
 namespace Database\Factories;
 
 use App\Models\Technologies;
+use Exception;
 use Illuminate\Database\Eloquent\Factories\Factory;
+
 
 
 /**
@@ -28,7 +30,6 @@ class TechnologiesFactory extends Factory
             "Vue.js",
             "Angular",
             "Node.js",
-            "Express.js",
             "Next.js",
             "Nuxt.js",
             "Svelte",
@@ -36,7 +37,7 @@ class TechnologiesFactory extends Factory
             "Flask",
             "Ruby on Rails",
             "Laravel",
-            "ASP.NET Core",
+            "ASP.NET",
             "MongoDB",
             "MySQL",
             "PostgreSQL",
@@ -45,18 +46,12 @@ class TechnologiesFactory extends Factory
             "RESTful APIs",
             "WebSocket",
             "Webpack",
-            "Babel",
             "TypeScript",
             "Sass/SCSS",
             "Less",
             "Tailwind CSS",
-            "Bootstrap",
-            "Material-UI",
-            "Chakra UI",
-            "Jest",
-            "React Testing Library",
             "Cypress",
-            "Storybook",
+            "Storyblock",
             "Docker",
             "Kubernetes",
             "AWS (Amazon Web Services)",
@@ -65,68 +60,47 @@ class TechnologiesFactory extends Factory
             "Netlify",
             "Vercel",
             "Heroku",
-            "GitHub Actions",
             "CircleCI",
             "Travis CI",
-            "Webpack",
             "Gulp",
             "Grunt",
-            "NPM (Node Package Manager)",
-            "Yarn",
-            "ESLint",
-            "Prettier",
-            "Visual Studio Code",
-            "Atom",
-            "Sublime Text",
-            "WebStorm",
             "Git",
-            "GitHub",
-            "GitLab",
-            "Bitbucket",
+            "Wordpress",
             "Figma",
-            "Adobe XD",
-            "Sketch",
-            "InVision",
-            "Zeplin",
-            "Abstract",
-            "Marvel",
-            "Axure RP",
             "Webflow",
             "Adobe Photoshop",
             "Adobe Illustrator",
             "Adobe After Effects",
             "Adobe Premiere Pro",
+            "Adobe InDesign",
+            "Adobe Stager",
             "Affinity Designer",
             "Affinity Photo",
             "Gravit Designer",
             "Canva",
-            "Balsamiq",
-            "Moqups",
-            "Proto.io",
-            "Principle",
-            "Origami Studio",
-            "Flinto",
-            "Adobe Dreamweaver",
-            "Sublime Text",
-            "Visual Studio Code",
-            "Atom",
             "Brackets",
-            "Notepad++"
+            "Blender",
+            "Sketch",
+            "Maze",
+            "Squarespace",
+            "Gimp",
+            "Inkspace",
+            "Spline",
+            "Resolve"
+
         );
 
-        shuffle($webDevelopmentTechnologies);
+        $existingNames = Technologies::pluck('name')->toArray();
+        $availableNames = array_diff($webDevelopmentTechnologies, $existingNames);
+
+        if (empty($availableNames)) {
+            throw new Exception('All technology names have been used');
+        }
+
+        $randomName = $availableNames[array_rand($availableNames)];
 
         return [
-            "name" => function () use ($webDevelopmentTechnologies) {
-                // Loop until a unique technology name is found
-                $uniqueName = null;
-                do {
-                    // Randomly select a technology name from the pre-generated list
-                    $uniqueName = $webDevelopmentTechnologies[array_rand($webDevelopmentTechnologies)];
-                } while (Technologies::where('name', $uniqueName)->exists());
-
-                return $uniqueName;
-            }
+            'name' => $randomName
         ];
     }
 }
