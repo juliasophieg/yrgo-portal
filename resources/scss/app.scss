@@ -1538,6 +1538,12 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        @media (min-width: $desktop-res) {
+            flex-direction: row;
+            align-items: normal;
+            gap: 34px;
+            margin-top: 32px;
+        }
 
         .divider {
             height: 1px;
@@ -1608,6 +1614,53 @@
 .edit-page {
     @include common-profile-styles;
 
+    @media (min-width: $desktop-res) {
+        max-width: 1320px;
+    }
+    @media (min-width: ($desktop-res + 48px)) {
+        margin: 0 auto;
+    }
+
+    .width-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        @media (min-width: $desktop-res) {
+        }
+    }
+    .desktop-selection {
+        width: 100%;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        @media (min-width: $desktop-res) {
+            width: 170% !important;
+        }
+        .divider {
+            @media (min-width: $desktop-res) {
+                display: none;
+            }
+        }
+    }
+    .main-section {
+        @media (min-width: $desktop-res) {
+            background: $blue;
+            color: $white !important;
+            border-radius: 20px;
+            padding: 24px;
+            margin: 0px !important;
+            p {
+                color: $white !important;
+            }
+            &.contact {
+                background: var(--layout-block-faded-blue, #ccd1dc);
+                color: var(--text-dark-black-100, #202020) !important;
+                height: fit-content;
+            }
+        }
+    }
+
     .company-profile {
         position: relative;
         top: -48px;
@@ -1615,7 +1668,15 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-
+            .profile-info-desktop-wrapper {
+                text-align: center;
+                @media (min-width: $desktop-res) {
+                    border-radius: 20px;
+                    border: 1px solid var(--button-stroke-blue, #001a52);
+                    margin-top: 32px;
+                    padding: 32px 0px;
+                }
+            }
             .profile-info {
                 justify-content: center;
                 flex-direction: column;
@@ -1634,6 +1695,10 @@
                 position: relative;
                 width: 100vw;
                 left: -24px;
+                @media (min-width: $desktop-res) {
+                    width: 100%;
+                    left: 0;
+                }
 
                 img {
                     width: 100%;
@@ -1646,6 +1711,9 @@
                 position: absolute;
                 right: 0;
                 margin-top: 192px;
+                @media (min-width: $desktop-res) {
+                    right: 15px;
+                }
             }
         }
     }
