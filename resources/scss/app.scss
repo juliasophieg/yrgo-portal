@@ -32,7 +32,7 @@
 }
 .menu {
     position: relative;
-    z-index: 100;
+    z-index: 39;
     display: flex;
     flex-direction: column;
     background-color: $white;
@@ -215,11 +215,11 @@
                 flex-direction: column;
                 align-items: center;
                 justify-content: space-between;
+
                 @media (min-width: $desktop-res) {
                     margin-top: 107px;
                     max-width: 1320px;
                 }
-
                 .date-countdown {
                     display: flex;
                     flex-direction: column;
@@ -366,7 +366,7 @@
                 @media (min-width: $desktop-res) {
                     width: 1320px;
                     margin: 0 auto;
-                    height: calc(100vh - 120px);
+                    height: calc(100vh - 105px);
                 }
             }
             &.not-auth {
@@ -389,6 +389,7 @@
 
             .width-container {
                 max-width: 600px;
+                height: 100%;
             }
             .event-info {
                 display: flex;
@@ -457,6 +458,7 @@
                             @media (min-width: $desktop-res) {
                                 max-height: 300px;
                                 overflow-y: visible;
+          
                             }
                         }
                     }
@@ -471,6 +473,9 @@
         .event-page.auth {
             background-color: $red;
             height: calc(100vh - 174px);
+            @media (min-width: $desktop-res) {
+                height: calc(100vh - 105px);
+            }
         }
     }
 
@@ -520,11 +525,37 @@
     border-radius: 24px;
     background-color: $blue;
     color: $white;
+    @media (min-width: $desktop-res) {
+        height: calc(100vh - 105px);
+        max-width: 1320px;
+    }
+    @media (min-width: ($desktop-res + 48px)) {
+        margin: 0 auto;
+    }
+    .width-container {
+        padding: 80px 0px 40px 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 32px;
+        flex-shrink: 0;
+        width: 100%;
+        max-width: 600px;
+        height: 100%;
+    }
 
     .text-top {
         display: flex;
         flex-direction: column;
         gap: $gap-sm;
+        .title-2 {
+            @media (min-width: $desktop-res) {
+                font-size: 48px;
+                font-weight: 700;
+                line-height: 52.8px; /* 110% */
+            }
+        }
     }
 
     .divider {
@@ -635,7 +666,7 @@
     display: flex;
     justify-content: center;
     @media (min-width: $desktop-res) {
-        height: calc(100vh - 120px);
+        height: calc(100vh - 105px);
         max-width: 1320px;
     }
     @media (min-width: ($desktop-res + 48px)) {
@@ -657,7 +688,7 @@
         flex-direction: column;
         gap: 16px;
         @media (min-width: $desktop-res) {
-            gap: 64px;
+            gap: 32px;
         }
 
         .form-title {
@@ -875,7 +906,7 @@
     display: flex;
     justify-content: center;
     @media (min-width: $desktop-res) {
-        height: calc(100vh - 120px);
+        height: calc(100vh - 105px);
         max-width: 1320px;
     }
     @media (min-width: ($desktop-res + 48px)) {
@@ -900,7 +931,7 @@
             flex-direction: column;
             gap: 16px;
             @media (min-width: $desktop-res) {
-                gap: 64px;
+                gap: 32px;
             }
 
             .form-title {
@@ -1130,7 +1161,7 @@
     display: flex;
     justify-content: center;
     @media (min-width: $desktop-res) {
-        height: calc(100vh - 120px);
+        height: calc(100vh - 105px);
         max-width: 1320px;
     }
     @media (min-width: ($desktop-res + 48px)) {
@@ -1311,7 +1342,7 @@
                     position: fixed;
                     top: 0;
                     right: 0;
-                    z-index: 0;
+                    z-index: 39;
                 }
             }
             .search-bar {
@@ -1319,9 +1350,14 @@
                 justify-content: space-between;
                 gap: 8px;
                 align-items: center;
-
+                position: relative;
+                .search-button {
+                    position: absolute;
+                    left: 15px;
+                    top: 12px;
+                }
                 .selected-technologies-container {
-                    padding: 4px 8px;
+                    padding: 4px 41px;
                     gap: 8px;
                     display: flex;
                     flex-grow: 1;
@@ -1354,7 +1390,7 @@
 
                 .category-button {
                     background: #ccd1dc;
-                    z-index: 7;
+                    z-index: 38;
                     display: flex;
                     padding: 8px;
                     align-items: center;
@@ -1376,6 +1412,7 @@
                 height: 300px;
                 overflow: scroll;
                 padding: $padding-md;
+                z-index: 150;
 
                 &.active {
                     display: flex;
@@ -1505,11 +1542,6 @@
             font-weight: 700;
             line-height: 26.4px; /* 110% */
             letter-spacing: 0.18px;
-            @media (min-width: $desktop-res) {
-                font-size: 48px;
-                font-weight: 700;
-                line-height: 52.8px; /* 110% */
-            }
         }
 
         .page-subtitle-liked {

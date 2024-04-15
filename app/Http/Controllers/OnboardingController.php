@@ -17,7 +17,7 @@ class OnboardingController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $technologies = Technologies::all();
+        $technologies = Technologies::orderBy('name')->get();
         return view('onboarding')->with("technologies", $technologies)->with("user", $user);
     }
 
