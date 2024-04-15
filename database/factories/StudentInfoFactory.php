@@ -16,7 +16,7 @@ class StudentInfoFactory extends Factory
      */
     public function definition(): array
     {
-        $programs = ["Web Development", "Digital Design"];
+        $programs = ["Webbutvecklare", "Digital Designer"];
 
         return [
             'program' => $this->faker->randomElement($programs),

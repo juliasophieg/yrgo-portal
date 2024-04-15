@@ -27,7 +27,11 @@
     <div class="profile-main">
         <div class="main-section">
             <h2 class="title-4">Om oss</h2>
+            @if ($user->description == null)
+            <p class="description-placeholder">Den här användaren har inte skrivit någon beskrivning ännu.</p>
+            @else
             <p>{{ $user->description}}</p>
+            @endif
         </div>
         <div class="divider"></div>
         <div class="main-section">
