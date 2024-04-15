@@ -32,7 +32,7 @@
                     </form>
                     <div class="bottom-text">
                         <div class="sub-text">Har du inte ett konto?</div>
-                        <div class="register"><a href="{{ route('register') }}">Skapa Konto</a></div>
+                        <div class="register"><a href="{{ route('gdpr-consent') }}">Skapa Konto</a></div>
                     </div>
                 </div>
             </div>
