@@ -70,10 +70,10 @@
             <h2 class="title-4">Kontakt</h2>
             <ul>
                 @foreach ([
-                'phone' => ['label' => 'Telefon', 'type' => 'phone', 'icon' => '/images/icons/phone.svg', 'value' => $user->phone ?? '', 'placeholder' => 'Telefon'],
-                'linkedin' => ['label' => 'LinkedIn', 'type' => 'url', 'icon' => '/images/icons/linkedin.svg', 'value' => $user->linkedin, 'placeholder' => 'LinkedIn'],
-                'instagram' => ['label' => 'instagram', 'type' => 'url', 'icon' => '/images/icons/instagram.svg', 'value' => $user->facebook, 'placeholder' => 'Instagram'],
-                'website' => ['label' => 'Hemsida', 'type' => 'url', 'icon' => '/images/icons/website.svg', 'value' => $user->website ?? '', 'placeholder' => 'www.exempel.se']
+                'phone' => ['label' => 'Telefon', 'type' => 'phone', 'icon' => '/images/icons/phone.svg', 'value' => $user->phone ?? '', 'placeholder' => 'Telefonnummer'],
+                'website' => ['label' => 'Hemsida', 'type' => 'url', 'icon' => '/images/icons/website.svg', 'value' => $user->website ?? '', 'placeholder' => 'www.exempel.se'],
+                'linkedin' => ['label' => 'LinkedIn', 'type' => 'url', 'icon' => '/images/icons/linkedin.svg', 'value' => $user->linkedin, 'placeholder' => 'LinkedIn-URL'],
+                'facebook' => ['label' => 'instagram', 'type' => 'text', 'icon' => '/images/icons/instagram.svg', 'value' => $user->facebook, 'placeholder' => 'Instagram-namn'],
                 ] as $field => $attributes)
                 <!-- Input fields-->
                 <li>

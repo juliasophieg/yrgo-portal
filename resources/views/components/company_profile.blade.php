@@ -48,27 +48,19 @@
             <ul>
                 @php
                 $contactInfo = [
-                ['value' => $user->phone, 'label' => null, 'icon' => '/images/icons/phone.svg'],
-                ['value' => $user->email, 'label' => null, 'icon' => '/images/icons/mail.svg'],
-                ['value' => $user->website, 'label' => 'Website', 'icon' => '/images/icons/website.svg'],
-                ['value' => $user->linkedin, 'label' => $user->name, 'icon' => '/images/icons/linkedin.svg'],
-                ['value' => $user->facebook, 'label' => '@' . $user->name, 'icon' => '/images/icons/instagram.svg'],
+                ['value' => $user->phone, 'label' => $user->phone, 'href' => '', 'icon' => '/images/icons/phone.svg'],
+                ['value' => $user->email, 'label' => $user->email, 'href' => '', 'icon' => '/images/icons/mail.svg'],
+                ['value' => $user->website, 'label' => $user->website, 'href' => $user->website, 'icon' => '/images/icons/website.svg'],
+                ['value' => $user->linkedin, 'label' => $user->name, 'href' => $user->linkedin, 'icon' => '/images/icons/linkedin.svg'],
+                ['value' => $user->facebook, 'label' => '@' . $user->facebook, 'href' => 'https://www.instagram.com/' . $user->facebook, 'icon' => '/images/icons/instagram.svg'],
                 ];
                 @endphp
 
                 @foreach($contactInfo as $info)
                 @if($info['value'])
                 <li>
-                    @if($info['icon'])
                     <div class="contact-icon"><img src="{{ $info['icon'] }}" alt=""></div>
-                    @else
-                    <div class="contact-icon"></div>
-                    @endif
-                    @if($info['label'])
-                    <a href="{{ $info['value'] }}">{{ $info['label'] }}</a>
-                    @else
-                    {{ $info['value'] }}
-                    @endif
+                    <a href="{{ $info['href'] }}">{{ $info['label'] }}</a>
                 </li>
                 @endif
                 @endforeach

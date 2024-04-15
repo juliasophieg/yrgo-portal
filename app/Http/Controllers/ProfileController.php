@@ -21,6 +21,7 @@ class ProfileController extends Controller
         }
 
         if ($user != null) {
+            //Fetch the user's extra info based on their role
             $extraInfo = $user->userable;
             return view('profile', compact('user', 'extraInfo'));
         } else {
@@ -35,6 +36,7 @@ class ProfileController extends Controller
             return redirect()->route('login')->with('error', 'Please log in to edit your profile.');
         }
 
+        //Fetch the user's extra info based on their role
         $extraInfo = $user->userable;
 
         // Fetch all technologies
