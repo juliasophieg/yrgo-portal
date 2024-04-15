@@ -1382,11 +1382,6 @@
             font-weight: 700;
             line-height: 26.4px; /* 110% */
             letter-spacing: 0.18px;
-            @media (min-width: $desktop-res) {
-                font-size: 48px;
-                font-weight: 700;
-                line-height: 52.8px; /* 110% */
-            }
         }
 
         .page-subtitle-liked {
