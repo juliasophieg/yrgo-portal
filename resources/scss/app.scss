@@ -199,7 +199,6 @@
                 flex-direction: column;
                 align-items: center;
                 justify-content: space-between;
-
                 .date-countdown {
                     display: flex;
                     flex-direction: column;
@@ -255,12 +254,13 @@
                 @media (min-width: $desktop-res) {
                     width: 1320px;
                     margin: 0 auto;
-                    height: calc(100vh - 120px);
+                    height: calc(100vh - 105px);
                 }
             }
 
             .width-container {
                 max-width: 600px;
+                height: 100%;
             }
             .event-info {
                 display: flex;
@@ -306,6 +306,12 @@
                             margin-top: 4px;
                             max-height: 150px;
                             overflow-y: auto;
+                            @media (min-width: $desktop-res) {
+                                overflow-y: unset;
+                                max-height: 100%;
+                                border: none;
+                                padding: 16px 0px;
+                            }
                         }
                     }
                 }
@@ -319,6 +325,9 @@
         .event-page.auth {
             background-color: $red;
             height: calc(100vh - 174px);
+            @media (min-width: $desktop-res) {
+                height: calc(100vh - 105px);
+            }
         }
     }
 
@@ -480,7 +489,7 @@
     display: flex;
     justify-content: center;
     @media (min-width: $desktop-res) {
-        height: calc(100vh - 120px);
+        height: calc(100vh - 105px);
         max-width: 1320px;
     }
     @media (min-width: ($desktop-res + 48px)) {
@@ -720,7 +729,7 @@
     display: flex;
     justify-content: center;
     @media (min-width: $desktop-res) {
-        height: calc(100vh - 120px);
+        height: calc(100vh - 105px);
         max-width: 1320px;
     }
     @media (min-width: ($desktop-res + 48px)) {
@@ -975,7 +984,7 @@
     display: flex;
     justify-content: center;
     @media (min-width: $desktop-res) {
-        height: calc(100vh - 120px);
+        height: calc(100vh - 105px);
         max-width: 1320px;
     }
     @media (min-width: ($desktop-res + 48px)) {
