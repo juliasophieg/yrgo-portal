@@ -307,10 +307,6 @@
                             max-height: 150px;
                             overflow-y: auto;
                             @media (min-width: $desktop-res) {
-                                overflow-y: unset;
-                                max-height: 100%;
-                                border: none;
-                                padding: 16px 0px;
                             }
                         }
                     }
@@ -511,7 +507,7 @@
         flex-direction: column;
         gap: 16px;
         @media (min-width: $desktop-res) {
-            gap: 64px;
+            gap: 32px;
         }
 
         .form-title {
@@ -754,7 +750,7 @@
             flex-direction: column;
             gap: 16px;
             @media (min-width: $desktop-res) {
-                gap: 64px;
+                gap: 32px;
             }
 
             .form-title {
