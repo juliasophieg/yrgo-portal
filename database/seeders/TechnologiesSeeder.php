@@ -13,6 +13,11 @@ class TechnologiesSeeder extends Seeder
      */
     public function run(): void
     {
-        Technologies::factory(1)->create();
+        Technologies::factory(10)->create();
+        Technologies::factory(10)->create();
+        Technologies::factory(10)->create();
+        Technologies::factory(10)->create();
+        Technologies::factory(10)->create();
+        Technologies::factory(9)->create();
     }
 }
