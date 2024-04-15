@@ -57,7 +57,7 @@
                                 <a href="/students/{{ $student->id }}">
                                     <div class="info">
                                         <div class="name">{{ $student->name }}</div>
-                                        <div class="title">Student på Yrgo</div>
+                                        <div class="title">{{ $student->userable->program }}</div>
                                     </div>
                                 </a>
                                 <div class="save">
