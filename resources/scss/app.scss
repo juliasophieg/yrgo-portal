@@ -1723,10 +1723,19 @@
             display: flex;
             gap: 16px;
             align-items: center;
+            @media (min-width: $desktop-res) {
+                border-radius: 20px;
+                padding: 24px;
+                border: 1px solid var(--button-stroke-blue, #001a52);
+            }
 
             .profile-img {
                 min-width: 40%;
                 max-width: 40%;
+                @media (min-width: $desktop-res) {
+                    min-width: 128px;
+                    max-width: 128px;
+                }
 
                 img {
                     height: 128px;
