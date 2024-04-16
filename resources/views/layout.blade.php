@@ -20,14 +20,4 @@
     <livewire:scripts />
 </body>
 
-<script>
-    const pageTitle = document.title;
-
-    // Check if the page title matches the desired page
-    if (pageTitle === "Index") {
-        // Add a class to the body element
-        document.body.classList.add("overflow");
-    }
-</script>
-
 </html>
