@@ -184,12 +184,17 @@
         color: $white;
         flex-direction: column;
         align-items: center;
-        gap: $gap-sm;
+        gap: $gap-md;
         justify-content: space-between;
         @media (min-width: $desktop-res) {
             height: 100vh;
         }
-
+        .button {
+            @media (min-width: $desktop-res) {
+                width: fit-content;
+                align-self: center;
+            }
+        }
         &.auth {
             @media (min-width: $desktop-res) {
                 max-width: $max-width-desktop;
@@ -230,6 +235,7 @@
             @media (min-width: $desktop-res) {
                 max-width: 792px;
                 gap: 16px;
+                height: 100%;
             }
             .event-title {
                 display: flex;
@@ -247,8 +253,9 @@
             .event-description {
                 display: flex;
                 flex-direction: column;
-                gap: $gap-md;
+                gap: $gap-sm;
                 @media (min-width: $desktop-res) {
+                    height: 100%;
                     h2 {
                         font-size: 21.6px;
                         font-style: normal;
@@ -269,6 +276,9 @@
                 }
                 .event-text.box {
                     height: 180px;
+                    @media (min-width: $desktop-res) {
+                        height: -webkit-fill-available;
+                    }
                     .text-box {
                         display: flex;
                         padding: 16px 24px 16px 16px;
