@@ -12,6 +12,7 @@ export default defineConfig({
                 "resources/js/register.js",
                 "resources/js/onboarding.js",
                 "resources/js/searchStudents.js",
+                "resrouces/js/searchCompanies.js",
             ],
             refresh: true,
         }),
