@@ -29,19 +29,9 @@ document.addEventListener("DOMContentLoaded", function () {
             categoryButton.classList.add("active");
         }
     }
-
+    searchContainer.addEventListener("click", toggleActiveClasses);
     categoryButton.addEventListener("click", toggleActiveClasses);
-    darkBackgruond.addEventListener("click", () => {
-        if (customSelect.classList.contains("active")) {
-            customSelect.classList.remove("active");
-            darkBackgruond.classList.remove("active");
-            categoryButton.classList.remove("active");
-        } else {
-            customSelect.classList.add("active");
-            darkBackgruond.classList.add("active");
-            categoryButton.classList.add("active");
-        }
-    });
+    darkBackgruond.addEventListener("click", toggleActiveClasses);
 
     selectItems.forEach((item) => {
         item.addEventListener("click", (event) => {
