@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('description')->default("Användaren har inte fyllt i någon information här ännu.");
+            $table->string('description')->nullable()->default(null);
             $table->string('profile_picture')->nullable()->default(null);
             $table->string('role');
             $table->unsignedBigInteger('userable_id')->nullable()->default(null);

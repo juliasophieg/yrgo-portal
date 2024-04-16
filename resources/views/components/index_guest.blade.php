@@ -9,20 +9,27 @@
                     </div>
                 </div>
             </div>
-            <div id="animation">
-                <span class="title-1" id="digital-designer">Digital Designer</span>
-                <span class="title-2-desktop" id="x-first">×</span>
-                <span class="title-1" id="web-developer">Webb-utvecklare</span>
-                <span class="title-2-desktop" id="x-second">×</span>
-                <span class="title-1" id="branch">Branchen</span>
-                <span id="yrgo-container"><img src="/images/logo/yrgo-vit.svg" alt=""></span>
+            <div class="desktop-middle">
+                <div id="animation">
+                    <span class="title-1" id="digital-designer">Digital Designer</span>
+                    <span class="title-2-desktop" id="x-first">×</span>
+                    <span class="title-1" id="web-developer">Webb-utvecklare</span>
+                    <span class="title-2-desktop" id="x-second">×</span>
+                    <span class="title-1" id="branch">Branchen</span>
+                    <span id="yrgo-container"></span>
+                </div>
+                <div class="welcome-text">
+                    <h2 class="title-2">Välkommen på event</h2>
+                    <p class="body">Upptäck nya möjligheter! Välkommen till vårt evenemang där företag och studenter möts för att skapa framtida samarbeten och praktikplatser. Anmäl dig nu för att inte missa detta unika tillfälle!</p>
+                    <a class="button button-primary-blue" href="{{ route('gdpr-consent') }}">Anmäl dig nu!</a>
+                </div>
+                <div class="right-arrow"><img src="/images/icons/chevron-right-large.svg" alt=""></div>
+                <a class="button button-primary-blue" href="{{ route('gdpr-consent') }}">Anmäl dig nu!</a>
+
             </div>
-            <div class="welcome-text">
-                <h2 class="title-2">Välkommen på event</h2>
-                <p class="body">Upptäck nya möjligheter! Välkommen till vårt evenemang där företag och studenter möts för att skapa framtida samarbeten och praktikplatser. Anmäl dig nu för att inte missa detta unika tillfälle!</p>
-            </div>
+            <div></div>
         </div>
-        <a class="button button-primary-blue" href="{{ route('gdpr-consent') }}">Anmäl dig nu!</a>
+
 
     </div>
     <div class="event-page not-auth" id="event-page">
@@ -58,8 +65,8 @@
                 </div>
             </div>
         </div>
-
         <a class="button button-primary-red" href="{{ route('gdpr-consent') }}">Anmäl dig nu!</a>
+        <div class="left-arrow"><img src="/images/icons/chevron-left-large.svg" alt=""></div>
 
     </div>
     </div>

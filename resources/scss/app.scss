@@ -175,6 +175,11 @@
 //LANDING PAGE
 .index-page {
     width: 100vw;
+    @media (min-width: $desktop-res) {
+        margin: 0;
+        position: absolute;
+        top: 0;
+    }
 
     .slide-wrapper {
         display: grid;
@@ -182,6 +187,11 @@
         grid-auto-columns: 100vw;
         overflow-x: auto;
         overscroll-behavior-inline: contain;
+        @media (min-width: $desktop-res) {
+            margin: 0;
+            height: calc(100vh - 35px);
+        }
+
         .landing-page {
             margin: 24px 24px 10px 24px;
             padding: 32px;
@@ -193,12 +203,23 @@
             flex-direction: column;
             align-items: center;
             gap: $gap-sm;
+            @media (min-width: $desktop-res) {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+            }
+
             .landing-page-content {
                 display: flex;
                 height: 100%;
                 flex-direction: column;
                 align-items: center;
                 justify-content: space-between;
+
+                @media (min-width: $desktop-res) {
+                    margin-top: 107px;
+                    max-width: 1320px;
+                }
                 .date-countdown {
                     display: flex;
                     flex-direction: column;
@@ -209,6 +230,9 @@
                         flex-direction: column;
                         align-items: center;
                         gap: $gap-xs;
+                        @media (min-width: $desktop-res) {
+                            flex-direction: row;
+                        }
                         .button-secondary-fill {
                             display: flex;
                             padding: 8px 16px;
@@ -216,27 +240,109 @@
                         }
                     }
                 }
-
-                #animation {
+                .desktop-middle {
                     display: flex;
                     flex-direction: column;
-                    align-items: center;
+                    height: 100%;
 
-                    span {
-                        text-align: center;
-                        line-break: strict;
+                    justify-content: space-between;
+                    @media (min-width: $desktop-res) {
+                        flex-direction: row;
+                        align-items: center;
+                        width: 1481px;
                     }
-                }
 
-                .welcome-text {
-                    display: flex;
-                    flex-direction: column;
-                    gap: $gap-xs;
+                    #animation {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        height: 146px;
+                        margin-top: 60px;
+                        @media (min-width: $desktop-res) {
+                            order: 2;
+                            justify-content: center;
+                            width: 394px;
+                            height: 394px;
+                            background-color: $white;
+                            color: $red;
+                            border-radius: 50%;
+                            margin: 0;
+                        }
+
+                        span {
+                            text-align: center;
+                            line-break: strict;
+
+                            @media (min-width: $desktop-res) {
+                                text-align: center;
+                                font-family: Inter;
+                                font-size: 71.636px;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: 78.8px; /* 110% */
+                            }
+                        }
+                        span#yrgo-container {
+                            @media (min-width: $desktop-res) {
+                                background-image: url("/../public/images/logo/yrgo-red.svg");
+                            }
+                            background-image: url("/../public/images/logo/yrgo-vit.svg");
+                            width: 146px;
+                            height: 142px;
+                            display: inline-block; /* Ensure the span takes up space */
+                        }
+                    }
+
+                    .welcome-text {
+                        display: flex;
+                        flex-direction: column;
+                        gap: $gap-xs;
+                        @media (min-width: $desktop-res) {
+                            order: 1;
+                            max-width: 752px;
+                            margin-left: 65px;
+                            justify-content: flex-start;
+                            gap: $gap-md;
+                            h2 {
+                                font-size: 96px;
+                                font-style: normal;
+                                font-weight: 700;
+                                line-height: 105.6px; /* 110% */
+                            }
+                            p {
+                                font-size: 18px;
+                                font-style: normal;
+                                font-weight: 400;
+                                line-height: 25.2px; /* 140% */
+                            }
+                        }
+
+                        .button {
+                            display: none;
+                            @media (min-width: $desktop-res) {
+                                display: block;
+                                align-self: start;
+                                font-size: 16px;
+                            }
+                        }
+                    }
+
+                    .right-arrow {
+                        display: none;
+                        @media (min-width: $desktop-res) {
+                            display: block;
+                            order: 3;
+                        }
+                    }
                 }
             }
             .button {
                 align-self: end;
                 width: auto;
+                @media (min-width: $desktop-res) {
+                    display: none;
+                }
             }
         }
         .event-page {
@@ -249,12 +355,35 @@
             color: $white;
             flex-direction: column;
             align-items: center;
-            gap: $gap-md;
+            gap: $gap-sm;
+            justify-content: space-between;
+            @media (min-width: $desktop-res) {
+                margin: 0;
+                height: 100%;
+            }
+
             &.auth {
                 @media (min-width: $desktop-res) {
                     width: 1320px;
                     margin: 0 auto;
                     height: calc(100vh - 105px);
+                }
+            }
+            &.not-auth {
+                .button {
+                    @media (min-width: $desktop-res) {
+                        display: none;
+                    }
+                }
+
+                .left-arrow {
+                    display: none;
+                    @media (min-width: $desktop-res) {
+                        position: absolute;
+                        left: 31px;
+                        top: 53.25%;
+                        display: block;
+                    }
                 }
             }
 
@@ -266,6 +395,12 @@
                 display: flex;
                 flex-direction: column;
                 gap: $gap-md;
+                justify-content: space-between;
+                @media (min-width: $desktop-res) {
+                    max-width: 792px;
+                    margin-top: 107px;
+                    gap: 48px;
+                }
                 .event-title {
                     display: flex;
                     flex-direction: column;
@@ -283,13 +418,27 @@
                     display: flex;
                     flex-direction: column;
                     gap: $gap-md;
+                    @media (min-width: $desktop-res) {
+                        h2 {
+                            font-size: 21.6px;
+                            font-style: normal;
+                            font-weight: 700;
+                            line-height: 23.76px; /* 110% */
+                        }
+                        p {
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 400;
+                            line-height: 25.2px; /* 140% */
+                        }
+                    }
                     .event-text {
                         display: flex;
                         flex-direction: column;
                         gap: 4px;
                     }
                     .event-text.box {
-                        height: 180px;
+                        height: 230px;
                         .text-box {
                             display: flex;
                             padding: 16px 24px 16px 16px;
@@ -304,9 +453,12 @@
                             );
                             border: 1px solid var(--layout-stroke-white, #fff);
                             margin-top: 4px;
-                            max-height: 150px;
-                            overflow-y: auto;
+                            max-height: 180px;
+                            overflow-y: scroll;
                             @media (min-width: $desktop-res) {
+                                max-height: 300px;
+                                overflow-y: visible;
+          
                             }
                         }
                     }
@@ -345,6 +497,9 @@
         gap: 7px;
         justify-content: center;
         margin-bottom: 30px;
+        @media (min-width: $desktop-res) {
+            margin: 13.5px;
+        }
         .slide-control-landing-page,
         .slide-control-event-page {
             width: 32px;
@@ -1563,6 +1718,10 @@
             align-items: start;
             gap: $gap-sm;
             margin: $gap-md 0;
+
+            .description-placeholder {
+                color: #828282;
+            }
 
             .technologies {
                 display: flex;

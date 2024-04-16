@@ -20,8 +20,7 @@ class CompanyInfoFactory extends Factory
         $companyName = $this->faker->company();
         return [
 
-            'company_name' => $companyName,
-            'company_website' => 'www.website.com',
+            'company_contact_name' => $companyName,
             'location' => $this->faker->address(),
 
         ];

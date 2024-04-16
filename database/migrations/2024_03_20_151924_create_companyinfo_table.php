@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('company_infos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string("company_name")->nullable()->default(null);
-            $table->string("company_website")->nullable()->default(null);
+            $table->string("company_contact_name")->nullable()->default(null);
             $table->string("location")->nullable()->default(null);
         });
     }

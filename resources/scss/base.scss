@@ -112,6 +112,14 @@ body {
     margin: 0;
 }
 
+.title-1-desktop {
+    font-family: Inter;
+    font-size: 96px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 105.6px; /* 110% */
+}
+
 .title-2-desktop {
     font-family: Inter;
     font-size: 48px;
@@ -135,4 +143,11 @@ body {
     font-weight: 400;
     line-height: 19.6px; /* 140% */
     margin: 0;
+}
+
+.body-desktop {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25.2px; /* 140% */
 }
