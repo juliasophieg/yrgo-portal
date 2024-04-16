@@ -1533,6 +1533,7 @@
                     background: #ccd1dc;
                     align-items: center;
                     overflow: scroll;
+                    cursor: pointer;
                     .search-data {
                         display: flex;
                         padding: var(--base-units-unit-1, 8px) 16px;
