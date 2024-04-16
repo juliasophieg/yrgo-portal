@@ -12,7 +12,7 @@ class StudentsController extends Controller
 {
     public function index()
     {
-        $technologies = Technologies::all();
+        $technologies = Technologies::orderBy('name')->get();
         $user = Auth::user();
         //todo: exclude athenticated usert 
         $students = User::where("role", "=", "student")->orderBy("name", "desc")->get();
@@ -33,7 +33,7 @@ class StudentsController extends Controller
         if (count($technologyNamesArray) <= 0) {
             $students = User::where("role", "=", "student")->orderBy("name", "desc")->get();
         } else {
-            $technologies = Technologies::all();
+            $technologies = Technologies::orderBy('name')->get();
 
             // Initialize the query with all users
             $query = User::query();

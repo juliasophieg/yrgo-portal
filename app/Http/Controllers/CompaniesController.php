@@ -17,7 +17,7 @@ class CompaniesController extends Controller
             return redirect('/');
         }
 
-        $technologies = Technologies::all();
+        $technologies = Technologies::orderBy('name')->get();
         $user = Auth::user();
         //todo: exclude athenticated usert
         $companies = User::where("role", "=", "company")->orderBy("name", "desc")->get();
@@ -40,7 +40,7 @@ class CompaniesController extends Controller
         if (count($technologyNamesArray) <= 0) {
             $companies = User::where("role", "=", "company")->orderBy("name", "desc")->get();
         } else {
-            $technologies = Technologies::all();
+            $technologies = Technologies::orderBy('name')->get();
 
             // Initialize the query with companies
             $query = User::where("role", "=", "company");
