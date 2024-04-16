@@ -47,20 +47,48 @@ class ProfileController extends Controller
 
     public function update(Request $request, $id)
     {
+
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string|max:900',
+            'linkedin' => 'nullable|url|max:100',
+            'facebook' => 'nullable|string|max:30',
+            'phone' => 'nullable|string|max:30',
+            'website' => 'nullable|url|max:100',
+        ], [
+            'description.max' => 'Din beskrivning får inte vara längre än 900 tecken.',
+            'name.required' => 'Du måste ange ett namn.',
+            'name.max' => 'Ditt namn får inte vara längre än 255 tecken.',
+            'linkedin.url' => 'Länken till din LinkedIn-profil måste vara en URL.',
+            'linkedin.max' => 'Länken till din LinkedIn-profil får inte vara längre än 100 tecken.',
+            'facebook.max' => 'Ditt Instagram-namn får inte vara längre än 30 tecken.',
+            'phone.max' => 'Ditt telefonnummer får inte vara längre än 30 tecken.',
+            'website.url' => 'Länken till din hemsida måste vara en URL.',
+            'website.max' => 'Länken till din hemsida får inte vara längre än 100 tecken.',
+        ]);
+
         $user = User::findOrFail($id);
-        // Update user info
-        $user->name = $request->input('name');
-        $user->description = $request->input('description');
-        $user->linkedin = $request->input('linkedin');
-        $user->facebook = $request->input('facebook');
-        $user->phone = $request->input('phone');
-        $user->website = $request->input('website');
+
+        // Update user info with validated data
+        $user->name = $validatedData['name'];
+        $user->description = $validatedData['description'];
+        $user->linkedin = $validatedData['linkedin'];
+        $user->facebook = $validatedData['facebook'];
+        $user->phone = $validatedData['phone'];
+        $user->website = $validatedData['website'];
 
         // Handle profile picture update
         if ($request->hasFile('profile_picture')) {
+
             $request->validate([
                 'profile_picture' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            ], [
+                'profile_picture.image' => 'Filen måste vara en bild.',
+                'profile_picture.mimes' => 'Filen måste vara av formatet jpeg, png eller jpg.',
+                'profile_picture.max' => 'Bilden är för stor. Bilden får vara max 2MB stor.',
             ]);
+
+
 
             // Store and update profile picture path
             $imageName = 'profile_' . $user->id . '.' . $request->file('profile_picture')->extension();
@@ -70,21 +98,30 @@ class ProfileController extends Controller
 
         $user->save();
 
+        // Validate the request data based on user's role
+        if ($user->role === 'student') {
+            $request->validate([
+                'program' => 'required|string|max:100',
+            ]);
+        } elseif ($user->role === 'company') {
+            $request->validate([
+                'location' => 'required|string|max:255',
+            ]);
+        }
+
         // Update student or company info based on the user's role
-        //If student
         if ($user->role === 'student') {
             $studentInfo = StudentInfo::findOrFail($user->userable_id);
             $studentInfo->update([
                 'program' => $request->input('program'),
             ]);
-        }
-        // If company
-        elseif ($user->role === 'company') {
+        } elseif ($user->role === 'company') {
             $companyInfo = CompanyInfo::findOrFail($user->userable_id);
             $companyInfo->update([
                 'location' => $request->input('location'),
-            ]); //todo: validate the input
+            ]);
         }
+
 
         // Sync the user technologies
         $user->technologies()->sync($request->input('technologies'));

@@ -1888,6 +1888,10 @@
                 color: #828282;
             }
 
+            #charCount {
+                align-self: end;
+            }
+
             .technologies {
                 display: flex;
                 gap: $gap-sm;
@@ -1940,8 +1944,47 @@
 
 .profile-page,
 .edit-page {
-    @include common-profile-styles;
+    .error-div {
+        position: absolute;
+        z-index: 39;
+        top: 119px;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        left: 0;
+        background: $red;
+        padding: 16px;
+        text-align: center;
+        width: -webkit-fill-available;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Apply box shadow */
+        @media (min-width: $desktop-res) {
+            top: 71px;
+        }
 
+        p {
+            color: $white;
+            margin: 0 32px;
+        }
+        .error-close {
+            position: absolute;
+            top: 14px;
+            right: 10px;
+            padding: 12px;
+            color: $white;
+            cursor: pointer;
+            border-radius: 50%;
+            border: 1px solid $white;
+            height: 10px;
+            width: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    @include common-profile-styles;
     @media (min-width: $desktop-res) {
         max-width: $max-width-desktop;
         padding-top: 32px;

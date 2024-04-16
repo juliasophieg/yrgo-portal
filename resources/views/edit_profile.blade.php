@@ -3,11 +3,13 @@
 @section('title', '- Edit')
 
 @section('menu')
+
 @include('components.menu')
 @endsection
 
 @section('content')
 <div class="edit-page">
+    @include('components.error')
     <form method="POST" action="{{ route('update-profile', ['user' => $user]) }}" enctype="multipart/form-data">
         @csrf
         @method('PUT')

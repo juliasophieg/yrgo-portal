@@ -13,6 +13,24 @@ document
         reader.readAsDataURL(input.files[0]);
     });
 
+// DESCRIPTION CHARACTER COUNT
+
+document.addEventListener("DOMContentLoaded", function () {
+    const textarea = document.getElementById("description");
+    const charCount = document.getElementById("charCount");
+
+    // Function to update character count
+    function updateCharCount() {
+        const length = textarea.value.length;
+        charCount.textContent = length + "/900";
+    }
+
+    textarea.addEventListener("input", updateCharCount);
+
+    // Call the function initially to count characters on page load
+    updateCharCount();
+});
+
 // SHOW MORE TECHNOLOGIES
 const moreTechnologies = document.querySelector(".more-technologies");
 const unselectedTechnologies = document.querySelector(
