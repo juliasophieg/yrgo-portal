@@ -175,6 +175,7 @@
 //LANDING PAGE
 .index-page {
     width: 100vw;
+    height: 100vh;
     @media (min-width: $desktop-res) {
         margin: 0;
         position: absolute;
@@ -218,7 +219,7 @@
 
                 @media (min-width: $desktop-res) {
                     margin-top: 107px;
-                    max-width: 1320px;
+                    max-width: 1512px;
                 }
                 .date-countdown {
                     display: flex;
@@ -233,23 +234,35 @@
                         @media (min-width: $desktop-res) {
                             flex-direction: row;
                         }
+
                         .button-secondary-fill {
                             display: flex;
                             padding: 8px 16px;
                             height: auto;
                         }
                     }
+                    p {
+                        text-align: center;
+                    }
                 }
                 .desktop-middle {
                     display: flex;
                     flex-direction: column;
-                    height: 100%;
-
+                    height: calc(100vh - 258px);
                     justify-content: space-between;
                     @media (min-width: $desktop-res) {
+                        height: auto;
                         flex-direction: row;
                         align-items: center;
-                        width: 1481px;
+                        width: 1320px;
+                        justify-content: flex-start;
+                        gap: 150px;
+                    }
+                    @media (max-width: 1444px) {
+                        justify-content: space-evenly;
+                    }
+                    @media (max-width: $tablet-res) {
+                        justify-content: space-evenly;
                     }
 
                     #animation {
@@ -301,9 +314,9 @@
                         @media (min-width: $desktop-res) {
                             order: 1;
                             max-width: 752px;
-                            margin-left: 65px;
                             justify-content: flex-start;
                             gap: $gap-md;
+                            transition: max-width 0.3s ease; /* Add a transition for smooth resizing */
                             h2 {
                                 font-size: 96px;
                                 font-style: normal;
@@ -317,6 +330,9 @@
                                 line-height: 25.2px; /* 140% */
                             }
                         }
+                        @media (max-width: 1512px) {
+                            max-width: 600px; /* Adjust the maximum width for smaller screens */
+                        }
 
                         .button {
                             display: none;
@@ -324,15 +340,28 @@
                                 display: block;
                                 align-self: start;
                                 font-size: 16px;
+                                padding: 14px 28px;
                             }
                         }
                     }
 
-                    .right-arrow {
+                    .arrow {
                         display: none;
-                        @media (min-width: $desktop-res) {
-                            display: block;
-                            order: 3;
+
+                        &.right {
+                            @media (min-width: $desktop-res) {
+                                display: block;
+                                position: absolute;
+                                right: 30px;
+                            }
+                        }
+                        &.left {
+                            @media (min-width: $desktop-res) {
+                                display: block;
+                                position: absolute;
+                                left: 30px;
+                                transform: rotate(180deg);
+                            }
                         }
                     }
                 }
@@ -370,6 +399,7 @@
                 }
             }
             &.not-auth {
+                padding: 0;
                 .button {
                     @media (min-width: $desktop-res) {
                         display: none;
@@ -379,9 +409,9 @@
                 .left-arrow {
                     display: none;
                     @media (min-width: $desktop-res) {
-                        position: absolute;
-                        left: 31px;
-                        top: 53.25%;
+                        position: relative;
+                        left: 70%;
+                        top: -50%;
                         display: block;
                     }
                 }
@@ -398,7 +428,7 @@
                 justify-content: space-between;
                 @media (min-width: $desktop-res) {
                     max-width: 792px;
-                    margin-top: 107px;
+                    margin-top: 180px;
                     gap: 48px;
                 }
                 .event-title {
@@ -438,7 +468,7 @@
                         gap: 4px;
                     }
                     .event-text.box {
-                        height: 230px;
+                        height: 180px;
                         .text-box {
                             display: flex;
                             padding: 16px 24px 16px 16px;
@@ -453,13 +483,8 @@
                             );
                             border: 1px solid var(--layout-stroke-white, #fff);
                             margin-top: 4px;
-                            max-height: 180px;
-                            overflow-y: scroll;
-                            @media (min-width: $desktop-res) {
-                                max-height: 300px;
-                                overflow-y: visible;
-          
-                            }
+                            max-height: 150px;
+                            overflow-y: auto;
                         }
                     }
                 }
