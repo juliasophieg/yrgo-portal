@@ -130,6 +130,7 @@
         @media (min-width: $desktop-res) {
             margin-top: 72px;
             width: 390px;
+            height: calc(100vh - 72px);
         }
         &.open {
             right: 0; // Slide in when the 'open' class is added
@@ -186,7 +187,7 @@
         gap: $gap-sm;
         justify-content: space-between;
         @media (min-width: $desktop-res) {
-            height: 100%;
+            height: 100vh;
         }
 
         &.auth {
@@ -308,7 +309,7 @@
         @media (min-width: $desktop-res) {
             position: relative;
             top: -72px;
-            height: calc(100vh - 72px);
+            height: 100vh;
         }
     }
 
@@ -321,6 +322,7 @@
         @media (min-width: $desktop-res) {
             margin: 0;
             height: calc(100vh - 35px);
+            overflow-y: hidden;
         }
 
         .landing-page {
@@ -337,13 +339,13 @@
             @media (min-width: $desktop-res) {
                 margin: 0;
                 padding: 0;
-                height: 100%;
+                height: calc(100vh - 35px);
                 border-radius: 0 0 24px 24px;
             }
 
             .landing-page-content {
                 display: flex;
-                height: 100%;
+                height: calc(100vh - 72px);
                 flex-direction: column;
                 align-items: center;
                 justify-content: space-between;
@@ -518,7 +520,7 @@
             justify-content: space-between;
             @media (min-width: $desktop-res) {
                 margin: 0;
-                height: 100%;
+                height: calc(100vh - 35px);
             }
 
             &.auth {
