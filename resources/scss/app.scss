@@ -450,7 +450,7 @@
                         gap: $gap-xs;
                         @media (min-width: $desktop-res) {
                             order: 1;
-                            max-width: 752px;
+                            max-width: 50%;
                             justify-content: flex-start;
                             gap: $gap-md;
                             transition: max-width 0.3s ease; /* Add a transition for smooth resizing */
