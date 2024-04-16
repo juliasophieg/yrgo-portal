@@ -389,7 +389,7 @@
                         height: auto;
                         flex-direction: row;
                         align-items: center;
-                        width: 1320px;
+                        width: $max-width-desktop;
                         justify-content: flex-start;
                         gap: 150px;
                     }
@@ -527,7 +527,7 @@
 
             &.auth {
                 @media (min-width: $desktop-res) {
-                    width: 1320px;
+                    width: $max-width-desktop;
                     margin: 0 auto;
                     height: calc(100vh - 105px);
                 }
@@ -1456,7 +1456,7 @@
 
 .students-page,
 .companies-page {
-    max-width: 1318px;
+    max-width: $max-width-desktop;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -1673,7 +1673,7 @@
     }
 }
 .liked-page {
-    max-width: 1318px;
+    max-width: $max-width-desktop;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -1923,7 +1923,7 @@
     @include common-profile-styles;
 
     @media (min-width: $desktop-res) {
-        max-width: 1320px;
+        max-width: $max-width-desktop;
         padding-top: 32px;
     }
     @media (min-width: ($desktop-res + 48px)) {
@@ -2097,10 +2097,7 @@
             .save {
                 align-self: flex-start;
                 cursor: pointer;
-
-                @media (min-width: $desktop-res) {
-                    margin-left: auto;
-                }
+                margin-left: auto;
             }
             .title-2 {
                 @media (min-width: $desktop-res) {
