@@ -19,13 +19,12 @@
                     <span id="yrgo-container"></span>
                 </div>
                 <div class="welcome-text">
-                    <h2 class="title-2">Välkommen på event</h2>
+                    <h2 class="title-2">Välkommen på event!</h2>
                     <p class="body">Upptäck nya möjligheter! Välkommen till vårt evenemang där företag och studenter möts för att skapa framtida samarbeten och praktikplatser. Anmäl dig nu för att inte missa detta unika tillfälle!</p>
                     <a class="button button-primary-blue" href="{{ route('gdpr-consent') }}">Anmäl dig nu!</a>
                 </div>
-                <div class="right-arrow"><img src="/images/icons/chevron-right-large.svg" alt=""></div>
+                <div class="arrow right"><img src="/images/icons/chevron-right-large.svg" alt=""></div>
                 <a class="button button-primary-blue" href="{{ route('gdpr-consent') }}">Anmäl dig nu!</a>
-
             </div>
             <div></div>
         </div>
@@ -82,14 +81,26 @@
         const slideControlEventpage = document.querySelector('.slide-control-event-page');
         const landingPage = document.querySelector('.landing-page');
         const eventPage = document.querySelector('.event-page');
+        const arrow = document.querySelector('.arrow');
+
+        arrow.addEventListener('click', () => {
+            eventPage.scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
 
         // Function to handle intersection observer callback for event page
         function handleEventPageIntersection(entries, observer) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     slideControlEventpage.classList.add('active');
+                    arrow.classList.add('left');
+                    arrow.classList.remove('right');
                 } else {
                     slideControlEventpage.classList.remove('active');
+                    arrow.classList.remove('left');
+                    arrow.classList.add('right');
                 }
             });
         }
@@ -99,8 +110,12 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     slideControlLandingpage.classList.add('active');
+                    arrow.classList.remove('left');
+                    arrow.classList.add('right');
                 } else {
                     slideControlLandingpage.classList.remove('active');
+                    arrow.classList.add('left');
+                    arrow.classList.remove('right');
                 }
             });
         }
