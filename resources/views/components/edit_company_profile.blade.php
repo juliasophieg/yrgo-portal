@@ -28,15 +28,16 @@
 
         <div class="desktop-selection">
 
-        <div class="main-section">
-            <h2 class="title-4">Om oss</h2>
-            @if ($user->description == null)
-            <textarea id="description" name="description" rows="4" class="form-control" placeholder="Här får ni gärna berätta lite mer om företaget (ex. antal LIA-platser, hur många ni är i teamet etc.)"></textarea>
-            @else
-            <textarea id="description" name="description" rows="4" class="form-control">{{ $user->description}}</textarea>
-            @endif
-        </div>
-        <div class="divider"></div>
+            <div class="main-section">
+                <h2 class="title-4">Om oss</h2>
+                @if ($user->description == null)
+                    <textarea id="description" name="description" rows="4" class="form-control user-description"
+                        placeholder="Här får ni gärna berätta lite mer om företaget (ex. antal LIA-platser, hur många ni är i teamet etc.)"></textarea>
+                @else
+                    <textarea id="description" name="description" rows="4" class="form-control user-description">{{ $user->description }}</textarea>
+                @endif
+            </div>
+            <div class="divider"></div>
 
 
             <!-- COMPETENCIES -->
@@ -76,17 +77,18 @@
             <h2 class="title-4">Kontakt</h2>
             <ul>
                 @foreach ([
-
-                'phone' => ['label' => 'Telefon', 'type' => 'phone', 'icon' => '/images/icons/phone.svg', 'value' => $user->phone ?? '', 'placeholder' => 'Telefonnummer'],
-                'website' => ['label' => 'Hemsida', 'type' => 'url', 'icon' => '/images/icons/website.svg', 'value' => $user->website ?? '', 'placeholder' => 'www.exempel.se'],
-                'linkedin' => ['label' => 'LinkedIn', 'type' => 'url', 'icon' => '/images/icons/linkedin.svg', 'value' => $user->linkedin, 'placeholder' => 'LinkedIn-URL'],
-                'facebook' => ['label' => 'instagram', 'type' => 'text', 'icon' => '/images/icons/instagram.svg', 'value' => $user->facebook, 'placeholder' => 'Instagram-namn'],
-                ] as $field => $attributes)
-                <!-- Input fields-->
-                <li>
-                    <img src="{{ $attributes['icon'] }}" alt="">
-                    <input type="{{ $attributes['type'] }}" class="form-control" id="{{ $field }}" name="{{ $field }}" value="{{ $attributes['value'] }}" placeholder="{{ $attributes['placeholder'] }}">
-                </li>
+        'phone' => ['label' => 'Telefon', 'type' => 'phone', 'icon' => '/images/icons/phone.svg', 'value' => $user->phone ?? '', 'placeholder' => 'Telefonnummer'],
+        'website' => ['label' => 'Hemsida', 'type' => 'url', 'icon' => '/images/icons/website.svg', 'value' => $user->website ?? '', 'placeholder' => 'www.exempel.se'],
+        'linkedin' => ['label' => 'LinkedIn', 'type' => 'url', 'icon' => '/images/icons/linkedin.svg', 'value' => $user->linkedin, 'placeholder' => 'LinkedIn-URL'],
+        'facebook' => ['label' => 'instagram', 'type' => 'text', 'icon' => '/images/icons/instagram.svg', 'value' => $user->facebook, 'placeholder' => 'Instagram-namn'],
+    ] as $field => $attributes)
+                    <!-- Input fields-->
+                    <li>
+                        <img src="{{ $attributes['icon'] }}" alt="">
+                        <input type="{{ $attributes['type'] }}" class="form-control" id="{{ $field }}"
+                            name="{{ $field }}" value="{{ $attributes['value'] }}"
+                            placeholder="{{ $attributes['placeholder'] }}">
+                    </li>
                 @endforeach
             </ul>
         </div>
