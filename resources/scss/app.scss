@@ -229,7 +229,7 @@
             justify-content: space-between;
             @media (min-width: $desktop-res) {
                 max-width: 792px;
-                gap: 48px;
+                gap: 16px;
             }
             .event-title {
                 display: flex;
@@ -309,7 +309,6 @@
         @media (min-width: $desktop-res) {
             position: relative;
             top: -72px;
-            height: 100vh;
         }
     }
 
@@ -564,7 +563,7 @@
                 @media (min-width: $desktop-res) {
                     max-width: 792px;
                     padding: 180px 32px 32px 32px;
-                    gap: 48px;
+                    gap: 16px;
                 }
                 .event-title {
                     display: flex;
