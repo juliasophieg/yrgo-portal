@@ -1388,7 +1388,6 @@
                     flex-grow: 1;
                     border-radius: 48px;
                     background: #ccd1dc;
-                    box-shadow: 0px 0px 8px 0px rgba(32, 32, 32, 0.25);
                     align-items: center;
                     overflow: scroll;
                     .search-data {
@@ -1422,7 +1421,6 @@
                     justify-content: center;
                     gap: 16px;
                     border-radius: 50%;
-                    box-shadow: 0px 0px 8px 0px rgba(32, 32, 32, 0.25);
                     cursor: pointer;
                 }
             }
@@ -1525,16 +1523,9 @@
                 }
             }
             .image {
-                min-width: 40%;
-                max-width: 40%;
-                @media (min-width: $tablet-res) {
-                    min-width: 30%;
-                    max-width: 30%;
-                }
-                @media (min-width: $desktop-res) {
-                    min-width: 14%;
-                    max-width: 14%;
-                }
+                min-width: 128px;
+                max-width: 128px;
+
                 img {
                     height: 128px;
                     width: 100%;
@@ -1645,16 +1636,9 @@
                 }
             }
             .image {
-                min-width: 40%;
-                max-width: 40%;
-                @media (min-width: $tablet-res) {
-                    min-width: 30%;
-                    max-width: 30%;
-                }
-                @media (min-width: $desktop-res) {
-                    min-width: 14%;
-                    max-width: 14%;
-                }
+                min-width: 128px;
+                max-width: 128px;
+
                 img {
                     height: 128px;
                     width: 100%;
@@ -1804,16 +1788,29 @@
 
     @media (min-width: $desktop-res) {
         max-width: 1320px;
+        padding-top: 32px;
     }
     @media (min-width: ($desktop-res + 48px)) {
         margin: 0 auto;
+    }
+    @media (max-width: $desktop-res) and (min-width: $inbetween-res) {
+        // Styles to apply within the media query
+        max-width: 400px;
+    }
+    @media (max-width: $desktop-res) and (min-width: ($inbetween-res + 48px)) {
+        // Styles to apply within the media query
+        max-width: 400px;
+        margin: 0 auto;
+        padding-top: 24px;
     }
 
     .width-container {
         display: flex;
         flex-direction: column;
         width: 100%;
-        @media (min-width: $desktop-res) {
+        @media (max-width: $desktop-res) and (min-width: $inbetween-res) {
+            // Styles to apply within the media query
+            align-items: center;
         }
     }
     .desktop-selection {
@@ -1852,6 +1849,10 @@
     .company-profile {
         position: relative;
         top: -48px;
+        @media (max-width: $desktop-res) and (min-width: $inbetween-res) {
+            // Styles to apply within the media query
+            width: 100%;
+        }
         .profile-header {
             display: flex;
             flex-direction: column;
@@ -1870,7 +1871,12 @@
                 flex-direction: column;
                 align-items: center;
                 margin: 24px 45px 0 45px;
+
+                @media (min-width: $desktop-res) {
+                    margin: 24px 0 0 0;
+                }
                 .info {
+                    word-break: break-word;
                     .title-2,
                     p {
                         text-align: center;
@@ -1884,6 +1890,11 @@
                 width: 100vw;
                 left: -24px;
                 @media (min-width: $desktop-res) {
+                    width: 100%;
+                    left: 0;
+                }
+                @media (max-width: $desktop-res) and (min-width: $inbetween-res) {
+                    // Styles to apply within the media query
                     width: 100%;
                     left: 0;
                 }
@@ -1925,12 +1936,8 @@
             }
 
             .profile-img {
-                min-width: 40%;
-                max-width: 40%;
-                @media (min-width: $desktop-res) {
-                    min-width: 128px;
-                    max-width: 128px;
-                }
+                min-width: 128px;
+                max-width: 128px;
 
                 img {
                     height: 128px;
@@ -1945,11 +1952,16 @@
                 align-items: center;
                 flex-direction: column;
                 align-items: start;
+                max-width: 40%;
+                .info {
+                    word-break: break-word;
+                }
             }
 
             .save {
                 align-self: flex-start;
                 cursor: pointer;
+
                 @media (min-width: $desktop-res) {
                     margin-left: auto;
                 }
@@ -1980,13 +1992,26 @@
             line-height: 22.44px; /* 110% */
             letter-spacing: -0.5px;
             margin: 0;
+            @media (min-width: $desktop-res) {
+                font-size: 48px;
+                font-weight: 700;
+                line-height: 52.8px; /* 110% */
+            }
         }
-
         input.company {
             text-align: center;
+
+            @media (min-width: $desktop-res) {
+                font-size: 48px;
+                font-weight: 700;
+                line-height: 52.8px; /* 110% */
+            }
         }
         input.location {
             text-align: center;
+            @media (min-width: $desktop-res) {
+                width: fit-content;
+            }
         }
         .upload-img {
             label {
@@ -2072,7 +2097,7 @@
             flex-direction: column;
             gap: 8px;
             @media (min-width: $desktop-res) {
-                margin: 32px 0px;
+                margin: 32px 0;
                 flex-direction: row;
                 gap: 32px;
 
@@ -2091,6 +2116,12 @@
             font-style: normal;
             font-weight: 400;
             line-height: 14px;
+        }
+    }
+    .user-description {
+        @media (min-width: $desktop-res) {
+            background: $blue;
+            color: $white;
         }
     }
 }
