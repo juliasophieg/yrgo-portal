@@ -34,7 +34,7 @@
                 @if ($user->description == null)
                     <p class="description-placeholder">Den här användaren har inte skrivit någon beskrivning ännu.</p>
                 @else
-                    <p>{{ $user->description }}</p>
+                    <p>{!! nl2br($user->description) !!}</p>
                 @endif
             </div>
             <div class="divider"></div>
