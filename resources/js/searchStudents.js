@@ -18,23 +18,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
     renderSearchContainer();
     applyActiveClass();
-
-    categoryButton.addEventListener("click", () => {
+    function toggleActiveClasses() {
         if (customSelect.classList.contains("active")) {
             customSelect.classList.remove("active");
             darkBackgruond.classList.remove("active");
+            categoryButton.classList.remove("active");
         } else {
             customSelect.classList.add("active");
             darkBackgruond.classList.add("active");
+            categoryButton.classList.add("active");
         }
-    });
+    }
+
+    categoryButton.addEventListener("click", toggleActiveClasses);
     darkBackgruond.addEventListener("click", () => {
         if (customSelect.classList.contains("active")) {
             customSelect.classList.remove("active");
             darkBackgruond.classList.remove("active");
+            categoryButton.classList.remove("active");
         } else {
             customSelect.classList.add("active");
             darkBackgruond.classList.add("active");
+            categoryButton.classList.add("active");
         }
     });
 
