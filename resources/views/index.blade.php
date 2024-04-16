@@ -7,13 +7,13 @@
 @endsection
 
 @section('content')
+
 @guest
 <div class="index-page guest">
-    <div class="slide-wrapper snaps-inline">
-        @include('components.index_guest')
-    </div>
+    @include('components.index_guest')
 </div>
 @endguest
+
 @auth
 <div class="index-page auth">
     <div class="event-page auth" id="event-page">
@@ -62,5 +62,6 @@
 </div>
 @endauth
 
-
 @endsection
+
+@vite(['resources/js/index.js'])

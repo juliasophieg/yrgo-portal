@@ -13,6 +13,8 @@ export default defineConfig({
                 "resources/js/onboarding.js",
                 "resources/js/searchStudents.js",
                 "resources/js/searchCompanies.js",
+                "resources/js/index.js",
+                "resources/js/editProfile.js",
             ],
             refresh: true,
         }),
