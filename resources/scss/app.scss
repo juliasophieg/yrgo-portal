@@ -318,9 +318,15 @@
         grid-auto-columns: 100vw;
         overflow-x: auto;
         overscroll-behavior-inline: contain;
+
+        scrollbar-width: none;
         @media (min-width: $desktop-res) {
             margin: 0;
             height: calc(100vh - 35px);
+        }
+
+        .slide-wrapper::-webkit-scrollbar {
+            display: none; /* for Chrome, Safari, and Opera */
         }
 
         .landing-page {
