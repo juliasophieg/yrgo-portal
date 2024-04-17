@@ -25,7 +25,6 @@
                     <a class="button button-primary-blue" href="{{ route('gdpr-consent') }}">Anmäl dig nu!</a>
                 </div>
                 <div class="arrow right"><img src="/images/icons/chevron-right-large.svg" alt=""></div>
-                <a class="button button-primary-blue" href="{{ route('gdpr-consent') }}">Anmäl dig nu!</a>
             </div>
             <div></div>
         </div>
