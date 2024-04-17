@@ -10,9 +10,15 @@ const eventPage = document.querySelector(".event-page");
 const arrow = document.querySelector(".arrow");
 
 arrow.addEventListener("click", () => {
-    eventPage.scrollIntoView({
-        behavior: "smooth",
-    });
+    if (arrow.classList.contains("right")) {
+        eventPage.scrollIntoView({
+            behavior: "smooth",
+        });
+    } else {
+        landingPage.scrollIntoView({
+            behavior: "smooth",
+        });
+    }
 });
 
 // Function to handle intersection observer callback for event page
