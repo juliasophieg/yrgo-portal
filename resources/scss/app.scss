@@ -555,6 +555,7 @@
             @media (min-width: $desktop-res) {
                 margin: 0;
                 height: calc(100vh - 35px);
+                gap: 0px;
             }
 
             &.auth {
@@ -594,7 +595,7 @@
                 justify-content: space-between;
                 @media (min-width: $desktop-res) {
                     max-width: 792px;
-                    padding: 180px 32px 32px 32px;
+                    padding: 150px 32px 32px 32px;
                     gap: 16px;
                     height: 100% !important;
                 }
@@ -617,6 +618,7 @@
                     gap: $gap-md;
                     @media (min-width: $desktop-res) {
                         height: 100%;
+                        gap: 16px;
                         h2 {
                             font-size: 21.6px;
                             font-style: normal;
