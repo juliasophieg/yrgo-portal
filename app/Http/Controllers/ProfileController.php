@@ -80,8 +80,6 @@ class ProfileController extends Controller
 
         // Handle profile picture update
         if ($request->hasFile('profile_picture')) {
-
-
             $request->validate([
                 'profile_picture' => 'image|mimes:jpeg,png,jpg,gif|max:2080',
             ], [
@@ -98,13 +96,14 @@ class ProfileController extends Controller
             $imagePath = $request->file('profile_picture')->storeAs('user_uploads', $imageName, 'public');
 
             // Check if the new image has the same name as the existing image
-            if ($existingImagePath && Storage::exists($existingImagePath)) {
-                //Delete the existing image
-                Storage::delete($existingImagePath);
+            if ($existingImagePath && Storage::disk('public')->exists($existingImagePath)) {
+                // Delete the existing image
+                Storage::disk('public')->delete($existingImagePath);
             }
 
             $user->profile_picture = $imagePath;
         }
+
 
         $user->save();
 
