@@ -91,8 +91,10 @@ class ProfileController extends Controller
             // Get the existing profile picture path
             $existingImagePath = $user->profile_picture;
 
+            // Generate a unique file name
+            $imageName = 'profile_' . $user->id . '_' . time() . '_' . uniqid() . '.' . $request->file('profile_picture')->extension();
+
             // Store and update profile picture path
-            $imageName = 'profile_' . $user->id . '.' . $request->file('profile_picture')->extension();
             $imagePath = $request->file('profile_picture')->storeAs('user_uploads', $imageName, 'public');
 
             // Check if the new image has the same name as the existing image
@@ -103,6 +105,7 @@ class ProfileController extends Controller
 
             $user->profile_picture = $imagePath;
         }
+
 
 
         $user->save();
