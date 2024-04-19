@@ -1,4 +1,4 @@
-//SLIDE CONTROLLERS FUNCTIONALITY
+//SLIDE CONTROLLERS & ARROWS FUNCTIONALITY
 const slideControlLandingpage = document.querySelector(
     ".slide-control-landing-page"
 );
@@ -9,6 +9,7 @@ const landingPage = document.querySelector(".landing-page");
 const eventPage = document.querySelector(".event-page");
 const arrow = document.querySelector(".arrow");
 
+// Function to scroll to the event page or landing page
 arrow.addEventListener("click", () => {
     if (arrow.classList.contains("right")) {
         eventPage.scrollIntoView({

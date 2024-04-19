@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\StudentInfo;
 use App\Models\CompanyInfo;
 use App\Models\Technologies;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -56,15 +57,15 @@ class ProfileController extends Controller
             'phone' => 'nullable|string|max:30',
             'website' => 'nullable|url|max:100',
         ], [
-            'description.max' => 'Din beskrivning får inte vara längre än 900 tecken.',
-            'name.required' => 'Du måste ange ett namn.',
-            'name.max' => 'Ditt namn får inte vara längre än 255 tecken.',
+            'description.max' => 'Din beskrivning får innehålla max 900 tecken.',
+            'name.required' => 'Du måste ange ditt namn.',
+            'name.max' => 'Ditt namn får innehålla max 255 tecken.',
             'linkedin.url' => 'Länken till din LinkedIn-profil måste vara en URL.',
-            'linkedin.max' => 'Länken till din LinkedIn-profil får inte vara längre än 100 tecken.',
-            'facebook.max' => 'Ditt Instagram-namn får inte vara längre än 30 tecken.',
-            'phone.max' => 'Ditt telefonnummer får inte vara längre än 30 tecken.',
+            'linkedin.max' => 'Länken till din LinkedIn-profil får innehålla max 100 tecken.',
+            'facebook.max' => 'Ditt Instagram-namn får innehålla max 30 tecken.',
+            'phone.max' => 'Ditt telefonnummer får innehålla max 30 tecken.',
             'website.url' => 'Länken till din hemsida måste vara en URL.',
-            'website.max' => 'Länken till din hemsida får inte vara längre än 100 tecken.',
+            'website.max' => 'Länken till din hemsida får innehålla max 100 tecken.',
         ]);
 
         $user = User::findOrFail($id);
@@ -80,19 +81,28 @@ class ProfileController extends Controller
         // Handle profile picture update
         if ($request->hasFile('profile_picture')) {
 
+
             $request->validate([
-                'profile_picture' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+                'profile_picture' => 'image|mimes:jpeg,png,jpg,gif|max:2080',
             ], [
                 'profile_picture.image' => 'Filen måste vara en bild.',
                 'profile_picture.mimes' => 'Filen måste vara av formatet jpeg, png eller jpg.',
                 'profile_picture.max' => 'Bilden är för stor. Bilden får vara max 2MB stor.',
             ]);
 
-
+            // Get the existing profile picture path
+            $existingImagePath = $user->profile_picture;
 
             // Store and update profile picture path
             $imageName = 'profile_' . $user->id . '.' . $request->file('profile_picture')->extension();
             $imagePath = $request->file('profile_picture')->storeAs('user_uploads', $imageName, 'public');
+
+            // Check if the new image has the same name as the existing image
+            if ($existingImagePath && Storage::exists($existingImagePath)) {
+                //Delete the existing image
+                Storage::delete($existingImagePath);
+            }
+
             $user->profile_picture = $imagePath;
         }
 
@@ -101,11 +111,16 @@ class ProfileController extends Controller
         // Validate the request data based on user's role
         if ($user->role === 'student') {
             $request->validate([
-                'program' => 'required|string|max:100',
+                'program' => 'string|max:100',
+            ], [
+                'program.max' => 'Programfältet får innehålla max 100 tecken.',
+
             ]);
         } elseif ($user->role === 'company') {
             $request->validate([
-                'location' => 'required|string|max:255',
+                'location' => 'string|max:255',
+            ], [
+                'location.max' => 'Adressfältet får innehålla max 255 tecken.'
             ]);
         }
 

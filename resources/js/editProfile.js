@@ -1,16 +1,54 @@
-//IMAGE PREVIEW
+//IMAGE PREVIEW & SIZE CHECK
 
 document
     .getElementById("profile_picture")
     .addEventListener("change", function (event) {
         const input = event.target;
+        const file = input.files[0];
+
+        // Check if file size is greater than 2MB, and display error if it is
+        if (file.size > 2 * 1024 * 1024) {
+            const errorDiv = document.createElement("div");
+            errorDiv.classList.add("error-div");
+
+            const errorMessage = document.createElement("p");
+            errorMessage.classList.add("error");
+            errorMessage.textContent = "Bilden får vara max 2MB stor.";
+
+            errorDiv.appendChild(errorMessage);
+
+            const editPageDiv = document.querySelector(".edit-page");
+            const errorContainer =
+                editPageDiv.querySelector(".error-container");
+            if (!errorContainer) {
+                const newErrorContainer = document.createElement("div");
+                newErrorContainer.classList.add("error-container");
+                newErrorContainer.appendChild(errorDiv);
+                editPageDiv.appendChild(newErrorContainer);
+            } else {
+                errorContainer.innerHTML = "";
+                errorContainer.appendChild(errorDiv);
+            }
+
+            input.value = "";
+            return;
+        }
+
+        // If no error, remove any existing error container
+        const editPageDiv = document.querySelector(".edit-page");
+        const errorContainer = editPageDiv.querySelector(".error-container");
+        if (errorContainer) {
+            editPageDiv.removeChild(errorContainer);
+        }
+
+        // If no error, continue with image processing
         const reader = new FileReader();
         reader.onload = function () {
             const dataURL = reader.result;
             const userProfileImg = document.getElementById("user-profile-img");
             userProfileImg.src = dataURL;
         };
-        reader.readAsDataURL(input.files[0]);
+        reader.readAsDataURL(file);
     });
 
 // DESCRIPTION CHARACTER COUNT
