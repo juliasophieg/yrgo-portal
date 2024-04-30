@@ -90,18 +90,13 @@ class ProfileController extends Controller
                 'profile_picture.max' => 'Bilden är för stor. Bilden får vara max 2MB stor.',
             ]);
 
-            // Get the existing profile picture path
-            $existingImagePath = $user->profile_picture;
+
 
             // Store and update profile picture path
             $imageName = 'profile_' . $user->id . '.' . $request->file('profile_picture')->extension();
             $imagePath = $request->file('profile_picture')->storeAs('user_uploads', $imageName, 'public');
 
-            // Check if the new image has the same name as the existing image
-            if ($existingImagePath && Storage::exists($existingImagePath)) {
-                //Delete the existing image
-                Storage::delete($existingImagePath);
-            }
+
 
             $user->profile_picture = $imagePath;
         }

@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     studentButton.addEventListener("click", function () {
         formSection.style.display = "flex";
         firstSection.style.display = "none";
-        title.textContent = "Student";
+        title.textContent = "Skapa konto - Student";
         nameDiv.textContent = "Namn";
         document.getElementById("role").value = "student";
     });
@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
     companyButton.addEventListener("click", function () {
         formSection.style.display = "flex";
         firstSection.style.display = "none";
-        title.textContent = "Företag";
-        nameDiv.textContent = "Företags Namn";
+        title.textContent = "Skapa konto - Företag";
+        nameDiv.textContent = "Företagsnamn";
         inputName.placeholder = "ex. Företaget AB";
         document.getElementById("role").value = "company";
     });

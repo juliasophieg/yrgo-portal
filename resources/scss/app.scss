@@ -36,11 +36,8 @@
     display: flex;
     flex-direction: column;
     background-color: $white;
-    padding: 64px 24px 16px 24px;
+    padding: 16px;
     border-radius: 0px 0px 24px 24px;
-    @media (min-width: $desktop-res) {
-        padding: 16px 24px 16px 24px;
-    }
 
     .navbar {
         .width-container {
@@ -119,10 +116,10 @@
         display: flex;
         flex-direction: column;
         gap: 64px;
-        margin-top: 105px;
+        margin-top: 80px;
         padding: 64px;
         background-color: #fff;
-        top: 0;
+        top: -8;
         width: 100vw;
         height: 100vh;
         right: -100vw; // Hidden off-screen
@@ -175,30 +172,31 @@
 
 //LANDING PAGE
 .index-page.auth {
+    width: 100vw;
+    height: calc(100vh - 80px);
+    padding: 0 24px 24px;
     .event-page {
-        margin: 24px 24px 10px 24px;
         display: flex;
         padding: 48px 32px 32px 32px;
-        height: calc(100vh - 168px);
+        height: calc(100svh - 96px);
         border-radius: 24px;
         color: $white;
         flex-direction: column;
         align-items: center;
         gap: $gap-md;
         justify-content: space-between;
+        background-color: $red;
+        overflow: scroll;
         @media (min-width: $desktop-res) {
-            height: 100vh;
+            height: calc(100vh - 104px);
         }
         .button {
-            @media (min-width: $desktop-res) {
-                width: fit-content;
-                align-self: center;
-            }
+            width: fit-content;
+            align-self: center;
         }
         &.auth {
             @media (min-width: $desktop-res) {
                 max-width: $max-width-desktop;
-                height: calc(100vh - 105px);
             }
             @media (min-width: ($desktop-res + 48px)) {
                 margin: 0 auto;
@@ -223,7 +221,7 @@
             gap: $gap-md;
             justify-content: space-between;
             @media (min-width: $desktop-res) {
-                max-width: 792px;
+                max-width: 600px;
                 gap: 16px;
                 height: 100%;
             }
@@ -232,6 +230,10 @@
                 flex-direction: column;
                 align-items: center;
                 gap: $gap-xs;
+
+                h1 {
+                    font-size: 27.78px;
+                }
                 .divider {
                     height: 1px;
                     width: 230px;
@@ -261,14 +263,20 @@
                 }
                 .event-text {
                     display: flex;
-                    flex-direction: column;
-                    gap: 4px;
+                    flex-direction: row;
+                    gap: $gap-sm;
+                    align-items: flex-end;
+                    img {
+                        width: 24px;
+                        height: 24px;
+                    }
                 }
                 .event-text.box {
-                    height: 180px;
+                    height: 150px;
                     @media (min-width: $desktop-res) {
                         height: -webkit-fill-available;
                     }
+
                     .text-box {
                         display: flex;
                         padding: 16px 24px 16px 16px;
@@ -285,6 +293,9 @@
                     }
                 }
             }
+            a {
+                margin-bottom: 24px;
+            }
         }
     }
 
@@ -292,26 +303,12 @@
         align-self: end;
         width: auto;
     }
-    .event-page.auth {
-        background-color: $red;
-        height: calc(100vh - 174px);
-        @media (min-width: $desktop-res) {
-            height: calc(100vh - 105px);
-        }
-    }
 }
 
 .index-page.guest {
+    position: relative;
+    top: -72px;
     width: 100vw;
-    height: calc(100vh - 120px);
-
-    &.guest {
-        @media (min-width: $desktop-res) {
-            position: relative;
-            top: -72px;
-        }
-    }
-
     .slide-wrapper {
         display: grid;
         grid-auto-flow: column;
@@ -321,7 +318,7 @@
         scrollbar-width: none;
         @media (min-width: $desktop-res) {
             margin: 0;
-            height: calc(100vh - 35px);
+            height: 100svh;
             overflow-y: hidden;
         }
         .slide-wrapper::-webkit-scrollbar {
@@ -329,10 +326,8 @@
         }
 
         .landing-page {
-            margin: 24px 24px 10px 24px;
-            padding: 32px;
-            border-radius: 24px;
-            height: calc(100vh - 168px);
+            padding: 105px 32px 32px;
+            height: 100svh;
             background-color: $red;
             color: $white;
             display: flex;
@@ -340,73 +335,77 @@
             align-items: center;
             gap: $gap-sm;
             @media (min-width: $desktop-res) {
-                margin: 0;
                 padding: 0;
-                height: calc(100vh - 35px);
-                border-radius: 0 0 24px 24px;
             }
 
             .landing-page-content {
                 display: flex;
-                height: calc(100vh - 72px);
+                height: 100%;
                 flex-direction: column;
                 align-items: center;
                 justify-content: space-between;
-
+                overflow: scroll;
                 @media (min-width: $desktop-res) {
                     margin-top: 107px;
                     max-width: 1512px;
                 }
-                .date-countdown {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: $gap-xs;
-                    .countdown {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        gap: $gap-xs;
-                        @media (min-width: $desktop-res) {
-                            flex-direction: row;
-                        }
 
-                        .button-secondary-fill {
-                            display: flex;
-                            padding: 8px 16px;
-                            height: auto;
-                        }
-                    }
-                    p {
-                        text-align: center;
-                    }
-                }
                 .desktop-middle {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     height: 100%;
                     justify-content: space-between;
-                    @media (min-width: $desktop-res) and (max-height: 700px) {
-                        height: auto;
+                    @media (min-width: $desktop-res) {
+                        height: 100%;
                         flex-direction: row;
-                        align-items: center;
+                        flex-wrap: wrap;
+                        align-items: flex-start;
                         width: $max-width-desktop;
                         justify-content: space-between;
-                        gap: 150px;
-                    }
-                    @media (min-width: $desktop-res) and (min-height: 700px) {
-                        height: auto;
-                        flex-direction: row;
-                        align-items: center;
-                        width: $max-width-desktop;
-                        justify-content: space-between;
-                        gap: 65px;
-                    }
-                    @media (max-width: 1345px) {
-                        justify-content: flex-start;
+                        gap: 50px;
+                        transition: gap 0.5s ease; /* Add a transition for smooth resizing */
                     }
 
+                    @media (max-width: 1280px) and (min-width: $desktop-res) {
+                        justify-content: space-evenly;
+                        gap: 50px 10px;
+                    }
+
+                    .date-countdown {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: $gap-xs;
+                        @media (min-width: $desktop-res) {
+                            position: relative;
+                            width: 1148px;
+                            background: linear-gradient(
+                                to bottom,
+                                $red 25%,
+                                rgba(255, 255, 255, 0)
+                            ); /* Gradient background */
+                        }
+
+                        .countdown {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            gap: $gap-xs;
+                            @media (min-width: $desktop-res) {
+                                flex-direction: row;
+                            }
+
+                            .button-secondary-fill {
+                                display: flex;
+                                padding: 8px 16px;
+                                height: auto;
+                            }
+                        }
+                        p {
+                            text-align: center;
+                        }
+                    }
                     #animation {
                         display: flex;
                         flex-direction: column;
@@ -414,24 +413,24 @@
                         justify-content: center;
                         width: 180px;
                         height: 180px;
-                        margin-top: 50px;
-
-                        @media (min-width: $desktop-res) and (min-height: 700px) {
+                        @media (min-width: $desktop-res) and (min-height: 800px) {
                             order: 2;
                             justify-content: center;
-                            width: 394px;
-                            height: 394px;
+                            width: 400px;
+                            height: 400px;
                             background-color: $white;
                             color: $red;
                             border-radius: 50%;
                             margin: 0;
-                            transition: width 0.3s ease; /* Add a transition for smooth resizing */
+                            padding: $padding-xs;
+                            transition: width 0.3s ease;
                         }
-                        @media (min-width: $desktop-res) and (max-height: 700px) {
+                        @media (min-width: $desktop-res) and (max-height: 800px) {
+                            display: flex;
                             order: 2;
                             justify-content: center;
-                            width: 320px;
-                            height: 320px;
+                            width: 350px;
+                            height: 350px;
                             background-color: $white;
                             color: $red;
                             border-radius: 50%;
@@ -445,13 +444,9 @@
                             font-size: 40px;
                             font-style: normal;
                             font-weight: 700;
-                            @media (min-width: $desktop-res) and (max-height: 700px) {
+                            @media (min-width: $desktop-res) {
                                 font-size: 52px;
                                 line-height: 57.2px; /* 110% */
-                            }
-                            @media (min-width: $desktop-res) and (min-height: 700px) {
-                                font-size: 71.636px;
-                                line-height: 78.8px; /* 110% */
                             }
                         }
                         span#yrgo-container {
@@ -472,14 +467,15 @@
                         @media (min-width: $desktop-res) {
                             order: 1;
                             max-width: 50%;
-                            justify-content: flex-start;
+                            height: 394px;
+                            justify-content: center;
                             gap: $gap-md;
                             transition: max-width 0.3s ease; /* Add a transition for smooth resizing */
                             h2 {
-                                font-size: 96px;
+                                font-size: 80px;
                                 font-style: normal;
                                 font-weight: 700;
-                                line-height: 105.6px; /* 110% */
+                                line-height: 83px; /* 110% */
                             }
                             p {
                                 font-size: 18px;
@@ -505,12 +501,14 @@
                     .arrow {
                         display: none;
                         position: absolute;
+                        top: 50%;
                         cursor: pointer;
 
                         &.right {
                             @media (min-width: $desktop-res) {
                                 display: block;
                                 right: 10px;
+                                transition: transform 0.5s ease-in-out;
                             }
                         }
                         &.left {
@@ -518,6 +516,7 @@
                                 display: block;
                                 left: 10px;
                                 transform: rotate(180deg);
+                                transition: transform 0.5s ease-in-out;
                             }
                         }
                     }
@@ -532,20 +531,17 @@
             }
         }
         .event-page {
-            margin: 24px 24px 10px 24px;
             display: flex;
-            height: calc(100vh - 168px);
-            border-radius: 24px;
+            height: 100svh;
+            width: 100vw;
             background-color: $blue;
             color: $white;
             flex-direction: column;
             align-items: center;
-            gap: $gap-sm;
-            justify-content: space-evenly;
+            overflow: scroll;
             @media (min-width: $desktop-res) {
-                margin: 0;
-                height: calc(100vh - 35px);
                 gap: 0px;
+                justify-content: center;
             }
 
             &.auth {
@@ -555,39 +551,18 @@
                     height: calc(100vh - 105px);
                 }
             }
-            &.not-auth {
-                .button {
-                    @media (min-width: $desktop-res) {
-                        display: none;
-                    }
-                }
 
-                .left-arrow {
-                    display: none;
-                    @media (min-width: $desktop-res) {
-                        position: relative;
-                        left: 70%;
-                        top: -50%;
-                        display: block;
-                    }
-                }
-            }
-
-            .width-container {
-                max-width: 600px;
-                height: 100%;
-            }
             .event-info {
                 display: flex;
                 flex-direction: column;
                 gap: $gap-md;
-                padding: 32px;
+                max-width: 600px;
+                padding: 105px 32px 32px;
                 justify-content: space-between;
                 @media (min-width: $desktop-res) {
                     max-width: 792px;
-                    padding: 150px 32px 32px 32px;
+                    padding: 112px 32px 32px 32px;
                     gap: 16px;
-                    height: 100% !important;
                 }
                 .event-title {
                     display: flex;
@@ -599,13 +574,13 @@
                         width: 230px;
                         background-color: $white;
                         opacity: 0.5;
-                        margin-top: 32px;
+                        margin-top: 16px;
                     }
                 }
                 .event-description {
                     display: flex;
                     flex-direction: column;
-                    gap: $gap-md;
+                    gap: $gap-sm;
                     @media (min-width: $desktop-res) {
                         height: 100%;
                         gap: 16px;
@@ -624,31 +599,34 @@
                     }
                     .event-text {
                         display: flex;
-                        flex-direction: column;
-                        gap: 4px;
+                        flex-direction: row;
+                        gap: $gap-sm;
+                        align-items: flex-end;
+                        img {
+                            width: 24px;
+                            height: 24px;
+                        }
                     }
-                    .event-text.box {
-                        height: 180px;
-                        @media (min-width: $desktop-res) {
-                            height: -webkit-fill-available;
-                        }
-                        .text-box {
-                            display: flex;
-                            padding: 16px 24px 16px 16px;
-                            flex-direction: column;
-                            align-items: flex-start;
-                            gap: var(--base-units-unit-1, 8px);
-                            flex: 1 0 0;
-                            align-self: stretch;
-                            border-radius: var(
-                                --layout-corner-radius-block,
-                                24px
-                            );
-                            border: 1px solid var(--layout-stroke-white, #fff);
-                            margin-top: 4px;
-                            max-height: 100%;
-                            overflow-y: auto;
-                        }
+                }
+                .event-text.box {
+                    height: 180px;
+                    @media (min-width: $desktop-res) {
+                        height: -webkit-fill-available;
+                    }
+                    .text-box {
+                        display: flex;
+                        padding: 16px 24px 16px 16px;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: var(--base-units-unit-1, 8px);
+                        flex: 1 0 0;
+                        align-self: stretch;
+                        border-radius: var(--layout-corner-radius-block, 24px);
+                        border: 1px solid var(--layout-stroke-white, #fff);
+                        margin-top: 4px;
+
+                        max-height: 230px;
+                        overflow-y: auto;
                     }
                 }
             }
@@ -656,6 +634,7 @@
 
         .button-primary-red {
             width: auto;
+            margin-bottom: $margin-md;
         }
         .event-page.auth {
             background-color: $red;
@@ -668,7 +647,6 @@
 
     .snaps-inline {
         scroll-snap-type: inline mandatory;
-        scroll-padding-inline: 24px;
         @media (min-width: $desktop-res) {
             scroll-padding-inline: unset;
         }
@@ -683,23 +661,25 @@
     }
 
     .slide-controls {
+        position: absolute;
+        bottom: 0;
+        width: 100vw;
+        margin: 13.5px;
         display: flex;
         gap: 7px;
         justify-content: center;
-        margin-bottom: 30px;
-        @media (min-width: $desktop-res) {
-            margin: 13.5px;
-        }
+        margin: 8px 0;
+
         .slide-control-landing-page,
         .slide-control-event-page {
             width: 32px;
             height: var(--base-units-unit-1, 8px);
             border-radius: 20px;
-            background: var(--icon-faded, #bdbdbd);
+            background: rgba(255, 255, 255, 0.5);
         }
 
         .active {
-            background: var(--icon-black, #202020);
+            background: $white;
         }
     }
 }
@@ -709,21 +689,21 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    height: calc(100vh - 168px);
-    margin: 24px;
-    padding: 48px 32px 32px 32px;
+    height: calc(100svh - 96px);
+    margin: 0px 24px 24px;
+    padding: 32px;
     border-radius: 24px;
     background-color: $blue;
     color: $white;
+    overflow: scroll;
     @media (min-width: $desktop-res) {
-        height: calc(100vh - 105px);
         max-width: $max-width-desktop;
     }
     @media (min-width: ($desktop-res + 48px)) {
-        margin: 0 auto;
+        margin: 0px auto;
     }
     .width-container {
-        padding: 20px 0px 40px 0px;
+        padding: 20px 0px 0px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -847,16 +827,15 @@
 }
 
 .onboarding-page {
-    margin: 24px;
+    margin: 0px 24px 24px;
     padding: 48px 32px 32px 32px;
-    height: calc(100vh - 168px);
+    height: calc(100svh - 96px);
     border-radius: 24px;
     background-color: $blue;
     color: $white;
     display: flex;
     justify-content: center;
     @media (min-width: $desktop-res) {
-        height: calc(100vh - 105px);
         max-width: $max-width-desktop;
     }
     @media (min-width: ($desktop-res + 48px)) {
@@ -871,6 +850,9 @@
         width: 100%;
         @media (min-width: $desktop-res) {
             max-width: 600px;
+        }
+        .text {
+            text-align: center;
         }
     }
     .arrow-right {
@@ -1030,7 +1012,7 @@
             .top-section {
                 display: flex;
                 flex-direction: column;
-                gap: 8px;
+                gap: $gap-sm;
                 flex-grow: 1;
             }
         }
@@ -1093,20 +1075,20 @@
 }
 
 .register-page {
-    margin: 24px;
+    margin: 0px 24px 24px;
     padding: 48px 32px 32px 32px;
-    height: calc(100vh - 168px);
+    height: calc(100svh - 96px);
     border-radius: 24px;
     background-color: $blue;
     color: $white;
     display: flex;
     justify-content: center;
+    overflow: scroll;
     @media (min-width: $desktop-res) {
-        height: calc(100vh - 105px);
         max-width: $max-width-desktop;
     }
     @media (min-width: ($desktop-res + 48px)) {
-        margin: 0 auto;
+        margin: 0px auto;
     }
     .width-container {
         display: flex;
@@ -1133,15 +1115,15 @@
             .form-title {
                 margin-top: 16px;
                 text-align: center;
-                font-size: 47.78px;
+                font-size: 19.78px;
                 font-style: normal;
                 font-weight: 700;
-                line-height: 52.558px; /* 110% */
+                line-height: 20.558px; /* 110% */
                 letter-spacing: -0.5px;
                 @media (min-width: $desktop-res) {
-                    font-size: 48px;
+                    font-size: 32px;
                     font-weight: 700;
-                    line-height: 52.8px; /* 110% */
+                    line-height: 30.8px; /* 110% */
                 }
             }
             .form-subtitle {
@@ -1251,9 +1233,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: space-between;
             gap: 16px;
             @media (min-width: $desktop-res) {
-                gap: 128px;
+                gap: 100px;
             }
 
             .bottom-header {
@@ -1278,7 +1261,7 @@
                 .sign-up {
                     display: flex;
                     flex-direction: column;
-                    gap: 16px;
+                    gap: 32px;
                     .line {
                         height: 1px;
                         width: 100%;
@@ -1286,18 +1269,12 @@
                         background-color: rgb(255, 255, 255, 0.5);
                     }
                     .title {
-                        color: $white;
-                        text-align: center;
-                        font-size: 57.34px;
+                        font-size: 36.648px;
                         font-style: normal;
-                        font-weight: 400;
-                        line-height: 63.074px; /* 110% */
-                        letter-spacing: -1.72px;
-                        @media (min-width: $desktop-res) {
-                            font-size: 48px;
-                            font-weight: 700;
-                            line-height: 52.8px; /* 110% */
-                        }
+                        font-weight: 700;
+                        line-height: 52.558px;
+                        letter-spacing: -0.5px;
+                        text-align: center;
                     }
                 }
             }
@@ -1347,17 +1324,17 @@
 }
 
 .login-page {
-    margin: 24px;
+    margin: 0px 24px 24px;
     padding: 48px 32px 32px 32px;
-    height: calc(100vh - 168px);
+    height: calc(100svh - 96px);
     border-radius: 24px;
     background-color: $blue;
     color: $white;
     align-items: center;
     display: flex;
     justify-content: center;
+    overflow: scroll;
     @media (min-width: $desktop-res) {
-        height: calc(100vh - 105px);
         max-width: $max-width-desktop;
     }
     @media (min-width: ($desktop-res + 48px)) {
@@ -1496,7 +1473,7 @@
     display: flex;
     flex-direction: column;
     gap: $gap-md;
-    padding: $padding-sm;
+    padding: $padding-md $padding-sm;
     .search-section {
         display: flex;
         flex-direction: column;
@@ -1648,11 +1625,12 @@
         .company-card {
             display: flex;
             gap: $gap-sm;
+            border-bottom: 1px solid #ececec;
+            padding-bottom: $padding-sm;
             @media (min-width: $desktop-res) {
-                border-radius: 20px;
-                background: var(--layout-block-blue, #001a52);
-                padding: 24px;
-                color: $white;
+                border-bottom: 1px solid #ececec;
+                padding: 16px 0 32px 0;
+                color: $black;
             }
             .info-section {
                 display: flex;
@@ -1676,9 +1654,6 @@
                         font-weight: 700;
                         line-height: 30.415px; /* 110.008% */
                         letter-spacing: -0.5px;
-                        @media (min-width: $desktop-res) {
-                            color: $white;
-                        }
                     }
                     .title {
                         color: var(--text-dark-black-100, #202020);
@@ -1686,9 +1661,6 @@
                         font-style: normal;
                         font-weight: 400;
                         line-height: 19.6px; /* 140% */
-                        @media (min-width: $desktop-res) {
-                            color: $white;
-                        }
                     }
                 }
                 .save {
@@ -1716,7 +1688,7 @@
     display: flex;
     flex-direction: column;
     gap: $gap-md;
-    padding: $padding-sm;
+    padding: $padding-md $padding-sm;
     .page-header {
         display: flex;
         flex-direction: column;
@@ -1755,19 +1727,19 @@
     .cards-section {
         display: flex;
         flex-direction: column;
-        gap: $gap-md;
+        gap: $gap-sm;
         .no-likes {
             text-align: center;
         }
         .card {
             display: flex;
             gap: $gap-sm;
-
+            border-bottom: 1px solid #ececec;
+            padding-bottom: $padding-sm;
             @media (min-width: $desktop-res) {
-                border-radius: 20px;
-                background: var(--layout-block-blue, #001a52);
-                padding: 24px;
-                color: $white;
+                border-bottom: 1px solid #ececec;
+                padding: 16px 0 32px 0;
+                color: $black;
             }
             .info-section {
                 display: flex;
@@ -1790,9 +1762,6 @@
                         font-weight: 700;
                         line-height: 30.415px; /* 110.008% */
                         letter-spacing: -0.5px;
-                        @media (min-width: $desktop-res) {
-                            color: $white;
-                        }
                     }
                     .title {
                         color: var(--text-dark-black-100, #202020);
@@ -1800,9 +1769,6 @@
                         font-style: normal;
                         font-weight: 400;
                         line-height: 19.6px; /* 140% */
-                        @media (min-width: $desktop-res) {
-                            color: $white;
-                        }
                     }
                 }
                 .save {
@@ -1826,7 +1792,7 @@
 
 //PROFILE PAGE & EDIT PAGE
 @mixin common-profile-styles {
-    margin: 24px;
+    margin: 24px 16px;
 
     p,
     a {
@@ -1836,6 +1802,7 @@
         line-height: 22.4px; /* 140% */
         color: var(--text-dark-black-100, #202020);
         margin: 0;
+        word-break: break-word;
     }
 
     a {
@@ -1856,6 +1823,13 @@
                 display: flex;
                 flex-direction: column;
                 gap: 4px;
+
+                h1 {
+                    font-size: 24.648px;
+                    @media (min-width: $desktop-res) {
+                        font-size: 27.648px;
+                    }
+                }
 
                 .subtitle {
                     color: var(--text-dark-black-100, #202020);
@@ -1912,7 +1886,7 @@
 
             .technologies {
                 display: flex;
-                gap: $gap-sm;
+                gap: $gap-xs;
                 align-self: stretch;
                 flex-wrap: wrap;
 
@@ -2012,11 +1986,11 @@
     }
     @media (max-width: $desktop-res) and (min-width: $inbetween-res) {
         // Styles to apply within the media query
-        max-width: 400px;
+        max-width: 600px;
     }
     @media (max-width: $desktop-res) and (min-width: ($inbetween-res + 48px)) {
         // Styles to apply within the media query
-        max-width: 400px;
+        max-width: 600px;
         margin: 0 auto;
         padding-top: 24px;
     }
@@ -2035,9 +2009,10 @@
         align-items: center;
         display: flex;
         flex-direction: column;
-        gap: 32px;
+        gap: 16px;
         @media (min-width: $desktop-res) {
             width: 170% !important;
+            gap: $gap-md;
         }
         .divider {
             @media (min-width: $desktop-res) {
@@ -2056,7 +2031,7 @@
                 color: $white !important;
             }
             &.contact {
-                background: var(--layout-block-faded-blue, #ccd1dc);
+                background: #ececec;
                 color: var(--text-dark-black-100, #202020) !important;
                 height: fit-content;
             }
@@ -2105,7 +2080,7 @@
                 border-radius: 0 0 20px 20px;
                 position: relative;
                 width: 100vw;
-                left: -24px;
+                left: -16px;
                 @media (min-width: $desktop-res) {
                     width: 100%;
                     left: 0;
@@ -2144,17 +2119,22 @@
     .student-profile {
         .profile-header {
             display: flex;
-            gap: 16px;
             align-items: center;
+            background-color: #ececec;
+            padding: $padding-sm;
+            border-radius: 24px;
             @media (min-width: $desktop-res) {
+                background-color: unset;
                 border-radius: 20px;
                 padding: 24px;
                 border: 1px solid var(--button-stroke-blue, #001a52);
             }
 
             .profile-img {
-                min-width: 128px;
+                height: 128px;
                 max-width: 128px;
+                min-width: 128px;
+                margin-right: 16px;
 
                 img {
                     height: 128px;
@@ -2169,7 +2149,7 @@
                 align-items: center;
                 flex-direction: column;
                 align-items: start;
-                max-width: 40%;
+                max-width: 60%;
                 .info {
                     word-break: break-word;
                 }
