@@ -16,8 +16,7 @@ $desktop-res: 1148px;
 $tablet-res: 768px;
 $max-width-desktop: 1148px;
 
-$inbetween-res: 400px;
-
+$inbetween-res: 600px;
 
 $red: #f52a3b;
 $blue: #001a52;
@@ -31,6 +30,7 @@ $light-grey: rgba(0, 0, 0, 0.5);
 }
 
 body {
+    height: 100vh;
     margin: 0;
     padding: 0;
     background: $white;
