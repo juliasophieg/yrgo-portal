@@ -116,18 +116,16 @@
         display: flex;
         flex-direction: column;
         gap: 64px;
-        margin-top: 80px;
+        margin-top: 56px;
         padding: 64px;
         background-color: #fff;
         top: -8;
         width: 100vw;
-        height: 100vh;
+        height: 100svh;
         right: -100vw; // Hidden off-screen
         transition: right 0.3s ease-in-out;
         @media (min-width: $desktop-res) {
-            margin-top: 50px;
             width: 390px;
-            height: calc(100vh - 72px);
         }
         &.open {
             right: 0; // Slide in when the 'open' class is added
@@ -173,7 +171,7 @@
 //LANDING PAGE
 .index-page.auth {
     width: 100vw;
-    height: calc(100vh - 80px);
+    height: calc(100svh - 72px);
     padding: 0 24px 24px;
     .event-page {
         display: flex;
@@ -187,9 +185,7 @@
         justify-content: space-between;
         background-color: $red;
         overflow: scroll;
-        @media (min-width: $desktop-res) {
-            height: calc(100vh - 104px);
-        }
+
         .button {
             width: fit-content;
             align-self: center;
@@ -544,14 +540,6 @@
                 justify-content: center;
             }
 
-            &.auth {
-                @media (min-width: $desktop-res) {
-                    width: $max-width-desktop;
-                    margin: 0 auto;
-                    height: calc(100vh - 105px);
-                }
-            }
-
             .event-info {
                 display: flex;
                 flex-direction: column;
@@ -635,13 +623,6 @@
         .button-primary-red {
             width: auto;
             margin-bottom: $margin-md;
-        }
-        .event-page.auth {
-            background-color: $red;
-            height: calc(100vh - 174px);
-            @media (min-width: $desktop-res) {
-                height: calc(100vh - 105px);
-            }
         }
     }
 
@@ -2013,6 +1994,7 @@
         @media (min-width: $desktop-res) {
             width: 170% !important;
             gap: $gap-md;
+            margin-bottom: $margin-md;
         }
         .divider {
             @media (min-width: $desktop-res) {

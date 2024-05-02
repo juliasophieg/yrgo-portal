@@ -88,6 +88,8 @@ class ProfileController extends Controller
                 'profile_picture.max' => 'Bilden är för stor. Bilden får vara max 2MB stor.',
             ]);
 
+            // Get the existing profile picture path
+            $existingImagePath = $user->profile_picture;
 
 
             // Generate a unique file name
