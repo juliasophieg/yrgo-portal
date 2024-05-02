@@ -21,7 +21,7 @@ $inbetween-res: 600px;
 $red: #f52a3b;
 $blue: #001a52;
 $white: #ffffff;
-$black: rgba(0, 0, 0, 0.87);
+$black: #000000de;
 $light-grey: rgba(0, 0, 0, 0.5);
 
 * {
@@ -49,27 +49,49 @@ body {
     font-weight: 400;
     line-height: 14px;
     letter-spacing: 1px;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .button-primary-blue {
     background: var(--button-fill-blue, #001a52);
     color: var(--button-text-white, #fff);
+    border: 1px solid var(--layout-stroke-blue, #001a52);
+    &:hover {
+        background-color: $white;
+        color: $blue;
+        border: 1px solid $blue;
+    }
 }
 
 .button-primary-red {
     background: var(--button-fill-red, #f52a3b);
     color: var(--button-text-white, #fff);
+    border: 1px solid $red;
+    &:hover {
+        background: unset;
+        color: $white;
+        border: 1px solid $white;
+    }
 }
 
 .button-secondary-transparent {
     background-color: $white;
     border: 1px solid var(--layout-stroke-blue, #001a52);
     color: var(--button-text-blue, #001a52);
+    &:hover {
+        background-color: var(--button-fill-blue, #001a52);
+        color: var(--button-text-white, #fff);
+    }
 }
 
 .button-secondary-fill {
     background: var(--button-fill-white, #fff);
     color: var(--button-text-blue, #001a52);
+    &:hover {
+        background-color: var(--button-fill-blue, #001a52);
+        color: var(--button-text-white, #fff);
+    }
 }
 
 .button:hover {

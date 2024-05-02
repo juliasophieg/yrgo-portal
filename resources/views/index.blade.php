@@ -48,8 +48,8 @@
                                 Varmt välkomna önskar Webbutvecklare och Digital Designer!
                             </p>
                         </div>
-                    </div> <a href="{{ route('profile') }}" class="button button-secondary-fill">Min profil</a>
-
+                    </div>
+                    <a href="{{ route('profile') }}" class="button button-secondary-fill">Min profil</a>
                 </div>
             </div>
 

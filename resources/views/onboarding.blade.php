@@ -20,8 +20,7 @@
                     <div class="number-3 active">3</div>
                 </div>
                 <div class="form-header">
-                    <div class="form-title">Trevligt!</div>
-                    <div class="form-subtitle">Nu har du ett konto</div>
+                    <div class="form-subtitle">Nu har du ett konto!</div>
 
                 </div>
             </div>

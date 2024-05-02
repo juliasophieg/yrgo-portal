@@ -208,7 +208,7 @@
         }
 
         .width-container {
-            max-width: 600px;
+            max-width: 792px;
             height: 100%;
         }
         .event-info {
@@ -217,7 +217,7 @@
             gap: $gap-md;
             justify-content: space-between;
             @media (min-width: $desktop-res) {
-                max-width: 600px;
+                max-width: 792px;
                 gap: 16px;
                 height: 100%;
             }
@@ -235,7 +235,7 @@
                     width: 230px;
                     background-color: $white;
                     opacity: 0.5;
-                    margin-top: 32px;
+                    margin-top: $gap-sm;
                 }
             }
             .event-description {
@@ -290,7 +290,7 @@
                 }
             }
             a {
-                margin-bottom: 24px;
+                margin: 16px 0 32px;
             }
         }
     }
@@ -486,6 +486,11 @@
 
                         .button {
                             margin-top: 12px;
+                            &:hover {
+                                background: $red;
+                                color: $white;
+                                border: 1px solid $white;
+                            }
                             @media (min-width: $desktop-res) {
                                 align-self: start;
                                 font-size: 16px;
@@ -623,6 +628,12 @@
         .button-primary-red {
             width: auto;
             margin-bottom: $margin-md;
+            border: 1px solid $red;
+            &:hover {
+                background: $blue;
+                color: $white;
+                border: 1px solid $white;
+            }
         }
     }
 
@@ -842,7 +853,7 @@
     .header {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: $gap-md;
         @media (min-width: $desktop-res) {
             gap: 32px;
         }
@@ -918,6 +929,7 @@
             display: flex;
             justify-content: center;
             gap: 32px;
+
             .done {
                 display: flex;
                 width: 100px;
@@ -1025,7 +1037,7 @@
             border: 1px solid var(--layout-stroke-white, #fff);
             &.selected {
                 background: $red !important;
-                border: none;
+                border: 1px solid red;
             }
         }
         .used-technologies-section,
@@ -1194,6 +1206,11 @@
             font-weight: 400;
             line-height: 16px;
             cursor: pointer;
+            transition: all 0.2s ease;
+            &:hover {
+                background: $red;
+                color: $white;
+            }
         }
         label {
             color: var(--text-light-white-100, #fff);
@@ -1407,6 +1424,11 @@
             font-weight: 400;
             line-height: 16px;
             cursor: pointer;
+            transition: all 0.2s ease;
+            &:hover {
+                background: $red;
+                color: $white;
+            }
         }
         label {
             color: var(--text-light-white-100, #fff);
@@ -2218,7 +2240,7 @@
             .selected-technologies,
             .unselected-technologies.show {
                 display: flex;
-                gap: $gap-sm;
+                gap: $gap-xs;
                 flex-wrap: wrap;
                 .technology-checkbox {
                     display: flex;
@@ -2247,7 +2269,7 @@
                 }
                 .technology-checkbox.selected {
                     background: $red !important;
-                    border: none;
+                    border: 1px solid $red;
                 }
             }
         }
