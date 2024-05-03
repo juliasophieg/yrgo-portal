@@ -3,7 +3,9 @@
 ## About Yrgo Portal
 
 Yrgo Portal is a school project with the objective of creating an online prescence for the Yrgo schools LIA events.
-Users can register as companies and as students and update their profiles.
+Users can register as companies and as students and update their profiles. 
+
+The project is a collaboration between the Web Development class and the Digital Design class at Yrgo. This group consisted of two design students who made research and bult the design in Figma, and two developer students who built the page in Laravel and MySql. 
 
 ## Setup
 
